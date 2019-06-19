@@ -43,8 +43,8 @@ El curso de análisis de datos en R se enfocará en generar competencias prácti
 | 1| Introducción y funciones principales|
 | 2 | Trabajo con Datos Cargados |
 | 3| Trabajo con Datos de Internet |
-| 4 | Métodos Estadísticos|
-| 5|Creación  de Documentos Rmw|
+| 4 | Creación  de Documentos Rmw|
+| 5|Métodos Estadísticos|
 | 6 |Gráficos Ggplot|
 | 7| Gráficos Ggplot|
 | 8 |Gráficos Plotly|
