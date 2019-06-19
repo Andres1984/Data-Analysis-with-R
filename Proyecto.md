@@ -1,6 +1,6 @@
 # Proyecto de Análisis Exploratorio 
 
-Realizar un análisis exploratorio requiere de una buena aplicación de los conceptos estadísticos y mucha imaginación, en donde determinar cuales deben ser los puntos importantes o necesarios para entender una base de datos y obtener las conclusiones que permitan tomar las decisiones que más beneficien a una organización.
+Realizar un análisis exploratorio requiere de una buena aplicación de los conceptos estadísticos y mucha imaginación, donde el objetivo es determinar cuales deben ser los puntos importantes o necesarios para entender una base de datos y obtener las conclusiones que permitan tomar las decisiones que más beneficien a una organización.
 
 Este trabajo busca que usted explore la base de datos del tema que desee, establesca una pregunta y de una forma simple usando gráficos y medidas estadísticas resuelva una pregunta o necesidad que usted pueda extraer de la base de datos.
 
@@ -10,7 +10,7 @@ Hay algunas pautas generales que puede usar para averiguar qué información inc
 
 * ¿Qué información está cambiando relativamente rápido? 
 * ¿Qué información es la más importante para tu misión? Si eres una empresa, las cosas como el dinero o los usuarios probablemente serán muy importantes, pero si desea implementar una política económica o financiera que debería mirar primero.
-* ¿Qué afectará las decisiones que usted u otros deberán tomar? ¿Está ejecutando pruebas A / B y necesita elegir qué modelo mantener económico o financiero basado en ellas? Entonces, probablemente sea importante que realice un seguimiento de sus métricas y otras cosas que puedan afectar esas métricas. ¿Hay algún factor externo que pueda afectar su investigación?.
+* ¿Qué afectará las decisiones que usted u otros deberán tomar? ¿Está ejecutando pruebas A / B y necesita elegir qué modelo mantener basado en ellas?  ¿Hay algún factor externo que pueda afectar su investigación?.
 * ¿Qué cambios ha hecho?  han afectado los resultados , ¿Representa mejor la idea que usted desea mostrar?.
 
 ## Datos:
@@ -54,17 +54,15 @@ El método de calificación se divide en 5 partes cada una con un número de pun
 
 La introducción debe proporcionar antecedentes de los datos que analiza y motivar al lector a apreciar el propósito de su análisis de datos.
 
-6-5 puntos si, la pregunta está claramente explicada, con motivación. Una cuestión de materia está relacionada con una pregunta estadística.
-
+6-5 puntos si, la pregunta está claramente explicada, con motivación. 
 4-3 puntos si, la motivación es débil pero no ausente.
-
 2-1. puntos si, no intenta explicar por qué se eligieron los datos o cuál es el propósito de realizar un análisis estadístico de los mismos.
 
 ### Aplicación de las herramientas de forma apropiada 15 puntos
 
-15-11 puntos si, se utilizaron apropiadamente una serie de métodos de series de tiempo. La elección de los métodos es impulsada por los objetivos del proyecto.
+15-11 puntos si, se utilizaron apropiadamente las herramientas del programa. La elección de los métodos es impulsada por los objetivos del proyecto.
 
-10-6 puntos si, se utiliza una variedad de métodos de series de tiempo, probando los métodos descritos en las notas sin prestar atención a su rol particular en los objetivos del proyecto.
+10-6 puntos si, se utiliza una variedad las herramientas del programa, pero probaron  métodos descritos e sin prestar atención a su rol particular en los objetivos del proyecto.
 
 5-1 puntos si, no aplican métodos relevantes del curso, o métodos irrelevantes aplicados.
 
