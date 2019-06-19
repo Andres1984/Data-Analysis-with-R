@@ -45,8 +45,8 @@ El curso de análisis de datos en R se enfocará en generar competencias prácti
 | 3| Trabajo con Datos de Internet|
 | 4 | Trabajo con Datos de Cargados|
 | 5|Creación  de Documentos Rmw|
-| 6 |Graficos Ggplot|
-| 7| Graficos Ggplot|
+| 6 |Gráficos Ggplot|
+| 7| Gráficos Ggplot|
 | 8 | Graficos Plotly|
 | 9| Creación de Documentos Científicos|
 | 10 |Publicación Documentos|
