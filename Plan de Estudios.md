@@ -35,3 +35,22 @@ El curso de estadística 1 se enfocará en generar competencias tecnológicas y 
 * Crear un documento / presentación LaTeX o HTLM.
 * Crear un informe dinámico utilizando RMarkdown y Sweave.
 
+
+
+| Sesión | Tema |
+| --- | --- |
+| 1| Introducción y funciones principales|
+| 2 | Funciones y Graficos|
+| 3| Trabajo con Datos de Internet|
+| 4 | Trabajo con Datos de Cargados|
+| 5|Creación  de Documentos Rmw|
+| 6 |Creación  de Documentos Rmw|
+| 7| Graficos Ggplot|
+| 8 | Graficos Plotly|
+| 9| Creación de Documentos Científicos|
+| 10 |Publicación Documentos|
+
+
+	
+
+
