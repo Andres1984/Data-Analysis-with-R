@@ -2,7 +2,7 @@
 
 Realizar un análisis exploratorio requiere de una buena aplicación de los conceptos estadísticos y mucha imaginación, donde el objetivo es determinar cuales deben ser los puntos importantes o necesarios para entender una base de datos y obtener las conclusiones que permitan tomar las decisiones que más beneficien a una organización.
 
-Este trabajo busca que usted explore la base de datos del tema que desee, establesca una pregunta y de una forma simple usando gráficos y medidas estadísticas resuelva una pregunta o necesidad que usted pueda extraer de la base de datos.
+Este trabajo busca que usted explore la base de datos del tema que desee, establesca una pregunta y  usando gráficos y medidas estadísticas encuentre una solución extrayendo la respuesta de la base de datos.
 
 La forma más fácil de averiguar qué investigar, es preguntarle a las partes interesadas (otras personas que se preocupan por lo que está en sus datos y que les gustaría saber) qué considerarían como la información más importante.
 
