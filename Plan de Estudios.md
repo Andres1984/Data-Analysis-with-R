@@ -18,7 +18,6 @@ El curso de estadística 1 se enfocará en generar competencias tecnológicas y 
 
 
 
-## Criterios de evaluación
 
 
 
