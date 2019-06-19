@@ -47,6 +47,6 @@ El curso de análisis de datos en R se enfocará en generar competencias prácti
 | 5|Creación  de Documentos Rmw|
 | 6 |Gráficos Ggplot|
 | 7| Gráficos Ggplot|
-| 8 | Gráficos Plotly|
+| 8 |Gráficos Plotly|
 | 9| Creación de Documentos Científicos|
 | 10 |Publicación Documentos|
