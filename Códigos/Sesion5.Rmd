@@ -11,11 +11,9 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introducción a `ggplot2`
 
-El paquete `ggplot2` es el mejor paquete para hacer gráficas en R. Es el más completo y versátil pues permite personalizar todos los aspectos de las gráficas. En este paquete se hacen gráficas por capas. 
+El paquete `ggplot2` es un paquete que sirve para mejorar gráficas en R. Permite personalizar diferentes niveles en cada figura. El primer nivel evalua los ejes y la basa de datos con la que se desea trabajar, y el segundo nivel determina la geometría del objeto que se quiere trabajar.
 
-* La primera capa indica a R que cree la "plantilla"" de la gráfica, y los datos que se utilizarán.
-
-* La siguiente capa indica el tipo de gráfica, y las características de esa gráfica, incluyendo las variables a graficar.
+Existen otros niveles para generar dentro de esta libreria graficos más sofisticados.
 
 ```{r ,echo=FALSE,message=FALSE,warning=FALSE}
 library("ggplot2")
@@ -30,14 +28,12 @@ library("ggthemes")
 library("ggplot2movies")# Data movies
 ```
 
-El paquete ggplot2 en R es una implementación de La gramática de los gráficos como lo describe Leland Wilkinson en su libro. El paquete fue escrito originalmente por Hadley Wickham cuando era un estudiante graduado en la Universidad Estatal de Iowa (todavía mantiene activamente el paquete). El paquete implementa lo que podría considerarse un tercer sistema de gráficos para R (junto con la base de gráficos y celosía). El paquete está disponible desde CRAN54 a través de install.packages (); La última versión de la fuente se puede encontrar en el Repositorio GitHub del paquete55. La documentación del paquete se puede encontrar en http://docs.ggplot2.org/current/56.
 
-La gramática de los gráficos representa una abstracción de ideas y objetos gráficos. Puedes pensar en esto como en el desarrollo de verbos, sustantivos y adjetivos para gráficos de datos. El desarrollo de tal gramática permite una "teoría" de gráficos sobre la cual construir nuevos gráficos y objetos gráficos. Para citar el libro de Hadley Wickham sobre ggplot2, queremos "acortar la distancia de la mente a la página". En resumen,
-”... la gramática nos dice que un gráfico estadístico es un mapeo de datos a atributos estéticos (color, forma, tamaño) de objetos geométricos (puntos, líneas, barras). La gráfica también puede contener transformaciones estadísticas de los datos y se dibuja en un sistema de coordenadas específico "- del libro ggplot2
+La gramática de los gráficos representa una abstracción de ideas y objetos gráficos, se puede pensar en esto como en el desarrollo de verbos, sustantivos y adjetivos para gráficos de datos. El desarrollo de tal gramática permite una "teoría" de gráficos sobre la cual construir nuevos gráficos y objetos gráficos. 
 
-Podría preguntarse: “¿Por qué necesitamos una gramática de gráficos?” Bueno, por muchas razones, el hecho de tener una gramática es útil para los idiomas hablados. La gramática permite un resumen más compacto de los componentes básicos de un idioma y nos permite ampliar el lenguaje y manejar situaciones que no hemos visto antes.
+La pregunta central es: “¿Por qué necesitamos una gramática de gráficos?”. La gramática permite un resumen más compacto de los componentes básicos de un idioma y nos permite ampliar el lenguaje y manejar situaciones que no hemos visto antes.
 
-Si piensa hacer una gráfica con el sistema de gráficos base, la gráfica se construye llamando a una serie de funciones que crean o anotan una gráfica. No hay una forma convenida para describir la trama, excepto para simplemente recitar la serie de funciones R que fueron llamadas para crear la cosa en primer lugar. En un capítulo anterior, describimos el sistema de trazado de la base como un tipo de modelo de "paleta de artista", donde se comienza con un "lienzo" en blanco y se construye a partir de ahí.
+Al hacer una gráfica con el sistema de gráficos base, la gráfica se construye llamando a una serie de funciones que crean o anotan una gráfica. No hay una forma convenida para describir la trama, excepto para simplemente recitar la serie de funciones R que fueron llamadas para crear la cosa en primer lugar. 
 
 ```{r A,fig.cap="Primer Gráfico", fig.width = 8, fig.height = 8,echo=FALSE, message=FALSE,warning=FALSE}
 
@@ -144,7 +140,7 @@ q + scale_size_area(max_size=3)
 
 
 
-```{r J,fig.cap="Tercer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALS}
+```{r J,fig.cap="Tercer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
 
 data("economics")
 j = ggplot(economics, aes(x=date,y=unemploy))
@@ -156,7 +152,16 @@ j + geom_step()
 
 
 
-```{r K,fig.cap="Tercer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALS}
+```{r K,fig.cap="Tercer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
+
+df = data.frame(grp=c("A","B"),fit=4:5, se=1:2)
+k = ggplot(df,aes(x=grp,y=fit,ymin=fit-se,ymax=fit+se)) + geom_bar(stat="identity")
+k + geom_crossbar(fatten=2) + ylim(0,10)
+k + geom_errorbar(width = 0.25) + ylim(0,10)
+
+```
+
+```{r L,fig.cap="Tercer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
 
 
 
