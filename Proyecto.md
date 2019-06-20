@@ -16,7 +16,7 @@ Hay algunas pautas generales que puede usar para averiguar qué información inc
 ## Datos:
 
 Los datos que se presentan a continuación pertencen a una pagina web que se llama 
-<a href="https://www.kaggle.com/">kaggle</a> en donde se recopilan más de un millon de códigos en python y R, y es el punto de partida para la investigación en análisis de datos de muchas empresas, en esta página usted encontrará los kernels, que son códigos escritos en R o Python y que se pueden correr directamente en la pagina, tambiém hay bases de datos como las que se presentan a continuación de diversos temas y también una comunidad de personas que trabajan todo el tiempo con análisis de datos y que pueden aportar en el trabajo que ustedes desean realizar. Es importante aclarar que el trabajo que usted va a realizar es diferente a lo que se presenta en los kernels, ya que cada código es diferente y por lo tanto se considera plagio usar un código desarrollado por algún usuario de kaggle y presentado como propio. Usted puede usar algunos ejemplos para lograr algunos tipos de gráficos como los que ellos presentan o para manejar los datos, pero el trabajo de ellos no puede ser el suyo. 
+<a href="https://www.kaggle.com/">kaggle</a> en donde se recopilan más de un millon de códigos en python y R, y es el punto de partida para la investigación en análisis de datos de muchas empresas, en esta página usted encontrará los kernels, que son códigos escritos en R o Python y que se pueden correr directamente en la pagina, tambiém hay bases de datos como las que se presentan a continuación de diversos temas y también una comunidad de personas que trabajan todo el tiempo con análisis de datos y que pueden aportar en el trabajo que ustedes desean realizar. Es importante aclarar que el trabajo que usted va a realizar es diferente a lo que se presenta en los kernels, ya que cada pregunta es diferente y por lo tanto se considera plagio usar un proyecto desarrollado por algún usuario de kaggle y presentarlo como propio. Usted puede usar algunos ejemplos para lograr algunos tipos de gráficos como los que ellos presentan para manejar los datos, pero el trabajo de ellos no puede ser el suyo. 
 
 
  Cada uno de estos links lo lleva a uno de los datos en donde se encuentra la descripción de cada base de datos.
@@ -68,13 +68,13 @@ La introducción debe proporcionar antecedentes de los datos que analiza y motiv
 
 ### Armonía en la presentación del documento usando referencias externas 10 puntos
 
-10-7 puntos si, Las referencias se utilizan para respaldar aspectos del informe no son independientes.Es comparable a lo que se espera en un artículo académico publicado.
+10-7 puntos Si, las referencias se utilizan para respaldar aspectos del informe no son independientes. Es comparable a lo que se espera en un artículo académico publicado.
 
 
-6-4 puntos si, Se intenta hacer referencia y seguir el estilo de la redacción académica.
+6-4 puntos Si, se intenta hacer referencia y seguir el estilo de la redacción académica.
 
 
-3-1 puntos si, No hay referncias y la redacción no es buena.
+3-1 puntos Si, no hay referncias y la redacción no es buena.
 
 ### Conclusión 3 puntos 
 
