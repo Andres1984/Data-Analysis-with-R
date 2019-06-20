@@ -1,0 +1,295 @@
+---
+title: "DATA ANALYSIS WITH R"
+author: "Andrés"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,message = FALSE, warning=FALSE )
+
+
+
+
+```
+
+## Fundamentos Básicos de R
+R es un programa especializado en análisis estadístico, proviene de un sistema de programación con nombre S-plus, la característica o ventaja principal de este programa, es que dada su licencia que es gratuita tiene una de las bibliotecas más grandes, donde se almacena una gran cantidad de librerias para análisis que van desde los puntos mas básicos en la matemática y estadística, hasta temas avanzados en economía.
+
+
+
+El programa primario de R es una interfaz básica que contiene las ventanas necesarias para generar la programación deseada, sin embargo es un poco difícil de entender cuando el estudiante tiene un primer acercamiento con los lenguajes de programación. Es por esto que se creo R Studio, un programa que genera una interfaz más amigable que la producida inicialmente para R y que hace exactamente las mismas funciones, con la unica diferencia que para poder ejecutar el programa, se debe tener instalado el programa inicial de R. 
+
+
+
+### Ejemplos 
+
+```{r}
+
+x <- 1
+print(x)
+msg <- "hello"
+msg
+z <- 10:30
+z
+```
+
+
+El primer comando es darle un valor a x, el segundo es mostrarlo en la pantalla, el tercero es generar una variable que es un caracter y el cuarto es una secuencia que va desde 10 hasta 30.
+
+* Vectores
+
+Clases de Vectores: El primer paso para crear un vector es usar la función $c$ que es la que almacena los valores deseados en caso de que no se desee generar un secuencia de números como en el ejemplo anterior. Además de vectores o secuencias numéricas, se pueden generar vectores con caracteres, lógicos y enteros.
+
+```{r}
+
+x <- c(0.5, 0.6) # Numerico
+z <- c(TRUE, FALSE) #Logical
+s <- c("a", "b", "c") # character
+d <- 9:29 #integer
+u <- vector("numeric", length = 10)
+```
+
+
+
+
+La matriz se genera a partir de muchos vectores y su medida es $n \times m$ donde n son las filas y m las columnas. En este caso se pueden hacer de muchas formas pero la función matrix es la principal para generar matrices básicas.
+
+
+```{r}
+
+m <- matrix(nrow = 2, ncol = 3)
+m <- matrix(1:6, nrow = 2, ncol = 3)
+```
+
+
+Donde row significa fila y columna
+
+
+
+Si queremos formar una matriz a partir de dos vectores, lo mejor es concatenarlos a partir de las filas o las columnas.
+
+
+
+```{r}
+x <- 1:3
+y <- 10:12
+a<-cbind(x, y)
+b<-rbind(x, y)
+```
+
+
+Si queremos poner  nombres a las filas y las columnas, usamos la función dimnames().
+
+```{r}
+m <- matrix(1:4, nrow = 2, ncol = 2)
+dimnames(m) <- list(c("a", "b"), c("c", "d"))
+m
+```
+
+
+
+
+
+
+
+
+\begin{enumerate}
+
+\item Cargar una base de datos de un Archivo txt.
+
+```{r}
+library(RCurl)# La dirección web
+library(readr)# La base de datos en cvs o txt
+
+text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/SPlista.txt")
+
+#Archivo txt 
+SPlista <- read_csv(file=text)
+```
+
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+```{r}
+SPlista$Sector[SPlista$Sector=="Consumer Discretionary"]="Cons D"
+SPlista$Sector[SPlista$Sector=="Information Technology"]="IT"
+SPlista$Sector[SPlista$Sector=="Telecommunications Services"]="TS"
+SPlista$Sector[SPlista$Sector=="Consumer Staples"]="Cons S"
+attach(SPlista)
+unique(Sector)
+fabs<-table(Sector)
+fabs=as.data.frame(fabs)
+n=dim(SPlista)
+n<-n[1]
+```
+
+
+
+```{r}
+library(dplyr)
+fabs= mutate(fabs, Freqr =fabs$Freq/n)
+fabs= mutate(fabs, FreqA =cumsum(Freq))
+fabs= mutate(fabs, FreqrA =cumsum(Freqr))
+
+
+barplot(fabs$Freqr*100,col = "wheat",names.arg = fabs$Sector,ylab="Freq Rel %")
+title("Sectores")
+```
+
+
+Si por el contrario como en el caso de las series financieras, se desea descargar los precios directamente desde la pagina web, se puede realizar el siguiente comando.
+
+
+```{r}
+library(quantmod)
+symbols=c('MMM','MSFT','KO','AAPL','MCD') 
+getSymbols(symbols,src='yahoo',from="2017-02-01",to="2018-01-01") 
+
+```
+
+
+
+Para obtener las series se usa el paquete quantmod que fue instalado en la libreria de R previamente. Luego se genera un vector con los simbolos de las acciones. En este caso se desea obtener las acciones de 3M, Microsoft, Coca cola, Apple y Mac Donalds.
+
+
+```{r Serie, fig.cap = "Serie 3M\\label{fig:3M}", fig.width = 8, fig.height = 4}
+chartSeries(MMM) 
+```
+
+En la gráfica \ref{fig:3M} se puede observar el comportamiento de la acción de 3M
+
+Gráfica de velas
+
+```{r Velas, fig.width = 8, fig.height = 4 }
+candleChart(KO,multi.col=TRUE,theme='white') 
+```
+
+
+* Extraer una columna
+
+
+```{r}
+MMMCad = MMM$MMM.Adjusted; MSFTad=MSFT$MSFT.Adjusted
+```
+
+
+```{r}
+MCDad = MCD$MCD.Adjusted; KOad=KO$KO.Adjusted
+AAPLad=AAPL$AAPL.Adjusted
+```
+
+
+Se puede trabajar con el cierre ajustado de cada acción, por lo tanto la nueva variable es por ejemplo MSFTad y se obtiene de la columna MSFT.Adjusted de la matriz MSFT.
+
+
+
+
+Si se quiere graficar los precios, se puede hacer de dos formas, haciendo la gráfica de cada una por aparte, o inlcuyendolas todas dentro de una sola figura.
+
+La función para generar una gráfica es plot() en esta figura el eje $y$ y el eje $x$ se definen por separado. 
+
+
+Otra forma de hacer una gráfica, es usando la función par().
+
+	
+
+
+
+
+```{r Precios, fig.width = 8, fig.height = 4}
+par(mfrow=c(2,2))
+plot(AAPLad,xlab="dates",ylab="Price",type='l') 
+plot(MSFTad,xlab="dates",ylab="Price",type='l') 
+plot(KOad,xlab="dates",ylab="Price",type='l') 
+plot(MCDad,xlab="dates",ylab="Price",type='l') 
+
+```
+
+
+
+
+
+
+
+
+### Frecuencias Relativas y Absolutas Variables numéricas
+
+En este caso usamos la variable de 3M para generar las frecuencias realtivas y absolutas, así como el histograma de los precios.
+
+
+
+Primero hacemos un resumen de las columnas de 3M
+
+
+```{r}
+
+summary(MMM)
+```
+
+
+Luego obtenemos las frecuencias relativas y absolutas en donde los breaks son las clases que se pueden definir a gusto del investigador.
+```{r}
+n<-dim(MMM)
+n<-n[1]
+
+fabsMMM<-table(cut(MMM$MMM.Adjusted,breaks=7))  
+frelMMM<-table(cut(MMM$MMM.Adjusted,breaks=7))/n
+fabsacum<-cumsum(fabsMMM)  
+frelacum<-cumsum(frelMMM)
+MMMRD= periodReturn(MMM,period="daily",type="log") 
+```
+
+
+
+```{r,  fig.width = 4, fig.height = 4} 
+plot(fabsacum,type="l",main=c("Polígono de frecuencias absolutas de 3M"),ylab="Frecuencias absolutas")
+
+
+```
+
+```{r,  fig.width = 4, fig.height = 4}
+plot(frelacum,type="l",main=c("Polígono de frecuencias relativas de 3m"),ylab="Frecuencias relativas")
+
+```
+
+
+
+
+
+
+```{r fig2, fig.cap = "",  fig.width = 8, fig.height = 4}
+par(mfrow=c(1,2))
+hist(MMMRD, col='blue')
+hist(MMM$MMM.Adjusted, col='red')
+```
+
+## Lectura de datos de excel
+
+```{r, message=FALSE,warning=FALSE}
+library(readxl)
+library(httr)# Otra forma de encontrar direcciones 
+url1<-'https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/DatosVAR.xlsx'
+GET(url1, write_disk(tf <- tempfile(fileext = ".xlsx"))) 
+df <- read_excel(tf)
+```
+
+
+
+
+```{r}
+library(psych)
+Resumen=as.data.frame(describe(df))
+Resumen
+```
+
+
