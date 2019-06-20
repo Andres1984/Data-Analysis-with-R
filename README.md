@@ -54,3 +54,19 @@ El curso de análisis de datos en R se enfocará en generar competencias prácti
 
 
 ## Referencias
+
+Zuur, A., Ieno, E. N., & Meesters, E. (2009). A Beginner's Guide to R. Springer Science & Business Media.
+
+Peter, D. (2002). Introductory statistics with R.
+
+Arratia, A. (2014). Computational finance. An Introductory Course with R, Atlantis Studies in Computational Finance and Financial Engineering, 1.
+
+Peng, R. (2012). Exploratory data analysis with R. Lulu. com.
+
+Torgo, L. (2011). Data mining with R: learning with case studies. Chapman and Hall/CRC.
+
+https://cran.r-project.org
+
+https://www.rstudio.com
+
+https://stackoverflow.com
