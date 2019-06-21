@@ -1,6 +1,6 @@
 ---
 title: "Sesión 6 GGplot 2 "
-author: "Andres"
+author: "Andrés Martínez"
 date: "11 de Julio 2019"
 output: html_document
 ---
@@ -17,6 +17,8 @@ library(readr)# La base de datos en cvs o txt
 library(ggplot2)
 library(ggthemes)
 library(viridis)
+library("gridExtra")# grid arrange
+library(plot3D)
 
 text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/2016.csv")
 
@@ -64,7 +66,7 @@ ggplot(H2016,
        subtitle = "Libertad acceso datos y felicidad por país") +
   scale_color_viridis(discrete = T) +
   theme_minimal() +
-  theme(text = element_text(size=16))
+  theme(text = element_text(size=10))
 
 
 
@@ -141,9 +143,246 @@ p+scale_fill_brewer(palette="Greens") + theme_classic()
 
 ```
 
+```{r , echo=FALSE,message=FALSE,warning=FALSE}
+Happiness=H2016
+library(corrplot)
+Num.cols <- sapply(Happiness, is.numeric)
+Cor.data <- cor(Happiness[, Num.cols])
+ 
+
+
+newdatacor = cor(Happiness[c(4:11)])
+corrplot(newdatacor, method = "number")
+
+
+```
+
+
+
+
+
+
+
+
+```{r}
+
+unique((Happiness$Country))
+
+Happiness$Continent <- NA
+
+Happiness$Continent[which(Happiness$Country %in% c("Israel", "United Arab Emirates", "Singapore", "Thailand", "Taiwan Province of China",
+                                                   "Qatar", "Saudi Arabia", "Kuwait", "Bahrain", "Malaysia", "Uzbekistan", "Japan",
+                                                   "South Korea", "Turkmenistan", "Kazakhstan", "Turkey", "Hong Kong S.A.R., China", "Philippines",
+                                                   "Jordan", "China", "Pakistan", "Indonesia", "Azerbaijan", "Lebanon", "Vietnam",
+                                                   "Tajikistan", "Bhutan", "Kyrgyzstan", "Nepal", "Mongolia", "Palestinian Territories",
+                                                   "Iran", "Bangladesh", "Myanmar", "Iraq", "Sri Lanka", "Armenia", "India", "Georgia",
+                                                   "Cambodia", "Afghanistan", "Yemen", "Syria"))] <- "Asia"
+Happiness$Continent[which(Happiness$Country %in% c("Norway", "Denmark", "Iceland", "Switzerland", "Finland",
+                                                   "Netherlands", "Sweden", "Austria", "Ireland", "Germany",
+                                                   "Belgium", "Luxembourg", "United Kingdom", "Czech Republic",
+                                                   "Malta", "France", "Spain", "Slovakia", "Poland", "Italy",
+                                                   "Russia", "Lithuania", "Latvia", "Moldova", "Romania",
+                                                   "Slovenia", "North Cyprus", "Cyprus", "Estonia", "Belarus",
+                                                   "Serbia", "Hungary", "Croatia", "Kosovo", "Montenegro",
+                                                   "Greece", "Portugal", "Bosnia and Herzegovina", "Macedonia",
+                                                   "Bulgaria", "Albania", "Ukraine"))] <- "Europe"
+Happiness$Continent[which(Happiness$Country %in% c("Canada", "Costa Rica", "United States", "Mexico",  
+                                                   "Panama","Trinidad and Tobago", "El Salvador", "Belize", "Guatemala",
+                                                   "Jamaica", "Nicaragua", "Dominican Republic", "Honduras",
+                                                   "Haiti"))] <- "North America"
+Happiness$Continent[which(Happiness$Country %in% c("Chile", "Brazil", "Argentina", "Uruguay",
+                                                   "Colombia", "Ecuador", "Bolivia", "Peru",
+                                                   "Paraguay", "Venezuela"))] <- "South America"
+Happiness$Continent[which(Happiness$Country %in% c("New Zealand", "Australia"))] <- "Australia"
+Happiness$Continent[which(is.na(Happiness$Continent))] <- "Africa"
+
+
+```
+
+
+
+```{r}
+Happiness <- Happiness %>% select(Country,Continent, everything())
+
+# Changing Continent column to factor
+
+Happiness$Continent <- as.factor(Happiness$Continent)
+
+
+
+```
+
+```{r}
+library(corrgram) 
+corrgram(Happiness %>% select(-3) %>% filter(Continent == "Africa"), order=TRUE,upper.panel=panel.cor, main="Happiness Matrix for Africa")
+```
+
+
+
+```{r}
+corrgram(Happiness %>% select(-3) %>% filter(Continent == "South America"), order=TRUE,upper.panel=panel.cor, main="Happiness Matrix for South America")
+
+```
+
+
+```{r}
+gg1 <- ggplot(Happiness,
+              aes(x=Continent,
+                  y=HScore,
+                  color=Continent))+
+  geom_point() + theme_bw() +
+  theme(axis.title = element_text(family = "Helvetica", size = (8)))
+gg1
+```
+
+
+
+```{r}
+gg3 <- ggplot(Happiness,aes(x=Continent,y=HScore))+
+  geom_violin(aes(fill=Continent),alpha=0.7)+ theme_bw() +
+  theme(axis.title = element_text(family = "Helvetica", size = (8)))
+
+gg3
+
+```
+
+
+```{r}
+grid.arrange(gg1, gg3, ncol = 1, nrow = 2)
+```
+
+
+
+```{r}
+ggplot(subset(Happiness, Happiness$Continent != "Australia"), aes(x = Health, y = HScore)) + 
+  geom_point(aes(color=Continent), size = 3, alpha = 0.8) +  
+  geom_smooth(aes(color = Continent, fill = Continent), 
+              method = "lm", fullrange = TRUE) +
+  facet_wrap(~Continent) +
+  theme_bw() + labs(title = "Scatter plot with regression line")
+
+
+```
+
+
+```{r}
+ggplot(subset(Happiness, Happiness$Continent != "Australia"), aes(x = TrustG, y = HScore)) + 
+  geom_point(aes(color=Continent), size = 3, alpha = 0.8) +  
+  geom_smooth(aes(color = Continent, fill = Continent), 
+              method = "lm", fullrange = TRUE) +
+  facet_wrap(~Continent) +
+  theme_bw() + labs(title = "Scatter plot with regression line")
+
+
+```
+
+
+
+```{r}
+
+
+scatter3D(Happiness$Freedom, Happiness$Health , Happiness$HScore, phi = 0, bty = "g",
+          pch = 20, cex = 2, ticktype = "detailed",
+          main = "Happiness data", xlab = "Freedom",
+          ylab ="Life.Expectancy", zlab = "Happiness.Score")
+
+```
+
 
 
 ## World Bank data
 
+```{r}
+library(wbstats)
+new_wb_cache <- wbcache() 
+wb_dat <- wb(indicator = c("NY.GDP.PCAP.KD", "SP.DYN.LE00.IN", "SP.DYN.IMRT.IN")) 
+names(wb_dat)
+```
 
+
+```{r}
+#Limpieza de Datos
+
+wb_countries <- wbcountries() 
+names(wb_countries)
+
+
+wb_dat <- merge(wb_dat, y = wb_countries[c("iso2c", "region")], by = "iso2c", all.x = TRUE)
+
+wb_dat <- subset(wb_dat, region != "Aggregates") # Remover NA
+```
+
+
+
+
+
+```{r}
+#Renombrar Observación
+
+wb_dat$indicatorID[wb_dat$indicatorID == "NY.GDP.PCAP.KD"] <- "GDP"
+wb_dat$indicatorID[wb_dat$indicatorID == "SP.DYN.LE00.IN"] <- "life_expectancy"
+wb_dat$indicatorID[wb_dat$indicatorID == "SP.DYN.IMRT.IN"] <- "infant_mortality"
+```
+
+
+
+
+```{r}
+library(reshape2)
+wb_dat <- dcast(wb_dat, iso2c + country + date + region ~ indicatorID,  value.var = 'value')
+```
+
+
+
+```{r}
+ggplot(subset(wb_dat, date == "2008"), aes(x = GDP, y = infant_mortality)) + geom_point()
+
+
+lifexp_countries <- subset(wb_dat, country %in% c("United States", "Rwanda", "Mongolia", "Pakistan", "Lao PDR", "Bhutan", "Malaysia", "Brazil", "Ireland", "Japan", "Sweden", "Netherlands"))
+
+
+```
+
+
+```{r}
+ggplot(subset(lifexp_countries, date == "2008"), aes(x = GDP, y = life_expectancy, color = country == "Brazil")) + 
+  geom_point() +  
+  geom_text(aes(label = country), size=3, nudge_y = 0.4) +
+  scale_x_continuous(limits = c(0, 70000))
+```
+
+
+```{r}
+
+infmort_countries <- subset(wb_dat, country %in% c("United States", "Tonga", "Colombia", "Grenada", "Sri Lanka", "Malta", "Germany", "Japan", "Sweden", "Netherlands"))
+
+ggplot(subset(infmort_countries, date == "2008"), aes(x = GDP, y = infant_mortality, color = country == "United States")) + 
+  geom_point() +  
+  geom_text(aes(label = country), size=3, nudge_y = 0.2) +
+  scale_x_continuous(limits = c(0, 70000))
+
+```
+
+
+
+```{r}
+ggplot(wb_dat, aes(x = date, y = infant_mortality, size = GDP, color=region))+
+geom_point()+theme_bw()+
+theme(axis.text.x = element_text(angle = 90, hjust = 1))+
+    xlab("Year") + ylab("Tasa de Mortalidad")+ ggtitle("Tendencía tasa de Mortalidad")
+```
+
+
+
+```{r}
+ggplot(wb_dat, aes(region, life_expectancy, fill = region )) + geom_col()
+
+
+```
+
+```{r}
+p<-ggplot(wb_dat, aes(x=region, y= GDP,  fill = region))+
+  geom_boxplot()
+p+scale_fill_brewer(palette="Greens") + theme_classic()
+```
 
