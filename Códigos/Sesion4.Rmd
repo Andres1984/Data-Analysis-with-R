@@ -1,5 +1,5 @@
 ---
-title: "DATA ANALYSIS WITH R"
+title: "R Markdown"
 author: "Andrés"
 date: "4 de Julio 2019"
 output:
@@ -10,10 +10,6 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE,message = FALSE, warning=FALSE )
-
-
-
-
 ```
 
 ## Fundamentos Básicos de R
