@@ -1,7 +1,7 @@
 ---
 title: "Descripción de Datos"
 author: "Andrés Martínez"
-date: "19 6 2019"
+date: "9 de Julio de 2019"
 output: html_document
 ---
 
@@ -26,6 +26,7 @@ library("moments")# Momentos
 library("reshape2")
 library("ggthemes")
 library("ggplot2movies")# Data movies
+library(corrplot)
 ```
 
 
@@ -113,6 +114,18 @@ t + coord_polar(theta = "y")
 
 ```
 
+
+```{r J,fig.cap="Tercer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
+
+data("economics")
+j = ggplot(economics, aes(x=date,y=unemploy))
+j + geom_area()
+j + geom_line()
+j + geom_step()
+
+```
+
+
 ## Dos variables
 
 ```{r H,fig.cap="Primer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
@@ -138,20 +151,6 @@ q + scale_size_area(max_size=3)
 ```
 
 
-
-
-```{r J,fig.cap="Tercer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
-
-data("economics")
-j = ggplot(economics, aes(x=date,y=unemploy))
-j + geom_area()
-j + geom_line()
-j + geom_step()
-
-```
-
-
-
 ```{r K,fig.cap="Tercer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
 
 df = data.frame(grp=c("A","B"),fit=4:5, se=1:2)
@@ -161,8 +160,23 @@ k + geom_errorbar(width = 0.25) + ylim(0,10)
 
 ```
 
-```{r L,fig.cap="Tercer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
+```{r L,fig.cap="Cuarto Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
 
+library(quantmod)
+symbols=c('AES','AXP','BXP','GLW')
+getSymbols(symbols,src='yahoo',from="2017-01-01",to="2019-03-01")
+aes = Delt(AES$AES.Close)*100 # Rendimientos
+aes=aes[-1,]
+axp = Delt(AXP$AXP.Close)*100
+axp=axp[-1,]
+bxp =Delt(BXP$BXP.Close)*100
+bxp=bxp[-1,]
+glw = Delt(GLW$GLW.Close)*100
+glw=glw[-1,]
+rend=cbind(aes,axp,bxp,glw)
+colnames(rend)=c("aes","axp","bxp","glw")
+library(corrplot)
+corrplot(cor(rend))
 
 
 ```
