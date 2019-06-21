@@ -327,9 +327,10 @@ str(gapminder)
 dim(gapminder)
 head(gapminder)
 
+
 a=gapminder %>% 
   select(country, year, lifeExp, gdpPercap)
-
+a
 b=gapminder %>%
   filter(continent == "Americas")
 
@@ -340,6 +341,9 @@ c=gapminder %>%
 d=gapminder %>%
   select(country, year, gdpPercap) %>%
   filter(country %in% c("Germany", "Colombia", "Brazil", "Argentina") & year >= 2000)
+
+
+
 
 
 # Fechas en R
@@ -371,5 +375,6 @@ library(ggplot2)
 theme_set(theme_bw())
 ggplot(gapminder,aes(gdpPercap,lifeExp,size=pop,color=continent))+
   geom_point()+
-  scale_x_log10()+transition_time(year)
+  scale_x_log10()+transition_time(year)+
+  labs(title = "Year: {frame_time}")
 
