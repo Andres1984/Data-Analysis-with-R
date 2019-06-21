@@ -20,7 +20,7 @@ library(viridis)
 library("gridExtra")# grid arrange
 library(plot3D)
 
-text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/2016.csv")
+text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/2016.csv")
 
 H2016 <- read_csv(file=text)
 ```
@@ -296,7 +296,7 @@ scatter3D(Happiness$Freedom, Happiness$Health , Happiness$HScore, phi = 0, bty =
 library(wbstats)
 new_wb_cache <- wbcache() 
 wb_dat <- wb(indicator = c("NY.GDP.PCAP.KD", "SP.DYN.LE00.IN", "SP.DYN.IMRT.IN")) 
-names(wb_dat)
+
 ```
 
 
@@ -351,6 +351,7 @@ ggplot(subset(lifexp_countries, date == "2008"), aes(x = GDP, y = life_expectanc
   scale_x_continuous(limits = c(0, 70000))
 ```
 
+Realice este mismo gráfico para diferentes períodos
 
 ```{r}
 
@@ -372,13 +373,16 @@ theme(axis.text.x = element_text(angle = 90, hjust = 1))+
     xlab("Year") + ylab("Tasa de Mortalidad")+ ggtitle("Tendencía tasa de Mortalidad")
 ```
 
-
+Crear un gráfico con la tasa de mortalidad promedio por región.
 
 ```{r}
-ggplot(wb_dat, aes(region, life_expectancy, fill = region )) + geom_col()
+ggplot(wb_dat, aes(region, life_expectancy, fill = region )) + geom_bar(stat="identity")
 
 
 ```
+
+Crear un gráfico con la expectativa de vida en promedio por región.
+
 
 ```{r}
 p<-ggplot(wb_dat, aes(x=region, y= GDP,  fill = region))+
