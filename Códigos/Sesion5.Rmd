@@ -1,5 +1,5 @@
 ---
-title: "Descripción de Datos"
+title: "Gráficos GGplot"
 author: "Andrés Martínez"
 date: "9 de Julio de 2019"
 output: html_document
