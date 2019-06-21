@@ -101,7 +101,7 @@ m
 library(RCurl)# La dirección web
 library(readr)# La base de datos en cvs o txt
 
-text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/SPlista.txt")
+text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/SPlista.txt")
 
 #Archivo txt 
 SPlista <- read_csv(file=text)
@@ -275,7 +275,7 @@ hist(MMM$MMM.Adjusted, col='red')
 ```{r, message=FALSE,warning=FALSE}
 library(readxl)
 library(httr)# Otra forma de encontrar direcciones 
-url1<-'https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/DatosVAR.xlsx'
+url1<-'https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/DatosVAR.xlsx'
 GET(url1, write_disk(tf <- tempfile(fileext = ".xlsx"))) 
 df <- read_excel(tf)
 ```
