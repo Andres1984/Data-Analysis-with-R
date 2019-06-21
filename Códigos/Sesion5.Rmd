@@ -114,8 +114,19 @@ t + coord_polar(theta = "y")
 
 ```
 
-
 ```{r J,fig.cap="Tercer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
+# DISCRETE X, CONTINUOUS Y
+g = ggplot(mpg,aes(x=class,y=hwy))
+g + geom_bar(stat="identity")
+g + geom_dotplot(binaxis="y",binwidth=0.2, stackdir="center")
+g + geom_boxplot()
+g + geom_violin(scale="area")
+```
+
+
+
+
+```{r H,fig.cap="Cuarto Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
 
 data("economics")
 j = ggplot(economics, aes(x=date,y=unemploy))
@@ -128,7 +139,7 @@ j + geom_step()
 
 ## Dos variables
 
-```{r H,fig.cap="Primer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
+```{r I,fig.cap="Primer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
 
 # CONTINUOUS X, CONTINUOUS Y
 f = ggplot(mpg, aes(x=cty, y=hwy))
@@ -139,7 +150,7 @@ f + geom_point() + geom_quantile(quantiles=c(0.25,0.5,0.75))
 ```
 
 
-```{r I,fig.cap="Segundo Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
+```{r K,fig.cap="Segundo Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
 
 
 q = f + geom_point(aes(size=cyl)); 
@@ -151,7 +162,7 @@ q + scale_size_area(max_size=3)
 ```
 
 
-```{r K,fig.cap="Tercer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
+```{r L,fig.cap="Tercer Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
 
 df = data.frame(grp=c("A","B"),fit=4:5, se=1:2)
 k = ggplot(df,aes(x=grp,y=fit,ymin=fit-se,ymax=fit+se)) + geom_bar(stat="identity")
@@ -160,7 +171,18 @@ k + geom_errorbar(width = 0.25) + ylim(0,10)
 
 ```
 
-```{r L,fig.cap="Cuarto Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
+```{r M,fig.cap="Cuarto Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
+ggplot(mpg, aes(hwy, cty)) + 
+geom_point(aes(color = cyl)) + 
+geom_smooth(method ="lm") +
+coord_cartesian() +
+scale_color_gradient() +
+theme_bw()
+```
+
+
+
+```{r N,fig.cap="Quinto Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
 
 library(quantmod)
 symbols=c('AES','AXP','BXP','GLW')
@@ -178,6 +200,27 @@ colnames(rend)=c("aes","axp","bxp","glw")
 library(corrplot)
 corrplot(cor(rend))
 
+
+```
+
+## Mapas
+
+
+```{r O,fig.cap="Sexto Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE }
+
+data = data.frame(murder=USArrests$Murder,state=tolower(rownames(USArrests)))
+map = map_data("state")
+l = ggplot(data,aes(fill=murder))
+l + geom_map(aes(map_id=state),map=map) + expand_limits(x=map$long,y=map$lat)
+
+
+```
+
+```{r P,fig.cap="Sexto Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
+# devtools::install_github("nebulae-co/colmaps")
+library("colmaps")
+colmap(municipios) +
+  ggtitle("Colombia - Fronteras Municipales")
 
 ```
 
