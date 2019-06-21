@@ -72,6 +72,35 @@ ggplot(H2016,
 
 ```
 
+```{r}
+#::::::::::::::::::::::::::::Generosity::::::::::::::::::::::::::::::
+library(ggpubr)
+sp <- ggscatter(H2016, x = "GDP", y = "HScore",
+                color = "Region", palette = "jco",
+                size = 3, alpha = 0.6)
+
+xbp <- ggboxplot(H2016$GDP, width = 0.3, fill = "lightgray") +
+  rotate() +
+  theme_transparent()
+# Box plot of the y variable
+ybp <- ggboxplot(H2016$HScore, width = 0.3, fill = "lightgray") +
+  theme_transparent()
+# Create the external graphical objects
+# called a "grop" in Grid terminology
+xbp_grob <- ggplotGrob(xbp)
+ybp_grob <- ggplotGrob(ybp)
+# Place box plots inside the scatter plot
+xmin <- min(H2016$GDP); xmax <- max(H2016$GDP) 
+ymin <- min(H2016$HScore); ymax <- max(H2016$HScore)
+yoffset <- (1/15)*ymax; xoffset <- (1/15)*xmax
+# Insert xbp_grob inside the scatter plot
+sp + annotation_custom(grob = xbp_grob, xmin = xmin, xmax = xmax, 
+                       ymin = ymin-yoffset, ymax = ymin+yoffset) +
+  # Insert ybp_grob inside the scatter plot
+  annotation_custom(grob = ybp_grob,
+                    xmin = xmin-xoffset, xmax = xmin+xoffset, 
+                    ymin = ymin, ymax = ymax)
+```
 
 
 
