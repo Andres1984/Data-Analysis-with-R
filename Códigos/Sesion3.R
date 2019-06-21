@@ -128,6 +128,15 @@ var=aggregate(wb_dat[, 5:7], list(wb_dat$region), var,na.rm=TRUE)
 mini=aggregate(wb_dat[, 5:7], list(wb_dat$region), min,na.rm=TRUE)
 maxi=aggregate(wb_dat[, 5:7], list(wb_dat$region), max,na.rm=TRUE)
 
+tapply(wb_dat$infant_mortality, wb_dat$region, mean, na.rm=TRUE)
+tapply(wb_dat$infant_mortality, wb_dat$country, mean, na.rm=TRUE)
+Summary=tapply(wb_dat$infant_mortality, wb_dat$country, summary, na.rm=TRUE)
+
+media=aggregate(infant_mortality  ~ region, wb_dat, mean )
+mediac=aggregate(infant_mortality  ~ country, wb_dat, mean )
+
+
+
 library(e1071) 
 
 
