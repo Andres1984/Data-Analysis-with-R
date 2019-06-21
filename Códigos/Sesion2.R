@@ -26,7 +26,7 @@ rm(list=ls())
 library(RCurl)# La dirección web
 library(readr)# La base de datos en cvs o txt
 
-text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/SPlista.txt")
+text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/SPlista.txt")
 
 #Archivo txt 
 SPlista <- read_csv(file=text)
@@ -58,7 +58,7 @@ detach(SPlista)
 #Archivo en excel
 library(readxl)
 library(httr)# Otra forma de encontrar direcciones 
-url1<-'https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Matriculados_2017.xlsx'
+url1<-'https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/Matriculados_2017.xlsx'
 GET(url1, write_disk(tf <- tempfile(fileext = ".xlsx"))) 
 df <- read_excel(tf)
 View(df)
@@ -117,7 +117,7 @@ unique(df5$Programa)
 
 library(readxl)
 library(httr)# Otra forma de encontrar direcciones 
-url1<-'https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/DatosVAR.xlsx'
+url1<-'https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/DatosVAR.xlsx'
 GET(url1, write_disk(tf <- tempfile(fileext = ".xlsx"))) 
 Datos <- read_excel(tf)
 
@@ -154,7 +154,7 @@ hist(as.numeric(rend$MXN),breaks=20,main="MXN",xlab="Rendimientos MXN", col="blu
 library(RCurl)# La dirección web
 library(readr)# La base de datos en cvs o txt
 
-text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/2016.csv")
+text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/2016.csv")
 
 H2016 <- read_csv(file=text)
 
