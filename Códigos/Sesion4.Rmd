@@ -1,10 +1,11 @@
 ---
 title: "DATA ANALYSIS WITH R"
 author: "Andrés"
-date: "`r Sys.Date()`"
+date: "4 de Julio 2019"
 output:
   html_document: default
 ---
+
 
 
 ```{r setup, include=FALSE}
