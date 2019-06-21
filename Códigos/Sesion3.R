@@ -7,18 +7,145 @@
 rm(list=ls())
 
 ##########################################################
-#############   Jueves 2 de Julio 2019   ################
+#############   Jueves 2 de Julio 2019    ################
 #############   Andrés Martínez           ################
 #############   Departamento de Economía  ################
 ##########################################################
 
 ## Contenido
-
+# Lapply Sapply tapply mapply split
 # Libreria Quantmod y Apliación Quandl W
 # Datos World Bank
 # Libreria dplyr
 # Bases de datos variables categóricas
 # Bases de datos Numéricas
+
+
+## lapply Lapply Sapply tapply mapply split
+
+lapply
+x <- list(a = 1:5, b = rnorm(10))
+lapply(x, mean)
+
+x <- list(a = 1:4, b = rnorm(10), c = rnorm(20, 1), d = rnorm(100, 5))
+lapply(x, mean)
+
+x <- 1:4
+lapply(x, runif)
+
+
+x <- 1:4
+lapply(x, runif, min = 0, max = 10)
+
+
+x <- list(a = matrix(1:4, 2, 2), b = matrix(1:6, 3, 2)) 
+x
+
+function(elt) { elt[, 1] }
+
+lapply(x, function(elt) { elt[,1] })
+
+lapply(x, f)
+
+x <- list(a = 1:4, b = rnorm(10), c = rnorm(20, 1), d = rnorm(100, 5)) 
+lapply(x, mean)
+
+
+sapply
+sapply(x, mean)
+
+str(split)
+
+x <- c(rnorm(10), runif(10), rnorm(10, 1)) 
+f <- gl(3, 10)
+
+
+split(x, f)
+
+
+lapply(split(x, f), mean)
+
+library(datasets) 
+head(airquality)
+
+s <- split(airquality, airquality$Month)
+
+
+lapply(s, function(x) {
+  
+  colMeans(x[, c("Ozone", "Solar.R", "Wind")]) 
+  })
+
+
+sapply(s, function(x) {
+  colMeans(x[, c("Ozone", "Solar.R", "Wind")]) 
+  })
+
+
+sapply(s, function(x) {
+  colMeans(x[, c("Ozone", "Solar.R", "Wind")], 
+           na.rm = TRUE)
+   })
+
+x <- rnorm(10) 
+  f1 <- gl(2, 5) # Factor levels
+f2 <- gl(5, 2) 
+f1
+f2
+
+str(split(x, list(f1, f2)))
+str(split(x, list(f1, f2), drop = TRUE))
+
+str(tapply)
+x <- c(rnorm(10), runif(10), rnorm(10, 1)) 
+## Define some groups with a factor variable 
+f <- gl(3, 10)
+
+f
+tapply(x, f, mean)
+tapply(x, f, mean, simplify = FALSE)
+tapply(x, f, range)
+
+
+str(apply)
+
+x <- matrix(rnorm(200), 20, 10)
+apply(x, 2, mean)
+
+apply(x, 1, sum)
+
+apply(x, 2, sum)
+
+apply(x, 1, mean)
+
+x <- matrix(rnorm(200), 20, 10)
+apply(x, 1, quantile, probs = c(0.25, 0.75))
+
+a <- array(rnorm(2 * 2 * 10), c(2, 2, 10)) 
+apply(a, c(1, 2), mean)
+
+rowMeans(a, dims = 2) ## Faster
+
+str(mapply)
+
+mapply(rep, 1:4, 4:1)
+
+list(rep(1, 4), rep(2, 3), rep(3, 2), rep(4, 1))
+
+noise <- function(n, mean, sd) { 
+  rnorm(n, mean, sd)
+  }
+
+# Un conjunto de números
+noise(5, 1, 2)
+# Un conjunto de números
+noise(1:5, 1:5, 2)
+# Cinco conjuntos de números
+mapply(noise, 1:5, 1:5, 2)
+
+
+
+
 
 ##Quandl
 library(Quandl)
@@ -136,6 +263,46 @@ media=aggregate(infant_mortality  ~ region, wb_dat, mean )
 mediac=aggregate(infant_mortality  ~ country, wb_dat, mean )
 
 
+mean(wb_dat$infant_mortality)
+mean(wb_dat$infant_mortality, na.rm = TRUE)
+sd(wb_dat$infant_mortality,na.rm=TRUE)
+tapply(wb_dat$infant_mortality, wb_dat$region, mean)
+tapply(wb_dat$infant_mortality, wb_dat$region, mean, na.rm=TRUE)
+tapply(wb_dat$infant_mortality, wb_dat$country, mean, na.rm=TRUE)
+Summary=tapply(wb_dat$infant_mortality, wb_dat$country, summary, na.rm=TRUE)
+
+media=aggregate(infant_mortality  ~ region, wb_dat, mean )
+mediac=aggregate(infant_mortality  ~ country, wb_dat, mean )
+View(media)
+View(mediac)
+
+ResumenR=tapply(wb_dat$infant_mortality, wb_dat$region, summary, na.rm=TRUE)
+ResumenC=tapply(wb_dat$infant_mortality, wb_dat$country, summary, na.rm=TRUE)
+View(ResumenR)
+View(ResumenC)
+ResumenR=as.data.frame(ResumenR)
+
+Region=unique(wb_dat$region)
+Region
+class(Region)
+ResumenR <- do.call(rbind,lapply(ResumenR,function(x) as.data.frame.list(lapply(x,as.data.frame.list))))
+
+length(ResumenR)
+
+ResumenR=matrix(ResumenR, nrow=7,ncol=7,byrow=TRUE)
+
+ResumenR=as.data.frame(ResumenR)
+colnames(ResumenR)=c("Min.","1st Qu.", "Median ","Mean","3rd Qu","Max","NA")
+
+ResumenR=cbind(Region,ResumenR)
+
+
+library(xlsx)
+write.xlsx(ResumenR, "C:/Users/mmartinezp5/Dropbox/Estadistica 1 Eco/Codigos/ResumenR.xlsx") 
+
+
+
+
 
 library(e1071) 
 
@@ -154,7 +321,7 @@ class(sgdp)
 EAP=as.data.frame(sgdp$`East Asia & Pacific`)
 
 library("gapminder")
-
+library(dplyr)
 data(gapminder)
 str(gapminder)
 dim(gapminder)
