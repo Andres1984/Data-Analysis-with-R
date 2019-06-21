@@ -1,0 +1,149 @@
+---
+title: "Sesión 6 GGplot 2 "
+author: "Andres"
+date: "11 de Julio 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Happiness Report
+
+```{r}
+library(RCurl)# La dirección web
+library(readr)# La base de datos en cvs o txt
+library(ggplot2)
+library(ggthemes)
+library(viridis)
+
+text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/2016.csv")
+
+H2016 <- read_csv(file=text)
+```
+
+
+
+
+
+```{r }
+
+
+
+colnames(H2016)[7] <- "GDP"
+colnames(H2016)[9] <- "Health"
+colnames(H2016)[11] <- "TrustG"
+colnames(H2016)[4]<-"HScore"
+```
+
+## Análisis Gráfico
+
+
+
+
+
+```{r}
+qplot( TrustG,HScore, data = H2016, colour= Region)
+
+```
+
+
+```{r}
+
+
+ggplot(H2016, 
+  aes(x = Freedom, 
+      y = HScore)) +
+  geom_point(aes(colour = Region),
+             size = 2) +
+  geom_smooth(method="lm") +
+  labs(x = "Openness Score",
+       y = "Happiness Score",
+       title = "El libre accceso a datos",
+       subtitle = "Libertad acceso datos y felicidad por país") +
+  scale_color_viridis(discrete = T) +
+  theme_minimal() +
+  theme(text = element_text(size=16))
+
+
+
+```
+
+
+
+
+
+```{r}
+ggplot(H2016, aes(HScore)) +
+  geom_histogram(fill = "gold1", colour="goldenrod2")
+
+```
+
+
+```{r}
+ggplot(H2016, aes(x=GDP, y=HScore)) +
+    geom_point(shape=1) +    # Use hollow circles
+    geom_smooth(method=lm)   # Add linear regression line 
+
+```
+
+
+
+
+```{r}
+ggplot(H2016, aes(GDP, HScore))+
+  geom_point()+
+  stat_ellipse()
+```
+
+
+```{r}
+p <- ggplot(H2016, aes(GDP, HScore, color = Region))+
+  geom_point()
+# Change the type of ellipses: possible values are "t", "norm", "euclid"
+p + stat_ellipse(type = "norm")
+```
+
+```{r}
+
+
+ggplot(H2016, aes(x=Region, y= HScore, colour = Region)) + 
+
+  geom_boxplot() + 
+
+  theme(axis.text.x = element_text(angle = 60, hjust = 1)) + 
+
+  labs(title = "Happiness Score Boxplot",
+
+       x = "Region",
+
+       y = "Happiness Score")
+
+```
+
+
+
+```{r}
+p<-ggplot(H2016, aes(x=Region, y= HScore,  fill = Region))+
+  geom_boxplot()
+p + theme(legend.position="bottom")
+
+```
+
+
+```{r}
+
+p<-ggplot(H2016, aes(x=Region, y= HScore,  fill = Region))+
+  geom_boxplot()
+p+scale_fill_brewer(palette="Greens") + theme_classic()
+
+
+```
+
+
+
+## World Bank data
+
+
+
