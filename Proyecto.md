@@ -15,7 +15,7 @@ Hay algunas pautas generales que puede usar para averiguar qué información inc
 
 ## Datos:
 
-Los datos que se presentan a continuación pertencen a una pagina web que se llama 
+Los datos que se presentan a continuación pertenecen a una pagina web que se llama 
 <a href="https://www.kaggle.com/">kaggle</a> en donde se recopilan más de un millon de códigos en python y R, y es el punto de partida para la investigación en análisis de datos de muchas empresas, en esta página usted encontrará los kernels, que son códigos escritos en R o Python y que se pueden correr directamente en la pagina, tambiém hay bases de datos como las que se presentan a continuación de diversos temas y también una comunidad de personas que trabajan todo el tiempo con análisis de datos y que pueden aportar en el trabajo que ustedes desean realizar. Es importante aclarar que el trabajo que usted va a realizar es diferente a lo que se presenta en los kernels, ya que cada pregunta es diferente y por lo tanto se considera plagio usar un proyecto desarrollado por algún usuario de kaggle y presentarlo como propio. Usted puede usar algunos ejemplos para lograr algunos tipos de gráficos como los que ellos presentan para manejar los datos, pero el trabajo de ellos no puede ser el suyo. 
 
 
