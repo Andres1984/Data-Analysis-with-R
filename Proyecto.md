@@ -98,7 +98,7 @@ La introducción debe proporcionar antecedentes de los datos que analiza y motiv
 
 
 * Tanto el archivo RMD como lel html se deben subir en este repositorio con el número del grupo.
-* El día de la entrega es el 23 de julio a las 12:00 pm
+* El día de la entrega es el 25 de julio a las 9:00 am.
 * La presentación será el 25 de Julio.
 
 
