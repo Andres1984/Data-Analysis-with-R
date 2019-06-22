@@ -28,12 +28,9 @@ El curso de análisis de datos en R se enfocará en generar competencias prácti
 
 ## Objetivos Generales
 
-* Entender los usos y aplicaciones de la estadística como una herramienta para la toma de decisiones gerenciales.
-
-* Utilizar  las  herramientas  estadísticas     para  el  análisis  y  presentación  de  los  datos.
-
-* Reconocer  el  uso  de  la  estadística  descriptiva  como  herramienta  en  el  análisis  de problemas de investigación.
-* Entender lo básico de la programación estadística.
+* Identificar las ventajas de R en la estadística como herramienta para la investigación.
+* Utilizar  las  herramientas  estadísticas  para  el  análisis  y  presentación  de  los  datos.
+* Familiarizarse con los aspectos básicos de la programación estadística.
 * Aprender a usar vectores y matrices en la programación.
 * Crear funciones en R.
 * Crear un documento / presentación LaTeX o HTLM.
