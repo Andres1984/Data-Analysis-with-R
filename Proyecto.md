@@ -43,7 +43,6 @@ El archivo Rmd debe leer los datos directamente desde una fuente de Internet y s
 * Debe explicar algunos antecedentes de los datos que eligió y motivar al lector a apreciar el propósito de su análisis de datos.
 * Uso de métodos estadísticos adecuados.
 * Los modelos y métodos que utilice deben explicarse completamente, ya sea por referencias o dentro de su informe. Cuando use una referencia para señalar al lector descripciones en otros lugares, debe proporcionar un breve resumen en su propio informe para que sea autónomo. Aunque va a enviar su código fuente, no debe esperar que el lector lo estudie.
-* Debe decir lo que ha concluido, así como describir las cosas que le hubiera gustado hacer que estaban fuera del alcance.
 * Centrarse en unos pocos datos, cuidadosamente explicados y justificados con ayuda de figuras, tablas, estadísticas y pruebas de hipótesis. Es posible que desee probar muchas cosas, pero sólo escriba evidencia que respalde cómo los datos lo ayudan a obtener de su pregunta sus conclusiones. La inclusión de material que es de relevancia límite o que no se explica completamente hace que sea más difícil para el lector apreciar su análisis.
 
 ## Método de calificación
@@ -91,7 +90,7 @@ La introducción debe proporcionar antecedentes de los datos que analiza y motiv
 
 4-3 puntos, si la presentación en su mayoría es adecuada, pero con un espacio sustancial para la mejora.
 
-2-1 puntos, si presentar una lista de análisis realizados, sin mucha atención para explicar qué se hizo y porqué.
+2-1 puntos, si presenta una lista de análisis realizados, sin mucha atención para explicar qué se hizo y porqué.
 
 
 ## Entrega de resultados y Otros 
