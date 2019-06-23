@@ -1,0 +1,469 @@
+---
+title: "Documentos Científicos"
+author: "Andrés Martínez"
+date: "18 de Julio 2019"
+site: "bookdown::bookdown_site"
+output:
+  bookdown::gitbook: default
+documentclass: book
+bibliography: ["B.bib"]
+biblio-style: apalike
+link-citations: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE)
+require("knitcitations")
+cleanbib()
+options("citation_format" = "pandoc")
+read.bibtex(file = "B.bib")
+```
+
+# Presentación de la sesión
+
+Este documento es un ejemplo para la creación de documentos científicos tales como los que se pueden hacer en un editor avanzando como Word Office, la forma de escritura de estos documentos se hace con ayuda de los códigos creados en Htlm y Latex para mayor información puede ver  <http://rmarkdown.rstudio.com> y <https://bookdown.org/yihui/bookdown/>. Para aprender los códigos adaptables a los editores científicos vamos a usar la información de esta página <https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes>
+
+
+
+```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
+#install.packages("bookdown")
+#Librerias que se van a utilizar
+library(kableExtra)# Tablas
+library(quantmod)# Descarga de datos
+library(knitcitations)#Citaciones
+library(knitr)#R Markdown
+library(psych)# Medidas descriptivas
+library(RCurl)# La dirección web
+library(readr)# La base de datos
+library(dplyr)# Transformación de tablas
+library(plotly)# Gráficos Interactivos
+library(ggplot2)# Gráficos 
+library(corrplot)# Gráfico de Correlación
+library(derivmkts)# Pronóstico de Precios
+library(quadprog)# Programación puede necesitar otra actualización dependiendo de la versión del R
+library(PerformanceAnalytics)# Medidas descriptivas
+#install.packages("IntroCompFinR",repos="http://R-Forge.R-project.org")
+library(IntroCompFinR)# Portafolio de optimización solo se puede instalar con el link descrito arriba
+
+```
+
+Este es el ejemplo de Overleaf, generado para R Markdown
+
+# Introducción
+This is the first section.
+ 
+Lorem  ipsum  dolor  sit  amet,  consectetuer  adipiscing  
+elit.   Etiam  lobortisfacilisis sem.  Nullam nec mi et 
+neque pharetra sollicitudin.  Praesent imperdietmi nec ante. 
+Donec ullamcorper, felis non sodales...
+ 
+
+## subsección
+ 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
+sollicitudin.  Praesent imperdiet mi necante...
+ 
+# Segunda Sección
+ 
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
+Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
+sollicitudin.  Praesent imperdiet mi necante...
+ 
+
+## Tablas
+
+```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
+
+library(RCurl)# La dirección web
+library(readr)# La base de datos
+library(dplyr)# Para usar el mutate
+text=getURL("https://raw.githubusercontent.com/Andres1984/Estadistica-1/master/SPlista.txt")
+SPlista <- read_csv(file=text)
+SPlista$Sector[SPlista$Sector=="Consumer Discretionary"]="Cons D"
+SPlista$Sector[SPlista$Sector=="Information Technology"]="IT"
+SPlista$Sector[SPlista$Sector=="Telecommunications Services"]="TS"
+SPlista$Sector[SPlista$Sector=="Consumer Staples"]="Cons S"
+attach(SPlista)
+fabs<-table(Sector)
+fabs=as.data.frame(fabs)
+n=dim(SPlista)
+n<-n[1]
+fabs= mutate(fabs, Freqr =fabs$Freq/n)
+fabs= mutate(fabs, FreqA =cumsum(Freq))
+fabs= mutate(fabs, FreqrA =cumsum(Freqr))
+
+
+```
+
+
+```{r TFREQ, echo=FALSE, message=FALSE}
+library('knitr')
+options(digits=4, width=70)
+kable(fabs,booktabs=TRUE,caption = "Tabla de Frecuencias")%>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+
+```
+
+
+
+
+En este índice se encuentran 10 sectores que se discriminan en la tabla de frecuencias \@ref(tab:TFREQ) , con ayuda de la tabla,  se puede observar que  hay tres sectores que lideran el índice que son Consumer Discretionary(Bienes no esenciales)16%, Financials 18% e Industrials 14%, esto quiere decir que el índice tiene alta representación de empresas en estos tres sectores. Servicios en Telecomunicaciones por el contrario es el sector con menos empresas en el índice ya que solo aporta un 0.9%.
+
+## Ecuaciones
+
+
+En ausencia de una mejor cartera a nivel mundial, el enfoque de Markowitz, también denominado enfoque de varianza de expectativas, ofrece un compromiso entre las afirmaciones de maximizar los retornos y minimizar el riesgo. Se produce esencialmente en dos formas, que son:
+
+1. Para $r \in R$ dada, se determina una cartera que tenga un rendimiento $r$ mínimo esperado y minimice el riesgo entre todas las carteras que también tengan un rendimiento esperado de al menos $r$ (problema de minimización de la varianza), respectivamente.
+
+2. Para un nivel de riesgo dada $\sigma \geq 0$, se detremina una cartera cuyo riesgo no exceda este límite y cuyo rendimiento esperado sea máximo entre todas las carteras que también cumplan con el límite de riesgo $\sigma$ (problema de maximización del rendimiento).
+
+El homónimo de este enfoque es Harry M. Markowitz, quien sentó las bases de la teoría de la cartera con un artículo correspondiente en 1952 y recibió el Premio Nobel de Economía en 1990. 
+
+
+
+
+ Supuestos
+
+* Solo se considera un período de negociación único, que comienza en el momento actual$t= 0$ y finaliza en un tiempo futuro $t=1$. 
+* Los inversores pueden tener participaciones tanto positivas como negativas de inversiones de capital. Las acciones negativas se crean mediante ventas en corto: un inversionista vende instrumentos financieros prestados a pesar de que no los posee. Sin embargo, al final del período de negociación, estas acciones deben devolverse al acreedor.
+* Tanto el préstamo como la inversión de un instrumento financiero se basan en la misma tasa de interés.
+* Al comprar y vender instrumentos financieros, no hay impuestos ni costos de transacción.
+* Los precios de las acciones no están influenciados por órdenes individuales de los inversionistas.
+* Las mismas acciones tienen los mismos precios. No hay descuentos por volumen.
+
+
+```{definition, def1}
+
+Siendo $(\Omega, \mathcal{F},P)$ un espacio de probabilidad calculado en un modelo financiero de un período, el precio de un activo financiero $(S_{0},S_{1},P)$ depende de :
+  
+* Un vector $S_{0}\in \mathbb{R}$ con $S_{0}\neq 0$ para $i=1,..,N
+
+* Un vector aleatorio $S_{1}=(S_{1}^{1},...,S_{1}^{N})$ con variables aletaorias cuadraticas  $S_{1}^{i}\in \mathcal{L}^{2}(\Omega, \mathcal{F},P)$.
+  
+* Para  $i$ $\in \{1,...,N\}$ es $S_{i} := (S_{0}^{i},S_{1}^{i})$ el instrumento financiero $i$ del mercado $(S_{0},S_{1},P)$.
+```
+
+
+* La variable aleatoria $R_{i}:\Omega \rightarrow \mathbb{R}$
+
+\begin{equation}
+\omega \rightarrow \frac{S_{1}^{i}(\omega)-S_{0}^{i}}{S_{0}^{i}}
+(\#eq:zufall)
+\end{equation}
+
+Es el rendimiento de un instrumento financiero
+
+* El valor esperado del instrumento $i$ es $\mu_{i}=E[R_{i}]$ que es el rendimiento esperado de $S_{i}$.
+
+* El riesgo o la volatilidad $\sigma$ es la desviación estandar.
+
+
+Como cada activo es una variable aleatoria, un portafolio está compuesto por la ponderación de las variables aleatorias, de esta manera la suma de esta ponderación es igual a 1 y muestra cuanto se invierte en cada uno de los activos.
+
+
+El rendimiento de un portafolio se obtiene con la suma de la multiplicación del valor ponderado con respecto a la media o el valor esperado de los rendimientos.
+
+\begin{equation}
+R_{p}=\sum_{i=1}^{n}R_{i}w_{i}
+(\#eq:pond)
+\end{equation}
+
+Donde $w_{i}$ es la ponderación el ecuación \@ref(eq:pond) de acuerdo a cada uno de los activos dentro del portafolio.
+
+
+El valor esperado del precio se calcula con ayuda de la función de distribución binomial:
+
+\begin{equation}
+P(X=x)=\binom{t}{x}  p^{x}q^{t-x}
+(\#eq:binom)
+\end{equation}
+
+Donde $p$ y $q$ son probabilidades $n$ el número de escenarios y $x$ el valor que se desea obtener. Combinando \@ref(eq:binom) con \@ref(eq:PSMB) de acuerdo a los resultados de cara y sello se puede crear el valor esperado del precio de una acción usando la función de distribución binomial. 
+
+
+\begin{equation}
+E [S_{t}]=\sum_{x=0}^{t}\binom{t}{x}  p^{x}(1-p )^{t-x}S_{0}U^{x}D^{t-x}
+(\#eq:CRR1)
+\end{equation}
+
+
+La media de los rendimientos se puede obtener con ayuda de la media del valor esperado generado a lo largo del horizonte de tiempo.
+
+\begin{equation}
+r_{t}=\frac{S_{t}-S_{t-1}}{S_{t-1}}
+\end{equation}
+
+
+\begin{equation}
+\overline{r} =\frac{1}{t}\sum_{i=1}^{t}r_{i}
+\end{equation}
+
+La varianza para este ejercicio también se obtuvo con los rendimientos del valor esperado.
+
+\begin{equation}
+\sigma^{2}=\frac{1}{t}\sum_{i=1}^{t}(r_{i}-\overline{r})^{2}
+\end{equation}
+
+La correlación se generó con los rendimientos del pronóstico y con estos se calculó la matriz de varianza y covarianza.
+
+
+\begin{equation}
+Cov(r_{x},r_{y})=\frac{1}{t}\sum_{i=1}^{t}(r_{xi}-\overline{r}_{x})(r_{yi}-\overline{r}_{y})
+\end{equation}
+
+\begin{equation}
+\rho =\frac{Cov(r_{x},r_{y})}{\sigma_{x}\sigma_{y}}
+\end{equation}
+
+Matriz Varianza-Covarianza
+
+\begin{equation}
+   \begin{pmatrix} 
+   \sigma^{2}_{11} & cov_{12} & cov_{13} & cov_{14} \\
+   cov_{21} & \sigma^{2}_{22} & cov_{23} & cov_{24} \\
+   cov_{31} & cov_{32} & \sigma^{2}_{33} & cov_{34}  \\
+   cov_{41}&cov_{42} &cov_{43} &\sigma^{2}_{44}
+   \end{pmatrix} 
+\end{equation}
+
+
+El valor esperado del portafolio se obtiene de la siguiente forma:
+
+\begin{equation} 
+r_{p}= \begin{bmatrix} 
+   \mu_{1}& \mu_{2}& \mu_{3}&\mu_{4}  \\
+  
+   \end{bmatrix}
+   \begin{bmatrix} 
+   w_{1}  \\
+   w_{2}  \\
+   w_{3}  \\
+   w_{4}
+   \end{bmatrix} \quad   
+\end{equation}
+
+Donde $r_{p}$ es la rentabilidad del portafolio, $\mu$ es la rentabilidad de cada activo y $w$ es el peso que se le da a dicho activo en la inversión.   
+
+La varianza del portafolio se obtiene con ayuda de los pesos y la matriz de varianza y covarianza.
+
+\begin{equation}
+\sigma^{2}=\begin{bmatrix} 
+   w_{1}& w_{2}& w_{3}& w_{4}  \\
+  
+   \end{bmatrix}
+   \begin{bmatrix} 
+   \sigma^{2}_{11} & cov_{12} & cov_{13} & cov_{14} \\
+   cov_{21} & \sigma^{2}_{22} & cov_{23} & cov_{24} \\
+   cov_{31} & cov_{32} & \sigma^{2}_{33} & cov_{34}  \\
+   cov_{41}&cov_{42} &cov_{43} &\sigma^{2}_{44}
+   \end{bmatrix} 
+      \begin{bmatrix} 
+   w_{1}  \\
+   w_{2}  \\
+   w_{3}  \\
+   w_{4}
+   \end{bmatrix}
+   
+\end{equation}
+
+
+Subscripts in math mode are written as $a_b$ and superscripts are written as $a^b$. These can be combined an nested to write expressions such as
+ 
+$$T^{i_1 i_2 \dots i_p}_{j_1 j_2 \dots j_q} = T(x^{i_1},\dots,x^{i_p},e_{j_1},\dots,e_{j_q})$$
+ 
+We write integrals using $\int$ and fractions using $\frac{a}{b}$. Limits are placed on integrals using superscripts and subscripts:
+ 
+$$\int_0^1 \frac{1}{e^x} =  \frac{e-1}{e}$$
+ 
+Lower case Greek letters are written as $\omega$ $\delta$ etc. while upper case Greek letters are written as $\Omega$ $\Delta$.
+ 
+Mathematical operators are prefixed with a backslash as $\sin(\beta)$, $\cos(\alpha)$, $\log(x)$ etc.
+
+## Figuras
+
+
+### Ejemplo para dos activos 
+
+Usando un secuencia para un activo $A$ y un activo $B$ se crean los rendimientos de cada una de las acciones $\mu_{A}=0.175$ y $\mu_{B}=0.055$ con sus respectivas desviaciones estandar $\sigma_{A}=0.258$ y $\sigma_{B}=0.115$, también se crea la correlación $\rho = -0.164$ mostrando una relación inversa entre los activos
+
+```{r , message=FALSE,warning=FALSE,echo=FALSE}
+mu.A = 0.175
+sig.A = 0.258
+sig2.A = sig.A^2
+mu.B = 0.055
+sig.B = 0.115
+sig2.B = sig.B^2
+rho.AB = -0.164
+sig.AB = rho.AB*sig.A*sig.B
+w0 = 100000
+x.A = seq(from=-0.4, to=1.4, by=0.1)
+x.B = 1 - x.A
+mu.p = x.A*mu.A + x.B*mu.B
+sig2.p = x.A^2 * sig2.A + x.B^2 * sig2.B + 2*x.A*x.B*sig.AB
+sig.p = sqrt(sig2.p)
+
+# Portafolio de mínima varianza
+xA.min = (sig2.B - sig.AB)/(sig2.A + sig2.B - 2*sig.AB)
+xB.min = 1 - xA.min
+
+mu.p.min = xA.min*mu.A + xB.min*mu.B
+sig2.p.min = xA.min^2 * sig2.A + xB.min^2 * sig2.B + 2*xA.min*xB.min*sig.AB
+sig.p.min = sqrt(sig2.p.min)
+
+```
+
+Se generan los cáculos para un portafolio de dos activos mostrando como resultado el valor mínimo de la varianza y su respectiva rentabilidad.
+
+```{r PEF,fig.cap='Curva Eficiente', echo=FALSE, message=FALSE,warning=FALSE}
+cex.val = 2
+plot(sig.p, mu.p, type="b", pch=16, cex = cex.val,
+     ylim=c(0, max(mu.p)), xlim=c(0, max(sig.p)),
+     xlab=expression(sigma[p]), ylab=expression(mu[p]), cex.lab=cex.val,
+     col=c(rep("red", 6), "blue", rep("green", 12)))
+text(x=sig.A, y=mu.A, labels="Asset A", pos=4, cex = cex.val)
+text(x=sig.B, y=mu.B, labels="Asset B", pos=4, cex = cex.val)
+text(x=sig.p.min, y=mu.p.min, labels="Global min", pos=2, cex = cex.val)
+
+```
+
+Como se mencionó en el anterior apartado, un solo resultado no es factible para un inversionista dados los diferentes perfiles de riesgo. La figura \@ref(fig:PEF) muestra con color verde los portafolios que se ubican en la frontera eficiente y que por lo tanto diversifican mejor el riesgo, los que están en rojo son portafolios que no son eficiente dado que a ese mismi riesgo se obtiene una mejor rentabilidad. 
+
+
+
+
+```{r, echo=FALSE, message=FALSE,warning=FALSE}
+#
+# portfolio frontier with varying values of rho
+#
+rho.AB.vals = c(-0.9,-0.5, -0.25, 0, 0.25, 0.5, 0.9)
+x.A = seq(from=-0.4, to=1.4, by=0.1)
+x.B = 1 - x.A
+mu.p = x.A*mu.A + x.B*mu.B
+sig2.p = x.A^2 * sig2.A + x.B^2 * sig2.B + 2*x.A*x.B*rho.AB.vals[1]*sig.A*sig.B
+sig.p = sqrt(sig2.p)
+
+```
+
+Un portafolio diversificado es aquel en donde sus activos tienen una realción casi nula, ya que esto permite que el portafolio se ajuste de acuerdo a las variaciones de cada uno de los precios de los activos del portafolio, para poder ver esta relación se puede obtener el coeficiente de correlación. 
+
+```{r PCORR,fig.cap='Diferentes Correlaciones', echo=FALSE, message=FALSE,warning=FALSE}
+# create portfolio plot
+cex.val = 1.5
+plot(sig.p, mu.p, type="b", pch=16, cex = cex.val,
+     ylim=c(0, max(mu.p)), xlim=c(0, max(sig.p)),
+     xlab=expression(sigma[p]), ylab=expression(mu[p]),
+     cex.lab = cex.val, col=1)
+text(x=sig.A, y=mu.A, labels="Asset A", pos=4, cex = cex.val)
+text(x=sig.B, y=mu.B, labels="Asset B", pos=4, cex = cex.val)
+
+for (i in 2:length(rho.AB.vals)) {
+  sig2.p = x.A^2 * sig2.A + x.B^2 * sig2.B + 2*x.A*x.B*rho.AB.vals[i]*sig.A*sig.B
+  sig.p = sqrt(sig2.p)
+  points(sig.p, mu.p, type="b", pch=16, col=i, cex=cex.val)
+}
+legend(list(x = 0.32,y = 0.15), legend=paste("rho", as.character(rho.AB.vals), sep="="), 
+       col=1:length(rho.AB.vals), pch=16)
+```
+
+La gráfica \@ref(fig:PCORR) compara diferentes correlaciones desde $\rho=-0.9$ hasta $\rho= 0.9$ la linea negar con puntos muestra que los activos pueden ir en dos direcciones cuando su relación es inversa, mientras que la gráfica amarilla se vuelve lentamente lineal a medida que los activos presentan una mayor relación positiva entre si. Una diversificación perfecta se presenta cuando los activos tienen una correlación de cero, ya que al no haber relación el portafolio presentar mayor probabilidad de corregir las perdidas generadas por un instrumento financiero específico.
+
+
+```{r CORREX,fig.cap='Diferentes Correlaciones', echo=FALSE, message=FALSE,warning=FALSE}
+#
+# show portfolio plot with rho = 1 and rho = -1
+#
+rho.AB = 1
+sig.AB = rho.AB*sig.A*sig.B
+mu.p.1 = x.A*mu.A + x.B*mu.B
+sig2.p.1 = x.A^2 * sig2.A + x.B^2 * sig2.B + 2*x.A*x.B*sig.AB
+sig.p.1 = sqrt(sig2.p.1)
+rho.AB = -1
+sig.AB = rho.AB*sig.A*sig.B
+mu.p.m1 = x.A*mu.A + x.B*mu.B
+sig2.p.m1 = x.A^2 * sig2.A + x.B^2 * sig2.B + 2*x.A*x.B*sig.AB
+sig.p.m1 = sqrt(sig2.p.m1)
+
+plot(sig.p.1, mu.p.1, type="b", pch=16, cex = cex.val,
+     ylim=c(0, max(mu.p)), xlim=c(0, max(sig.p)),
+     xlab=expression(sigma[p]), ylab=expression(mu[p]))
+points(sig.p.m1, mu.p.m1, type="b", col="blue", pch=22, cex = cex.val)
+text(x=sig.A, y=mu.A, labels="Asset A", pos=4, cex = cex.val)
+text(x=sig.B, y=mu.B, labels="Asset B", pos=4, cex = cex.val)
+legend(x="topleft", legend=c(expression(rho==1), expression(rho==-1)),
+       col=c("black", "blue"), pch=c(16,22))
+
+```
+
+En la figura  \@ref(fig:CORREX)  se presenta dos escenarios en donde la correlación entre las variables tiene los máximos valores.
+
+## Bibliografía
+
+
+La bibliografía puede ser la parte más difícil de ajustar cuando se está comenzando a trabajar en este tipo de poryectos. 
+
+Lo primero que se debe tener en cuenta es el archivo .bib que contiene todas las referencias que se desean incluir en el trabajo y que se puede obtener de diferentes fuentes <https://scholar.google.com>, o crear por de forma individual.
+
+Archivo de bibliografía
+
+```{ }
+@article{einstein,
+    author = "Albert Einstein",
+    title = "{Zur Elektrodynamik bewegter K{\"o}rper}. ({German})
+    [{On} the electrodynamics of moving bodies]",
+    journal = "Annalen der Physik",
+    volume = "322",
+    number = "10",
+    pages = "891--921",
+    year = "1905",
+    DOI = "http://dx.doi.org/10.1002/andp.19053221004",
+    keywords = "physics"
+}
+ 
+@book{dirac,
+    title = {The Principles of Quantum Mechanics},
+    author = {Paul Adrien Maurice Dirac},
+    isbn = {9780198520115},
+    series = {International series of monographs on physics},
+    year = {1981},
+    publisher = {Clarendon Press},
+    keywords = {physics}
+}
+ 
+@online{knuthwebsite,
+    author = "Donald Knuth",
+    title = "Knuth: Computers and Typesetting",
+    url  = "http://www-cs-faculty.stanford.edu/~uno/abcde.html",
+    addendum = "(accessed: 01.09.2016)",
+    keywords = "latex,knuth"
+}
+ 
+@inbook{knuth-fa,
+    author = "Donald E. Knuth",
+    title = "Fundamental Algorithms",
+    publisher = "Addison-Wesley",
+    year = "1973",
+    chapter = "1.2",
+    keywords  = "knuth,programming"
+}
+
+
+```
+
+
+Adicional a esto, se debe configurar el archivo con el documento como si hizo en este ejemplo al inicio en el YAML y en el setup. Pandoc fue programa que se creo que canalizar estas configuraciones así como otras librerias que facilitan el uso de las mismas en este programa.
+
+### Ejemplo 
+
+"El estudio sin deseo estropea la memoria y no retiene nada de lo que toma".
+
+---Leonardo da Vinci.
+
+El siguiente documento pretende ser un dispositivo pedagógico para flexibilizar los conceptos teóricos asociados a la asignatura de estadística 1. Los libros y artículos base para la creación del documento se pueden encontrar en el plan de de estudios del semestre @wackerly2014mathematical, @llinas2015introduccion, @mendenhall2012introduction, pero también se adicionan dos más que explican la aplicación económica que se puede dar a través de los temas que se van a ver a lo largo del curso @hull2013fundamentals y @cox1979option.
+
+# Referencias
+
+
+
+
