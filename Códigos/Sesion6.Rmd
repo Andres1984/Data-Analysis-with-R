@@ -419,3 +419,32 @@ p<-ggplot(wb_dat, aes(x=region, y= GDP,  fill = region))+
 p+scale_fill_brewer(palette="Greens") + theme_classic()
 ```
 
+## Diagrama de Barras tablas de frecuencias
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(RCurl)# La dirección web
+library(readr)# La base de datos en cvs o txt
+
+text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/SPlista.txt")
+SPlista <- read_csv(file=text)
+SPlista$Sector[SPlista$Sector=="Consumer Discretionary"]="Cons D"
+SPlista$Sector[SPlista$Sector=="Information Technology"]="IT"
+SPlista$Sector[SPlista$Sector=="Telecommunications Services"]="TS"
+SPlista$Sector[SPlista$Sector=="Consumer Staples"]="Cons S"
+
+
+attach(SPlista)
+fabs<-table(Sector)
+fabs=as.data.frame(fabs)
+n=dim(SPlista)
+n<-n[1]
+fabs= mutate(fabs, Freqr =fabs$Freq/n)
+fabs= mutate(fabs, FreqA =cumsum(Freq))
+fabs= mutate(fabs, FreqrA =cumsum(Freqr))
+
+p<- ggplot(data=fabs, aes(x=Sector, y=Freq)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=Freq), vjust=1.6, color="white", size=3.5)+
+  theme_minimal()
+```
+
