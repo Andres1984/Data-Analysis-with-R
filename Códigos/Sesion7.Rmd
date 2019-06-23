@@ -1,0 +1,368 @@
+---
+title: "Plotly y Animaciones"
+author: "Andrés Martínez"
+date: "16 de Julio de 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Happiness with PLotly
+
+
+
+```{r , message=FALSE,echo=FALSE,warning=FALSE}
+library(tidyverse)
+library(data.table)
+library(GGally)
+library(gridExtra)
+library(plotly)
+library(wesanderson)
+library(VIM)
+library(maps)         # World Map
+library(countrycode)  # Gets country code 
+library(RCurl)# La dirección web
+library(readr)# La
+text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/2016.csv")
+
+H2016 <- read_csv(file=text)
+
+colnames(H2016)[7] <- "GDP"
+colnames(H2016)[9] <- "Health"
+colnames(H2016)[11] <- "TrustG"
+colnames(H2016)[4]<-"HScore"
+H2016$Country[H2016$Country == "United States"] <- "USA"
+H2016$Country[H2016$Country == "United Kingdom"] <- "UK"
+
+```
+
+
+```{r}
+a <- H2016  %>% ggplot(aes(reorder(Region, HScore, FUN = median),HScore, col=Region,label=Country))+
+  geom_boxplot()+
+  geom_point(position = "jitter", alpha=0.6, size=3)+
+  labs(title = "Happiness Score", x="Region", y="Happiness score")
+ggplotly(a)
+```
+
+
+```{r, echo=FALSE,message=FALSE, warning=FALSE}
+
+p1 <- plot_ly(y = H2016$GDP, type = "box",name="GDP") 
+p2<-  plot_ly(y = H2016$HScore,type="box",name="HScore")
+p3<-  plot_ly(y = H2016$Generosity,type="box",name="Generosidad")
+p4<-  plot_ly(y = H2016$TrustG,type="box",name="Trust")
+
+p<-subplot(p1,p2,p3,p4)
+
+
+
+p  
+```
+
+```{r ,echo=FALSE, warning=FALSE,message=FALSE}
+
+
+c <- H2016 %>%  ggplot(aes(Health, HScore, col=Region, label=Country))+
+  geom_point(size=4, alpha=0.5)+
+  scale_color_brewer(palette = "Paired")+
+  geom_abline(color="#d3d3d3")
+ggplotly(c)
+
+```
+
+
+```{r}
+c <- H2016 %>% ggplot(aes(TrustG, HScore, col=Region, label=Country))+
+  geom_point(size=4, alpha=0.5)+
+  scale_color_brewer(palette = "Paired")+
+  geom_abline(color="#d3d3d3")
+ggplotly(c)
+```
+
+
+
+
+
+
+
+```{r, echo=FALSE}
+
+
+df.pop <- read.csv("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/API_EN.POP.DNST_DS2_en_csv_v2.csv", header = FALSE)
+df.pop <- df.pop[4:267,]
+df.pop <- select(df.pop, V1, V60)
+names(df.pop) <- c("country", "pop.density")
+df.pop$country <- recode(df.pop$country,
+                         "Congo, Rep." = "Republic of Congo",
+                         "Egypt, Arab Rep." = "Egypt",
+                         "Iran, Islamic Rep." = "Iran",
+                         "Korea, Rep." = "South Korea",
+                         "Cote d'Ivoire" = "Ivory Coast",
+                         "United States" = "USA",
+                         "Yemen, Rep." = "Yemen",
+                         "Congo, Dem. Rep." = "Democratic Republic of the Congo",
+                         "Trinidad and Tobago" = "Trinidad",
+                         "Slovak Republic" = "Slovakia",
+                         "Macedonia, FYR" = "Macedonia",
+                         "Lao PDR" = "Laos",
+                         "Kyrgyz Republic" = "Kyrgyzstan",
+                         "United Kingdom" = "UK",
+                         "Russian Federation" = "Russia",
+                         "Venezuela, RB" = "Venezuela",
+                         "Syrian Arab Republic" = "Syria")
+
+
+```
+
+
+
+
+```{r, echo=FALSE}
+
+H2016$Country <- recode(H2016$Country,
+                     "Congo (Brazzaville)"="Republic of Congo",
+                     "Congo (Kinshasa)"="Democratic Republic of the Congo",
+                     "Hong Kong"="China",
+                     "Hong Kong S.A.R., China"="China",
+                     "North Cyprus"="Cyprus",
+                     "Palestinian Territories"="Palestine",
+                     "Somaliland region"="Somalia",
+                     "Trinidad and Tobago"="Trinidad",
+                     "United Kingdom"="UK",
+                     "United States"="USA",
+                     "Somaliland Region"="Somalia",
+                     "Taiwan Province of China"="Taiwan")
+colnames(df.pop)=c("Country","DenPop")
+H2016=merge(df.pop, H2016, by="Country")
+```
+
+
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+map.world <- map_data("world")
+map.world.6 <- left_join(map.world, H2016, by = c('region' = 'Country'))
+map.world.change <- left_join(map.world, H2016, by = c('region' = 'Country'))
+
+
+
+ggplot6 <- ggplot(data = map.world.6, aes(x = long, y = lat, group = group, fill = HScore, text =  paste("Country:", region, "<br>", "Happiness:",HScore, "<br>", "Economy:", GDP, "<br>", "Family:", Family, "<br>", "Health:", Health, "<br>", "Freedom:", Freedom, "<br>", "Trust:", TrustG, "<br>", "Generosity:", Generosity))) +
+  geom_polygon() +
+  scale_fill_gradient(low = "ivory", high = "royalblue") +
+  theme(panel.background =  element_rect(fill = "white", colour = "grey50"),
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        legend.title = element_blank(),
+        plot.title = element_text(hjust = 0.5)) +
+  labs(title = "Felicidad Mundial 2016") +
+  guides(fill = guide_legend(title=NULL))
+ggplotly(ggplot6, tooltip = c("text"))
+
+
+
+```
+
+
+```{r, echo=FALSE,message=FALSE, warning=FALSE}
+
+
+
+ggplotecon <- ggplot(data = H2016, mapping = aes(x = GDP, y = HScore, color = Region, text =  paste("Country:", Country, "<br>", "Economy:", GDP, "<br>", "Happiness:",HScore, "<br>","Den Pop Km2",round(DenPop)),size=DenPop)) +
+  geom_point() +
+  annotate("text", x = 1.5, y = 4, label = paste("Rsquared:", round(cor(H2016[,c(5,8)])[1,2], 2), sep = " "), parse = TRUE) +
+  labs(title = "¿Depende la Felicidad del PIB?",
+     
+       x = "PIB",
+       y = "Felicidad") +
+  scale_color_brewer(palette = "Spectral") +
+  theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5),
+        legend.title = element_blank())
+
+ggplotly(ggplotecon, tooltip = c("text"))
+```
+
+
+
+```{r, echo=FALSE,message=FALSE, warning=FALSE}
+
+
+p1 <- plot_ly(alpha = 0.6) %>%
+  add_histogram(x = H2016$HScore, name="HScore") %>%
+  add_histogram(x = H2016$GDP, name="GDP") %>%
+  layout(barmode = "GDP VS HSCORE")
+p2 <- plot_ly(alpha = 0.6) %>%
+  add_histogram(x = H2016$TrustG, name="Trust") %>%
+  add_histogram(x = H2016$Health, name="Health") %>%
+  layout(barmode = "Trust VS Health")
+
+
+p<-subplot(p1,p2,nrows = 2)
+
+
+## Hacer las frecuencias relativas
+p  
+```
+
+
+
+
+## Animaciones
+
+
+
+```{r , echo=FALSE,message=FALSE, warning=FALSE}
+
+library(ggplot2)
+library(gganimate)
+theme_set(theme_bw())
+
+```
+
+```{r}
+library(gapminder)
+p <- ggplot(
+  gapminder, 
+  aes(x = gdpPercap, y=lifeExp, size = pop, colour = country)
+  ) +
+  geom_point(show.legend = FALSE, alpha = 0.7) +
+  scale_color_viridis_d() +
+  scale_size(range = c(2, 12)) +
+  scale_x_log10() +
+  labs(x = "GDP per capita", y = "Life expectancy")
+p
+```
+
+```{r}
+p + transition_time(year) +
+  labs(title = "Year: {frame_time}")
+```
+
+```{r}
+p + facet_wrap(~continent) +
+  transition_time(year) +
+  labs(title = "Year: {frame_time}")
+```
+
+```{r}
+library(plotly)
+
+df <- data.frame(
+  x = c(1,2,1), 
+  y = c(1,2,1), 
+  f = c(1,2,3)
+)
+
+p <- df %>%
+  plot_ly(
+    x = ~x,
+    y = ~y,
+    frame = ~f,
+    type = 'scatter',
+    mode = 'markers',
+    showlegend = F
+  )
+
+p
+```
+
+```{r, echo=FALSE,warning=FALSE, message=FALSE}
+
+p <- gapminder %>%
+  plot_ly(
+    x = ~gdpPercap, 
+    y = ~lifeExp, 
+    size = ~pop, 
+    color = ~continent, 
+    frame = ~year, 
+    text = ~country, 
+    hoverinfo = "text",
+    type = 'scatter',
+    mode = 'markers'
+  ) %>%
+  layout(
+    xaxis = list(
+      type = "log"
+    )
+  )
+
+p
+```
+```{r, echo=FALSE, warning=FALSE,message=FALSE}
+library(quantmod)
+
+symbols=c('GM','F')# Vector de caracteres
+getSymbols(symbols,src='yahoo',from="2018-01-01",to="2019-03-01")
+
+Dates=index(GM)
+
+
+```
+
+
+
+```{r}
+p <- ggplot(GM,
+  aes(Dates, GM.Open)
+  ) +
+  geom_line() +
+  scale_color_viridis_d() +
+  labs(x = "Dates", y = "GM") +
+  theme(legend.position = "top")
+p
+```
+
+```{r}
+p + transition_reveal(Dates)
+```
+
+```{r}
+
+p <- ggplot(GM,
+  aes(Dates, GM$GM.Close)
+  ) +
+  geom_line(aes(color="GM")) +
+  geom_line(data=F,aes(x=Dates,y=F.Open, color="F")) +
+  scale_color_viridis_d() +
+  labs(x = "Dates", y = "GM VS F") +
+  theme(legend.position = "top")
+p+ transition_reveal(Dates)
+```
+
+```{r , echo=FALSE,warning=FALSE, message=FALSE}
+library(RCurl)# La dirección web
+library(readr)# La base de datos en cvs o txt
+
+text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/SPlista.txt")
+SPlista <- read_csv(file=text)
+SPlista$Sector[SPlista$Sector=="Consumer Discretionary"]="Cons D"
+SPlista$Sector[SPlista$Sector=="Information Technology"]="IT"
+SPlista$Sector[SPlista$Sector=="Telecommunications Services"]="TS"
+SPlista$Sector[SPlista$Sector=="Consumer Staples"]="Cons S"
+
+
+attach(SPlista)
+fabs<-table(Sector)
+fabs=as.data.frame(fabs)
+n=dim(SPlista)
+n<-n[1]
+fabs= mutate(fabs, Freqr =fabs$Freq/n)
+fabs= mutate(fabs, FreqA =cumsum(Freq))
+fabs= mutate(fabs, FreqrA =cumsum(Freqr))
+
+p<- ggplot(data=fabs, aes(x=Sector, y=Freq)) +
+  geom_bar(stat="identity", fill="steelblue")+
+  geom_text(aes(label=Freq), vjust=1.6, color="white", size=3.5)+
+  theme_minimal()
+
+p + transition_states(Sector, wrap = FALSE) +
+  shadow_mark()
+
+
+```
+
