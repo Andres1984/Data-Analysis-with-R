@@ -1,11 +1,11 @@
 # Exploratory Data Analysis with R
-Curso de verano de la Universidad Central 
+Curso de verano.
 
 UNIVERSIDAD CENTRAL
 
 DEPARTAMENTO DE ECONOMÍA
 
-PROGRAMA DE CURSO EXPLORATORY DATA ANALYSIS WITH R
+PLAN DE ESTUDIOS
 
 * Nombre de la Asignatura :Data Analysis with R
 * Profesor: Manuel Andrés Martínez
