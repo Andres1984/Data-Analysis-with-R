@@ -70,3 +70,9 @@ https://cran.r-project.org
 https://www.rstudio.com
 
 https://stackoverflow.com
+
+https://bookdown.org
+
+https://plot.ly
+
+https://www.gapminder.org
