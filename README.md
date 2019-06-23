@@ -7,7 +7,7 @@ DEPARTAMENTO DE ECONOMÍA
 
 PLAN DE ESTUDIOS
 
-* Nombre de la Asignatura :Data Analysis with R
+* Nombre de la Asignatura :Exploratory Data Analysis with R
 * Profesor: Manuel Andrés Martínez
 * Correo : mmartinezp5@ucentral.edu.co
 * Martes y Jueves 8:00 - 11:00
