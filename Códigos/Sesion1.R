@@ -204,7 +204,7 @@ y
 
 # if 
 
-x <- -5
+x <- 5
 if(x > 0){
   print("Non-negative number")
 } else {
@@ -246,6 +246,8 @@ VRC<-function(VF,i,n,VA){
       VR<-VF/(1+i)^n
     }
   } 
+  
+  print(VR)
 }
 
 
