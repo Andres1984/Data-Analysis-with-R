@@ -51,6 +51,7 @@ msg <- "hello"
 x <- c(0.5, 0.6)
 x <- c(TRUE, FALSE)
 x <- c(T, F)
+class(x)
 x <- c("a", "b", "c") ## character 
 x <- 9:29 ## integer 
 x <- c(1+0i, 2+4i) ## complex
@@ -191,6 +192,7 @@ tab
 # for 
 n=20
 x<-rnorm(n,50,3)
+x
 y <- rep(0,n)
 for( i in 1:n ){
   y[i] <- log(x[i]) 
