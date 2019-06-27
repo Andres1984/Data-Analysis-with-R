@@ -58,6 +58,8 @@ detach(SPlista)
 #Archivo en excel
 library(readxl)
 library(httr)# Otra forma de encontrar direcciones 
+library(psych)
+library(dplyr)
 url1<-'https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/Matriculados_2017.xlsx'
 GET(url1, write_disk(tf <- tempfile(fileext = ".xlsx"))) 
 df <- read_excel(tf)
@@ -110,6 +112,8 @@ df5<-rbind(df2,df3,df4)
 
 unique(df5$Programa)
 
+library(xlsx)
+resultado=write.xlsx(df5,"/Users/andresmartinez/Google Drive/Ucentral/InteR/Data-Analisys with R/Bases/Resultado.xlsx")
 
 ## Eliminar todo lo que no sea turístico usando !   filter(!str_detect(rowname, "\\d"))
 ##
