@@ -96,8 +96,59 @@ plot_grid(p1, p2)
 
 * R es conocido formalmente como "The R Project for Statistical Computing".  https://www.r-project.org
 
+## ¿Porqué R?
+
+### Proceso
+
+```{r,  message=FALSE,echo=FALSE,warning=FALSE}
+library(DiagrammeR)
+DiagrammeR::grViz("digraph {
+
+                  graph [layout = dot, rankdir = LR]
+                  
+                  # define the global styles of the nodes. We can override these in box if we wish
+                  node [shape = rectangle, style = filled, fillcolor = Linen]
+                  
+                  data1 [label = 'Teoría', shape = folder, fillcolor = Steelblue]
+                  data2 [label = 'Método Numérico', shape = folder, fillcolor = Steelblue]
+                  process [label =  'Algoritmos', fillcolor = Steelblue]
+                  statistical [label = 'Creación de Funciones \n y Programas', fillcolor = Steelblue]
+                  
+                  
+                  results [label= 'Resultados', fillcolor = Steelblue]
+                  
+                  # edge definitions with the node IDs
+                  {data1 data2}  -> process -> statistical -> results
+                  }")
+
+```
 
 
+## Publicación
+
+```{r,  message=FALSE,echo=FALSE,warning=FALSE}
+library(DiagrammeR)
+DiagrammeR::grViz("digraph {
+
+                  graph [layout = dot, rankdir = LR]
+                  
+                  # define the global styles of the nodes. We can override these in box if we wish
+                  node [shape = circle, style = filled, fillcolor = Linen]
+                  
+                  data1 [label = 'GitHub', shape = folder, fillcolor = Steelblue]
+                  data2 [label = 'Documento \n Científico', shape = folder, fillcolor = Steelblue]
+                  process [label =  'Repositorio', fillcolor = Steelblue]
+                  statistical [label = 'Se crea el paquete', fillcolor = Steelblue]
+                  
+                  
+                  results [label= 'Uso público \n o privado', fillcolor = Steelblue]
+                  
+                  # edge definitions with the node IDs
+                  {data1 data2}  -> process -> statistical -> results
+                  }")
+
+
+```
 
 
 
