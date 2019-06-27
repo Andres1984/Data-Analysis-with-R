@@ -12,6 +12,8 @@ rm(list=ls())
 #############   Departamento de Economía  ################
 ##########################################################
 
+options(java.parameters = "-Xmx3000m")
+#Sys.setem(JAVA_HOME="C:\\Program Files (x86)\\Java\\jre.8.0_101")
 ## Contenido
 
 # Ubicando dirección URL
