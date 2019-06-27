@@ -183,8 +183,8 @@ abline(lm( `Happiness Score` ~ `Economy (GDP per Capita)`, data = H2016), col = 
 
 plot(H2016$`Economy (GDP per Capita)`, H2016$`Happiness Score`, col = "green", pch = 3, 
      main = "R Scatter Plot", 
-     xlab = "H Score", 
-     ylab = "GDP", 
+     xlab = "GDP", 
+     ylab = "HSCore", 
      las = 1,
      xlim = c(0, 10), 
      ylim = c(0, 10))
@@ -193,8 +193,8 @@ abline(lm( `Happiness Score` ~ `Economy (GDP per Capita)`, data = H2016), col = 
 
 plot(H2016$`Economy (GDP per Capita)`, H2016$`Happiness Score`, col = "green", pch = 3, 
      main = "R Scatter Plot", 
-     xlab = "H Score", 
-     ylab = "GDP", 
+     xlab = "GDP", 
+     ylab = "HScore", 
      las = 1,
      xlim = c(0, 2), 
      ylim = c(0, 10))
