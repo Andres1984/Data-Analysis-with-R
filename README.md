@@ -1,20 +1,9 @@
 # Exploratory Data Analysis with R
-Curso de verano.
 
-UNIVERSIDAD CENTRAL
 
-DEPARTAMENTO DE ECONOMÍA
 
-PLAN DE ESTUDIOS
 
-* Nombre de la Asignatura :Exploratory Data Analysis with R
-* Profesor: Manuel Andrés Martínez
-* Correo : mmartinezp5@ucentral.edu.co
-* Monitora: Nicol Dayan Contreras
-* Correo : ncontrerasr1@ucentral.edu.co 
-* Martes y Jueves 8:00 - 11:00
-* 25 de Junio a 25 de Julio de 2019
-* Sala 3 casa carrera 4 Campus Principal Sede Centro
+
 ## Descripción del Curso
 
 Ser asertivo en la presentación de resultados de una empresa o argumentar las conclusiones de una investigación,  son procesos que requieren de una buena compresión de los datos y de preguntas precisas que puedan atender los objetivos generales y específicos de un proyecto. 
