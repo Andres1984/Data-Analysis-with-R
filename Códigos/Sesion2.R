@@ -24,6 +24,7 @@ options(java.parameters = "-Xmx3000m")
 
 ## Ubicando Dirección URL
 
+ 
 
 library(RCurl)# La dirección web
 library(readr)# La base de datos en cvs o txt
@@ -171,7 +172,7 @@ summary(H2016)
 x <- H2016$`Economy (GDP per Capita)`
 y <- H2016$`Happiness Score`
 
-plot(x, y, main = "HSCRO VS GDP",
+plot(x,y, main = "HSCRO VS GDP",
      xlab = "GDP", ylab = "H SCORE",
      pch = 19, frame = FALSE)
 # Add regression line
