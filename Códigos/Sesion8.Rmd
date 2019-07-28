@@ -23,6 +23,7 @@ read.bibtex(file = "B.bib")
 
 Este documento es un ejemplo para la creación de documentos científicos tales como los que se pueden hacer en un editor avanzando como Word Office, la forma de escritura de estos documentos se hace con ayuda de los códigos creados en Htlm y Latex para mayor información puede ver  <http://rmarkdown.rstudio.com> y <https://bookdown.org/yihui/bookdown/>. Para aprender los códigos adaptables a los editores científicos vamos a usar la información de esta página <https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes>
 
+@black1973pricing
 
 
 ```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
@@ -36,14 +37,6 @@ library(psych)# Medidas descriptivas
 library(RCurl)# La dirección web
 library(readr)# La base de datos
 library(dplyr)# Transformación de tablas
-library(plotly)# Gráficos Interactivos
-library(ggplot2)# Gráficos 
-library(corrplot)# Gráfico de Correlación
-library(derivmkts)# Pronóstico de Precios
-library(quadprog)# Programación puede necesitar otra actualización dependiendo de la versión del R
-library(PerformanceAnalytics)# Medidas descriptivas
-#install.packages("IntroCompFinR",repos="http://R-Forge.R-project.org")
-library(IntroCompFinR)# Portafolio de optimización solo se puede instalar con el link descrito arriba
 
 ```
 
@@ -64,6 +57,8 @@ Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 Etiam lobortis facilisissem.  Nullam nec mi et neque pharetra 
 sollicitudin.  Praesent imperdiet mi necante...
  
+### subsubsección 
+ 
 # Segunda Sección
  
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.  
@@ -72,6 +67,8 @@ sollicitudin.  Praesent imperdiet mi necante...
  
 
 ## Tablas
+
+Esta es una tabla del S&P 
 
 ```{r, echo=FALSE, message=FALSE,results='hide',warning=FALSE}
 
@@ -95,6 +92,17 @@ fabs= mutate(fabs, FreqrA =cumsum(Freqr))
 
 
 ```
+
+
+```{r TFREQ1, echo=FALSE, message=FALSE}
+library('knitr')
+options(digits=4, width=70)
+kable(fabs,booktabs=TRUE,caption = "Tabla de Frecuencias")%>%
+  kable_styling(bootstrap_options = "striped", full_width = F, position = "left")
+
+```
+
+
 
 
 ```{r TFREQ, echo=FALSE, message=FALSE}
@@ -461,6 +469,9 @@ Adicional a esto, se debe configurar el archivo con el documento como si hizo en
 ---Leonardo da Vinci.
 
 El siguiente documento pretende ser un dispositivo pedagógico para flexibilizar los conceptos teóricos asociados a la asignatura de estadística 1. Los libros y artículos base para la creación del documento se pueden encontrar en el plan de de estudios del semestre @wackerly2014mathematical, @llinas2015introduccion, @mendenhall2012introduction, pero también se adicionan dos más que explican la aplicación económica que se puede dar a través de los temas que se van a ver a lo largo del curso @hull2013fundamentals y @cox1979option.
+
+
+@vee2013understanding @shreve2004stochastic
 
 # Referencias
 
