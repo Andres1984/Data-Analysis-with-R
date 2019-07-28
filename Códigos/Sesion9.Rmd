@@ -1,0 +1,257 @@
+---
+title: "Inferencia"
+author: "Andrés Martínez"
+date: "28 7 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Inferencia Estadística
+
+Los ejemplos de este script están en <http://www.r-tutor.com/r-introduction>
+
+## Estimación por intervalos
+
+###  Media Con varianza conocida
+
+
+\begin{equation}
+\overline{x}\pm Z_{\alpha/2} \frac{\sigma}{\sqrt{n}} 
+\end{equation}
+
+Asuma que la desviacón estandar de una población  $\sigma$ de la estatura de los estudaintes es 9.48 pies. Encuentre el margen de error y el intervalo estimado al 95% del nivel de confianza.
+
+
+
+```{r ,message=FALSE,warning=FALSE}
+library(MASS)                  # load the MASS package 
+height.response = na.omit(survey$Height)
+n = length(height.response) 
+sigma = 9.48                   # population standard deviation 
+sem = sigma/sqrt(n)
+sem       # standard error of the mean 
+E = qnorm(.975)*sem 
+E 
+xbar = mean(height.response)   # sample mean 
+xbar + c(-E, E) 
+```
+
+###  Media Con varianza no conocida
+
+Encuentre el margen de error y el intervalo estimado al 95% del nivel de confianza.
+
+
+\begin{equation}
+\overline{x}\pm t_{\alpha/2} \frac{s}{\sqrt{n}} 
+\end{equation}
+
+
+```{r ,message=FALSE,warning=FALSE}
+n = length(height.response) 
+s = sd(height.response)        # sample standard deviation 
+SE = s/sqrt(n)
+SE
+
+ E = qt(.975, df=n-1)*SE
+ E  
+xbar = mean(height.response)   # sample mean 
+xbar + c(-E, E) 
+
+```
+
+
+### Proporción de una población
+
+Calcule el margen de error y intervalo de confianza para la proporción de estudiantes femeninas con un 95% de nivel de confianza.
+
+\begin{equation}
+\overline{p}\pm Z_{\alpha/2} \sqrt{\frac{\overline{p}(1-\overline{p})}{n}} 
+\end{equation}
+
+
+```{r ,message=FALSE,warning=FALSE}
+library(MASS)         # load TeachingDemos package 
+gender.response = na.omit(survey$Sex) 
+ 
+n = length(gender.response)    # valid responses count 
+k = sum(gender.response == "Female") 
+pbar = k/n; 
+pbar
+
+SE = sqrt(pbar*(1-pbar)/n); 
+SE 
+E = qnorm(.975)*SE 
+E   
+
+pbar + c(-E, E)
+
+```
+
+## Test de Hipotesis
+
+### Una cola para media con varianza conocida
+\begin{equation}
+\mu \geq \mu_{0}
+\end{equation}
+
+\begin{equation}
+ Z = \frac{ \overline{x}- \mu_{0} }{\sigma/\sqrt{n}} 
+\end{equation}
+
+Suponga que un empresario dice que el tiempo medio de una bombilla es más de 10.000 horas. En una muestra de 30 bombillas, se encontró que estas tienen una media de 9.900 horas. Asuma que la población tiene una desviación estandar de 120 horas. Con un .05 de nivel de significancia, se puede rechazar la suposición del empresario?
+
+
+```{r, message=FALSE,warning=FALSE}
+
+xbar = 9900            # sample mean 
+mu0 = 10000            # hypothesized value 
+sigma = 120            # population standard deviation 
+n = 30                 # sample size 
+z = (xbar-mu0)/(sigma/sqrt(n)) 
+z                      # test statistic 
+
+alpha = .05 
+z.alpha = qnorm(1-alpha) 
+-z.alpha               # critical value 
+
+pval = pnorm(z) 
+pval                   # lower tail p−value 
+
+```
+
+
+### Dos colas para media con varianza conocida
+
+
+\begin{equation}
+\mu = \mu_{0}
+\end{equation}
+
+\begin{equation}
+ Z = \frac{ \overline{x}- \mu_{0} }{\sigma/\sqrt{n}} 
+\end{equation}
+
+Suponga que la media del peso de los pinguinos emperador el último período es 15.4 kg. En una muestra de 35 pinguinos en este período, la media fue de 14.6 kg. Asuma que la población tiene una desviación estandar de 2.5 kg. En .05 nivel de significancia se puede rechazar la hipotesis nula de que la media de los pinguinos no difiere entre un período y otro?
+```{r}
+
+xbar = 14.6            # sample mean 
+mu0 = 15.4             # hypothesized value 
+sigma = 2.5            # population standard deviation 
+n = 35                 # sample size 
+z = (xbar-mu0)/(sigma/sqrt(n)) 
+z                      # test statistic 
+
+alpha = .05 
+z.half.alpha = qnorm(1-alpha/2) 
+c(-z.half.alpha, z.half.alpha) 
+
+pval = 2 * pnorm(z)    # lower tail 
+pval   
+
+```
+
+### Una cola para media con varianza no conocida
+
+
+\begin{equation}
+\mu \leq \mu_{0}
+\end{equation}
+
+\begin{equation}
+ t = \frac{ \overline{x}- \mu_{0} }{s/\sqrt{n}} 
+\end{equation}
+
+
+Suponga que un empresario dice que el tiempo medio de una bombilla es más de 10.000 horas. En una muestra de 30 bombillas, se encontró que estas tienen una media de 9.900 horas. Asuma que la muestra tiene una desviación estandar de 110 horas. Con un .05 de nivel de significancia, se puede rechazar la suposición del empresario?
+
+
+```{r}
+xbar = 9900            # sample mean 
+mu0 = 10000            # hypothesized value 
+n = 30                # sample size 
+s = 110                # sample standard deviation 
+                
+t = (xbar-mu0)/(s/sqrt(n)) 
+t                      # test statistic 
+
+alpha = .05 
+t.alpha = qt(1-alpha, df=n-1) 
+t.alpha                # critical value
+
+
+pval = pt(t, df=n-1, lower.tail=FALSE) 
+pval                   # upper tail p−value
+```
+
+### Dos colas para media con varianza no conocida
+
+
+\begin{equation}
+\mu = \mu_{0}
+\end{equation}
+
+
+\begin{equation}
+ t = \frac{ \overline{x}- \mu_{0} }{s/\sqrt{n}} 
+\end{equation}
+
+Suponga que la media del peso de los pinguinos emperador el último período es 15.4 kg. En una muestra de 35 pinguinos en este período, la media fue de 14.6 kg. Asuma que la muestra tiene una desviación estandar de 2.5 kg. En .05 nivel de significancia se puede rechazar la hipotesis nula de que la media de los pinguinos no difiere entre un período y otro?
+
+```{r}
+
+xbar = 14.6            # sample mean 
+mu0 = 15.4             # hypothesized value 
+s = 2.5            # sample standard deviation 
+n = 35                 # sample size 
+t = (xbar-mu0)/(s/sqrt(n)) 
+t                      # test statistic 
+
+alpha = .05 
+t.half.alpha = qt(1-alpha/2, df=n-1) 
+c(-t.half.alpha, t.half.alpha) 
+
+pval = 2 * pt(t, df=n-1)  # lower tail 
+pval   
+
+```
+
+
+### Dos colas para una proporción
+
+\begin{equation}
+p = p_{0}
+\end{equation}
+
+
+\begin{equation}
+ z = \frac{ \overline{p}- p_{0} }{\sqrt{p_{0}-(1-p_{0})/n} }
+\end{equation}
+
+
+
+
+Suponga que el lanzamiento de una moneda arroja 12 caras en 20 intentos. Con un .05 de nivel de significancia, se puede rechazar la hipotesis nula de que la moneda es confiable?
+
+```{r}
+
+pbar = 12/20           # sample proportion 
+p0 = .5                # hypothesized value 
+n = 20                 # sample size 
+z = (pbar-p0)/sqrt(p0*(1-p0)/n) 
+z                      # test statistic 
+
+alpha = .05 
+z.half.alpha = qnorm(1-alpha/2) 
+c(-z.half.alpha, z.half.alpha) 
+
+pval = 2 * pnorm(z, lower.tail=FALSE)  # upper tail 
+pval                   # two−tailed p−value 
+
+
+
+
+```
+
