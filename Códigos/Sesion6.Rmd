@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(RCurl)# La dirección web
 library(readr)# La base de datos en cvs o txt
 library(ggplot2)
-library(ggthemes)
+#library(ggthemes)
 library(viridis)
 library("gridExtra")# grid arrange
 library(plot3D)
@@ -46,7 +46,7 @@ colnames(H2016)[4]<-"HScore"
 
 
 ```{r}
-qplot( TrustG,HScore, data = H2016, colour= Region)
+qplot( GDP,Health, data = H2016, colour= Region)
 
 ```
 
@@ -107,7 +107,7 @@ sp + annotation_custom(grob = xbp_grob, xmin = xmin, xmax = xmax,
 
 ```{r}
 ggplot(H2016, aes(HScore)) +
-  geom_histogram(fill = "gold1", colour="goldenrod2")
+  geom_histogram(fill = "green", colour="goldenrod2")
 
 ```
 
@@ -201,7 +201,7 @@ Happiness$Continent <- NA
 
 Happiness$Continent[which(Happiness$Country %in% c("Israel", "United Arab Emirates", "Singapore", "Thailand", "Taiwan Province of China",
                                                    "Qatar", "Saudi Arabia", "Kuwait", "Bahrain", "Malaysia", "Uzbekistan", "Japan",
-                                                   "South Korea", "Turkmenistan", "Kazakhstan", "Turkey", "Hong Kong S.A.R., China", "Philippines",
+                                                   "South Korea", "Turkmenistan", "Kazakhstan", "Turkey", "Hong Kong", "Philippines",
                                                    "Jordan", "China", "Pakistan", "Indonesia", "Azerbaijan", "Lebanon", "Vietnam",
                                                    "Tajikistan", "Bhutan", "Kyrgyzstan", "Nepal", "Mongolia", "Palestinian Territories",
                                                    "Iran", "Bangladesh", "Myanmar", "Iraq", "Sri Lanka", "Armenia", "India", "Georgia",
@@ -231,6 +231,7 @@ Happiness$Continent[which(is.na(Happiness$Continent))] <- "Africa"
 
 
 ```{r}
+library(dplyr)
 Happiness <- Happiness %>% select(Country,Continent, everything())
 
 # Changing Continent column to factor
@@ -269,7 +270,7 @@ gg1
 ```{r}
 gg3 <- ggplot(Happiness,aes(x=Continent,y=HScore))+
   geom_violin(aes(fill=Continent),alpha=0.7)+ theme_bw() +
-  theme(axis.title = element_text(family = "Helvetica", size = (8)))
+  theme(axis.title = element_text(family = "Arial", size = (8)))
 
 gg3
 
@@ -446,5 +447,6 @@ p<- ggplot(data=fabs, aes(x=Sector, y=Freq)) +
   geom_bar(stat="identity", fill="steelblue")+
   geom_text(aes(label=Freq), vjust=1.6, color="white", size=3.5)+
   theme_minimal()
+p
 ```
 
