@@ -56,6 +56,7 @@ x <- c("a", "b", "c") ## character
 x <- 9:29 ## integer 
 x <- c(1+0i, 2+4i) ## complex
 x <- vector("numeric", length = 10)
+x
 seq(-4, 1, 0.5)
 
 y <- c(1.7, "a") ## character 
@@ -63,6 +64,8 @@ y <- c(TRUE, 2) ## numeric
 y <- c("a", TRUE) ## character
 
 x <- 0:6
+x
+
 class(x)
  as.numeric(x)
 
@@ -91,7 +94,8 @@ rbind(x, y)
 
 
 x=seq(1:9)
-x
+x 
+
 X<-dat <- matrix(x, nrow = 3, ncol = 3, byrow = TRUE,
                  dimnames = list(c("row1", "row2","row3"),
                                  c("C.1", "C.2", "C.3")))
@@ -161,7 +165,7 @@ x <- c(1, 2, NaN, NA, 4)
 is.na(x)
 is.nan(x)
 
-x <- data.frame(foo = 1:4, bar = c(T, T, F, F)) 
+y<- data.frame(foo = 1:4, bar = c(T, T, F, F)) 
 x
 
 
@@ -304,6 +308,7 @@ as.logical(-3:3)
 x<- -3:3
 !x
 x
+
 
 # factors
 # Categorial variables are called factors
