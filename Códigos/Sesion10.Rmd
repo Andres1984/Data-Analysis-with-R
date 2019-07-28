@@ -1,0 +1,401 @@
+---
+title: "Sesion10"
+author: "Andrés Martínez"
+date: "28 7 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Álgebra Lineal
+
+Repaso de álgebra lineal
+
+```{r , echo=FALSE,message=FALSE,warning=FALSE}
+library("pracma")
+library("SamplerCompare")
+
+```
+
+### Producto Interno
+
+```{r , echo=FALSE}
+### INNER PRODUCT
+x = c(1:9)
+x
+y = c(3:11)
+y
+x%*%y
+
+```
+
+### Producto externo
+
+
+
+```{r}
+### OUTER PRODUCT
+x = c(1:9); x
+y = c(3:11); y
+outer(x,y) # outer product
+
+```
+
+### Productos cruzados
+
+```{r}
+### VECTOR CROSS PRODUCT
+x = c(2:4)
+y = c(5:7)
+x
+y
+cross(x,y)
+
+
+
+```
+
+
+### NORMA de los VECTORES
+
+```{r}
+### NORM OF VECTORS
+a = c(1,-2,3)
+b = c(-3,2,5)
+twonorm(a)
+twonorm(b)
+
+```
+
+
+### Ortogonalidad
+
+```{r}
+
+
+### ORTHORGONALITY
+a = c(1,0)
+b = c(0,1)
+cosphi = (a%*%b)/twonorm(a)*twonorm(b); 
+cosphi 
+# orthorgonal
+
+a = c(1,-2,3)
+b = c(-3,2,5)
+cosphi = (a%*%b)/twonorm(a)*twonorm(b); 
+cosphi
+# not orthorgonal
+
+
+
+
+
+
+```
+
+
+
+### Descomposición
+
+```{r}
+### GRAM-SCHMIDT DECOMPOSITION; A=QR; I=Q'Q
+A = rbind(c(2,-2,18),c(2,1,0),c(1,2,0))
+A
+qrd = qr(A)
+R = qr.R(qrd)
+R # triangular matrix
+Q = qr.Q(qrd)
+Q
+t(Q)%*%Q # orthonormal matrix
+
+```
+
+
+### Matrices
+
+
+```{r}
+library("expm")
+library("matrixcalc")
+
+### CREATE A RECTANGULAR MATRIX
+x = c(1:12); x 
+A = matrix(x,nrow=3,ncol=4); A # rectangular matrix (ordered by column)
+B = matrix(x,nrow=3,ncol=4, byrow=TRUE); B # rectangular matrix (ordered by row)
+B[2,1] # extract value
+
+
+### TRANSPOSE
+x = c(1:12)
+A = matrix(x,nrow=3,ncol=4); 
+t(A) # transpose matrix
+B = matrix(x,nrow=3,ncol=4, byrow=TRUE)
+
+# PROPERTIES
+all.equal(t(t(A)),A)
+all.equal(t(A+B),t(A)+t(B))
+all.equal(t(2*A),2*t(A))
+A = t(A)
+all.equal(t(A%*%B),t(B)%*%t(A))
+
+
+### SYMMETRIC MATRIX
+x = c(1:9)
+A = matrix(x,nrow=3,ncol=3)
+A = A+t(A)
+A==t(A)
+
+
+### DIAGONAL MATRIX
+diag(diag(A))
+
+
+### IDENTITY MATRIX
+diag(3)
+
+
+### SCALAR MATRIX
+2*diag(3)
+
+
+### UPPER TRIANGULAR MATRIX
+x = c(1:9)
+A = matrix(x,nrow=3,ncol=3)
+lower.tri(A)
+A[lower.tri(A)] <- 0
+A
+
+
+### LOWER TRIANGULAR MATRIX
+A = matrix(x,nrow=3,ncol=3)
+A[upper.tri(A)] <- 0
+A
+
+
+
+```
+
+
+
+### Operaciones con matrices
+
+```{r}
+
+library("expm")
+library("matrixcalc")
+# Rules for Matrix Addition and Multiplication by Scalars
+A = matrix(c(1:12),nrow=3,ncol=4)
+B = matrix(c(2:13),nrow=3,ncol=4)
+C = matrix(c(3:14),nrow=3,ncol=4)
+
+all.equal((A+B)+C,A+(B+C))
+all.equal(A+B,B+A)
+all.equal(A+0,A)
+all.equal((2+3)*A,(2*A+3*A))
+all.equal(2*(A+B),2*A+2*B)
+
+# Rules for Matrix Multiplication
+A = matrix(c(1:9),nrow=3,ncol=3)
+B = matrix(c(2:10),nrow=3,ncol=3)
+C = matrix(c(3:11),nrow=3,ncol=3)
+all.equal((A%*%B)%*%C,A%*%(B%*%C))
+all.equal(A%*%(B+C),A%*%B+A%*%C)
+all.equal((A+B)%*%C,A%*%C+B%*%C)
+all.equal((2*A)%*%B,2*(A%*%B))
+A%*%(B+C)==(B+C)%*%A
+A%*%A+A%*%B+B%*%A+B%*%B==A%*%A+2*A%*%B+B%*%B
+
+
+
+
+
+
+```
+
+```{r}
+
+library(base)
+### POWERS OF MATRICES
+A = matrix(c(1,0,-1,1),2,2)
+A^2 # square each value
+A%^%2 # square the whole matrix
+A = matrix(c(0.9,0.1,0.2,0.8),2,2)
+A%^%100 # stable transition matrix
+
+
+### TRACE OF A MATRIX
+x = c(1:9)
+A = matrix(x, ncol=3, nrow=3)
+B = matrix(x, ncol=3, nrow=3, byrow=TRUE)
+
+
+
+### KRONECKER PRODUCT
+x = c(1:4)
+y = c(3:6)
+A = matrix(x, ncol=2, nrow=2)
+B = matrix(y, ncol=2, nrow=2)
+C = matrix(x, ncol=2, nrow=2, byrow=TRUE)
+D = matrix(y, ncol=2, nrow=2, byrow=TRUE)
+
+# PROPERTIES
+all.equal(t(kronecker(A,B)),kronecker(t(A),t(B)))
+all.equal(kronecker(A,(B+C)),(kronecker(A,B)+kronecker(A,C)))
+all.equal(kronecker(A,B)%*%kronecker(C,D),kronecker(A%*%C,B%*%D))
+
+
+
+### VECTORIZATION
+A = matrix(c(1:9), ncol=3, nrow=3)
+B = matrix(c(2:10), ncol=3, nrow=3)
+C = matrix(c(1:9), ncol=3, nrow=3, byrow=TRUE)
+D = matrix(c(t(A)),ncol=1) # vectorization
+
+# PROPERTIES
+all.equal(c(t(A)+t(B)),c(t(A)+t(B)))
+all.equal(c(t(A%*%B%*%C)),c((kronecker(t(C),A))%*%c(t(B))))
+all.equal(c(A%*%B),c(kronecker(diag(nrow(A)),A)%*%c(B)))
+all.equal(c(A%*%B),c(kronecker(t(B),diag(nrow(B)))%*%c(A)))
+
+
+### SOLVE A LINEAR SYSTEM
+b = c(-7,2,-10); b
+A = matrix(c(0,2,-1, 1,1,3, -3,2,2), ncol=3, nrow=3, byrow=TRUE); A
+solve(A,b)
+
+
+### RANK OF A MATRIX
+A = matrix(c(0,2,-1, 1,1,3, -3,2,2), ncol=3, nrow=3, byrow=TRUE); A
+qr(A)$rank
+A = matrix(c(1,2,3,2,4,6,9,3,1), ncol=3, nrow=3, byrow=TRUE); A
+qr(A)$rank # second column is twice the first
+
+
+### DETERMINANT
+A = matrix(c(0,2,-1, 1,1,3, -3,2,2), ncol=3, nrow=3, byrow=TRUE)
+B = matrix(c(0,2,-1, -3,2,2, 1,1,3), ncol=3, nrow=3, byrow=TRUE)
+
+# PROPERTIES
+all.equal(det(A),det(t(A)))
+all.equal(det(A),-det(B))
+all.equal(det(A%*%B), det(A)*det(B))
+all.equal(det(3*A),3^(nrow(A))*det(A))
+
+
+### INVERSE MATRIX
+A = matrix(c(1,2,3,2,4,6,9,3,1), ncol=3, nrow=3, byrow=TRUE)
+qr(A)$rank # second column is twice the first
+det(A) # If the determinant is equal to zero matrix A is not of full rank
+
+# PROPERTIES OF THE INVERSE
+A = matrix(c(0,2,-1, 1,1,3, -3,2,2), ncol=3, nrow=3, byrow=TRUE)
+B = matrix(c(0,2,-1, -3,2,2, 1,1,3), ncol=3, nrow=3, byrow=TRUE)
+all.equal(solve(solve(A)),A)
+all.equal(solve(A%*%B),solve(B)%*%solve(A))
+all.equal(solve(t(A)),t(solve(A)))
+all.equal(solve(2*A),2^(-1)*solve(A))
+
+A = diag(c(1,2,3))
+all.equal(solve(A), diag(1/diag(A)))
+
+
+### DEFINITENESS OF A MATRIX
+set.seed(1)
+A = matrix(rnorm(300,0,1),ncol=3)
+A = var(A) # variance-covariance matrix is symmetrix
+is.positive.definite(A)
+is.positive.definite(-A)
+is.negative.definite(-A)
+
+
+### IDEMPOTENT MATRIX
+A = matrix(c(2/3,1/3,2/3,1/3),2,2); A
+A%*%A
+diag(2)-A
+(diag(2)-A)%*%(diag(2)-A)
+
+
+### ORTHORGONAL MATRIX
+A = matrix(c(1,0,0,-1),2,2); A
+A%*%A
+solve(A)
+
+
+```
+
+
+
+
+
+### Descopomosición
+
+```{r}
+
+
+### EIGENVALUE DECOMPOSITION
+set.seed(1)
+A = matrix(rnorm(300,0,1),ncol=3)
+A = var(A) # variance-covariance matrix is symmetrix
+E = eigen(A)
+E$values  # eigenvalues
+E$vectors # eigenvectors
+
+# PROPERTIES
+all.equal(t(E$vectors)%*%E$vectors,diag(3))
+all.equal(E$vectors%*%t(E$vectors),diag(3))
+all.equal(solve(E$vectors),t(E$vectors))
+all.equal(sum(E$values),tr(A))
+all.equal(prod(E$values),det(A))
+all.equal(A,E$vectors%*%diag(E$values)%*%t(E$vectors))
+Ainv = E$vectors%*%diag(1/E$values)%*%t(E$vectors)
+all.equal(Ainv,solve(A))
+Asquare = E$vectors%*%diag(sqrt(E$values))%*%t(E$vectors)
+all.equal(Asquare%*%Asquare,A)
+
+
+### SINGLE VALUE DECOMPOSITION
+x = c(1,1/2,1/3,1/4,1/2,1/3,1/4,1/5,1/3,1/4,1/5,1/6)
+A = matrix(x,ncol=3,nrow=4)
+svd = svd(A)
+sigma = diag(svd$d)
+U = svd$u
+V = svd$v
+all.equal(U%*%sigma%*%t(V),A)
+
+# EXAMPLE
+set.seed(1)
+A = matrix(rnorm(300,0,1),ncol=3)
+A = var(A) # variance-covariance matrix is symmetrix
+svd = svd(A)
+sigma = diag(svd$d)
+U = svd$u
+V = svd$v
+all.equal(U,V)
+
+E = eigen(A)
+all.equal(E$vectors,-svd$u)
+all.equal(E$values,svd$d)
+# single value decomposition is a generalization of the eigenvalue decomposition
+
+
+### QR DECOMPOSITION
+b = c(-7,2,-10)
+A = matrix(c(0,2,-1, 1,1,3, -3,2,2), ncol=3, nrow=3, byrow=TRUE)
+QR = qr(A)
+Q = qr.Q(QR); Q # Q is a orthorgonal matrix
+R = qr.R(QR); R # R is an upper triangular matrix
+c(solve(t(R)%*%R)%*%t(R)%*%t(Q)%*%b)
+qr.solve(A,b)
+
+
+### CHOLESKY DECOMPOSITION
+set.seed(1)
+A = matrix(rnorm(300,0,1),ncol=3)
+A = var(A) # variance-covariance matrix is symmetrix
+U = chol(A); 
+U
+all.equal(t(U)%*%U,A)
+```
+
