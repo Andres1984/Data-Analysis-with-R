@@ -39,7 +39,7 @@ Al hacer una gráfica con el sistema de gráficos base, la gráfica se construye
 ```{r A,fig.cap="Primer Gráfico", fig.width = 8, fig.height = 8,echo=FALSE, message=FALSE,warning=FALSE}
 
 A = c(6,4,3,1)
-name = c("0<50k","50k<100k","100k<150k","150k<200k")
+name = c("0<50","50k<100k","100k<150k","150k<200k")
 df = data.frame(A,name)
 colnames(df)=c("x","name")
 g1 = ggplot(df) + geom_col(aes(x=name,y=x)) + labs(x="Numbers of Copies Sold",y="Number of Books",title="Independent Textbook Publishing, Inc.",subtitle=" Distribution of Copies Sold",caption="",fill="")
@@ -132,6 +132,7 @@ data("economics")
 j = ggplot(economics, aes(x=date,y=unemploy))
 j + geom_area()
 j + geom_line()
+
 j + geom_step()
 
 ```
@@ -146,7 +147,7 @@ f = ggplot(mpg, aes(x=cty, y=hwy))
 f + geom_point()
 f + geom_point(position="jitter")
 f + geom_jitter()
-f + geom_point() + geom_quantile(quantiles=c(0.25,0.5,0.75))
+f + geom_point() + geom_quantile()
 ```
 
 
@@ -217,7 +218,7 @@ l + geom_map(aes(map_id=state),map=map) + expand_limits(x=map$long,y=map$lat)
 ```
 
 ```{r P,fig.cap="Sexto Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
-# devtools::install_github("nebulae-co/colmaps")
+ #devtools::install_github("nebulae-co/colmaps")
 library("colmaps")
 colmap(municipios) +
   ggtitle("Colombia - Fronteras Municipales")
