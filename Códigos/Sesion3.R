@@ -174,7 +174,7 @@ africa1=merge(africa,wheat, by.x="Date", by.y="Date",all=TRUE)
 ## Quantmod
 library(quantmod)
 symbols=c('AES','AXP','BXP','GLW')# Vector de caracteres
-getSymbols(symbols,src='yahoo',from="2017-01-01",to="2019-03-01")
+getSymbols(symbols,src='yahoo',from="2017-01-01",to="2019-07-01")
 
 dim(AES)
 class(AES)
