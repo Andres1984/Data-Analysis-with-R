@@ -25,7 +25,8 @@ library(maps)         # World Map
 library(countrycode)  # Gets country code 
 library(RCurl)# La dirección web
 library(readr)# La
-text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/2016.csv")
+library(ggplot2)
+  text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/2016.csv")
 
 H2016 <- read_csv(file=text)
 
@@ -67,7 +68,7 @@ p
 
 c <- H2016 %>%  ggplot(aes(Health, HScore, col=Region, label=Country))+
   geom_point(size=4, alpha=0.5)+
-  scale_color_brewer(palette = "Paired")+
+  scale_color_brewer(palette = 'red')+
   geom_abline(color="#d3d3d3")
 ggplotly(c)
 
@@ -77,7 +78,7 @@ ggplotly(c)
 ```{r}
 c <- H2016 %>% ggplot(aes(TrustG, HScore, col=Region, label=Country))+
   geom_point(size=4, alpha=0.5)+
-  scale_color_brewer(palette = "Paired")+
+  scale_color_brewer(palette = 12)+
   geom_abline(color="#d3d3d3")
 ggplotly(c)
 ```
@@ -263,7 +264,7 @@ p <- df %>%
     x = ~x,
     y = ~y,
     frame = ~f,
-    type = 'scatter',
+    type = 'heatmap',
     mode = 'markers',
     showlegend = F
   )
