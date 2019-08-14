@@ -1,0 +1,141 @@
+---
+title: "Universidad de La Salle"
+author: "Andres Martínez"
+date: "14 de Agosto de 2019"
+output:
+  html_document:
+    df_print: paged
+bibliography: Biblio.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message=FALSE)
+require("knitcitations")
+cleanbib()
+options("citation_format" = "pandoc")
+read.bibtex(file = "Biblio.bib")
+
+```
+
+# Capítulo 1 Modelos de Regresión Lineal
+
+La sesión desarrollada en este código se hace con ayuda del libro Introduccióna la econometría de @wooldridge2015introductory capítulos 2, 3 y 4. EL libro de @verbeek2008guide en los capítulos 2 y 3 también tienen información util para la clase.
+
+### Modelo simple.
+
+Un modelo de regresión lineal es aquel que tiene una variable dependiente con respecto a una variable independiente que tienen como objetivo explicar en que magnitud afectan a la variable dependiente.
+
+\begin{equation}
+y=\beta_{0}+\beta_{1}x_{1}
+\label{EQ:REG}
+\end{equation}
+
+En la ecuación \ref{EQ:REG} se define una regresión lineal simple.
+
+
+```{r , echo=FALSE}
+
+library(wooldridge)
+library(ggplot2)
+library(tidyverse)
+library(Hmisc)
+library(ggfortify)
+
+```
+
+### Regresión Simple
+
+
+
+Para el ejemplo de la regresión lineal simple se va a usar los datos de las  del ejemplo 2.7 del capítulo 2  que contiene diez variables y 180 observaciones.
+
+```{r}
+data("wage1") 
+
+dim(wage1)
+names(wage1)
+
+```
+
+Para el modelo se usará una base de datos más pequeña que tendra tres variables, donde dos pertencen a la base originial y la tercera se creará usando la educación sobre los salarios.EL objetivo es estimar el efecto del nivel educativo sobre el nivel de salarios.
+
+```{r, echo=FALSE}
+colnames(wage1)
+head(wage1)
+tail(wage1)
+
+```
+
+La regresión en R se obtiene con ayuda de la función $lm()$. 
+
+
+ 
+
+```{r fig1, fig.cap = "Regresi?n\\label{fig:plot}"}
+
+lm1 <- lm(wage1$wage~wage1$educ)
+summary(lm1)
+
+plot(wage1$wage~wage1$educ,xlab="Education",ylab="Wage",
+     main="Wage and Education",col="darkgrey",
+     las=1, xaxs="i")
+grid()
+abline(lm1,col=1)
+```
+
+
+En la figura \ref{fig:plot} se puede la regresión usando solo las graficas que usa el programa de R.
+
+```{r fig2, fig.cap = "Regresi?n\\label{fig:plot1}"}
+ggplot(wage1,aes(educ,wage))+stat_summary(fun.data=mean_cl_normal) +  geom_point(shape=1) +
+  geom_smooth(method='lm',formula=y~x)
+```
+
+En la figura \ref{fig:plot1} se puede la regresión usando solo las graficas que usa el programa de R.
+
+
+
+
+
+Resumen regresión
+```{r}
+summary(lm1)
+
+```
+
+
+
+```{r}
+wageslm <- summary(lm1) 
+wageslm$coefficients
+```
+
+
+
+
+* Grafico de objetos lm()
+
+```{r}
+par(mfrow = c(2, 2)) 
+plot(lm1)
+
+```
+
+
+Graficando con ggplot
+
+
+```{r}
+autoplot(lm1, label.size = 3)
+```
+
+
+
+
+
+
+
+
+
+
+# Referencias
