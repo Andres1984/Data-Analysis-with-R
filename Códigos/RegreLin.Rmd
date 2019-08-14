@@ -17,7 +17,7 @@ read.bibtex(file = "Biblio.bib")
 
 ```
 
-# Capítulo 1 Modelos de Regresión Lineal
+# Modelos de Regresión Lineal Simple
 
 La sesión desarrollada en este código se hace con ayuda del libro Introduccióna la econometría de @wooldridge2015introductory capítulos 2, 3 y 4. EL libro de @verbeek2008guide en los capítulos 2 y 3 también tienen información util para la clase.
 
@@ -131,6 +131,59 @@ autoplot(lm1, label.size = 3)
 
 
 
+
+## Inferencia sobre los estimadores $\widehat{\beta_{0}}$ y $\widehat{\beta_{1}}$
+
+Se desea probar si existe la posibilidad de que tanto  $\widehat{\beta_{0}}$ como $\widehat{\beta_{1}}$ no tenga incidencia sobre la variable dependiente $y$. 
+
+
+De esta manera se debe probar si $H_{o}:=\beta_{0}=0$ y  $H_{o}:=\beta_{1}=0$ o  $H_{1}:=\beta_{0}\neq 0$ y  $H_{1}:=\beta_{1}\neq0$. Se $\epsilon$ está distribuido normalmente, se dice que los estimadores son insesgados con sus respectivas varianzas. 
+
+\begin{equation}
+V(\widehat{\beta_{0}})=\frac{\sum x_{i}^{2}}{nS_{xx}}\sigma^2
+\label{EQ:VB0}
+\end{equation}
+
+\begin{equation}
+V(\widehat{\beta_{1}})=\frac{1}{S_{xx}}\sigma^2
+\label{EQ:VB1}
+\end{equation}
+
+Se puede ver que las varianzas son múltiplos constantes de  $\sigma^{2}$ donde se construye la prueba de hipótesis  $H_{o}:=\beta_{i}=0$ 
+
+\begin{equation}
+Z=\frac{\widehat{\beta_{0}}-\beta_{0}}{\sigma\sqrt{\frac{\sum x_{i}^{2}}{nS_{xx}}}}
+\label{EQ:ZB0}
+\end{equation}
+
+\begin{equation}
+Z=\frac{\widehat{\beta_{1}}-\beta_{1}}{\sigma\sqrt{\frac{1}{S_{xx}}}}
+\label{EQ:ZB1}
+\end{equation}
+
+
+Dado que $\sigma^{2}$ es desconocido y se debe estimar a través de $S^{2}$, entonces usamos el estadístico $t$
+
+\begin{equation}
+t=\frac{\widehat{\beta_{0}}-\beta_{0}}{S\sqrt{\frac{\sum x_{i}^{2}}{nS_{xx}}}}
+\label{EQ:tB0}
+\end{equation}
+
+\begin{equation}
+t=\frac{\widehat{\beta_{1}}-\beta_{1}}{S\sqrt{\frac{1}{S_{xx}}}}
+\label{EQ:tB1}
+\end{equation}
+
+Por lo tanto el intervalo de confianza es:
+
+
+\begin{equation}
+\widehat{\beta_{i}} \pm t_{alpha/2} S\sqrt{cii}
+\label{EQ:IB}
+\end{equation}
+
+
+Donde $cii=\frac{\sum x_{i}^{2}}{nS_{xx}}$ para $\beta_{0}$ y $\frac{1}{S_{xx}}$ para $\beta_{1}$.
 
 
 
