@@ -19,7 +19,8 @@ read.bibtex(file = "Biblio.bib")
 
 # Modelos de Regresión Lineal Simple
 
-La sesión desarrollada en este código se hace con ayuda del libro Introduccióna la econometría de @wooldridge2015introductory capítulos 2, 3 y 4. EL libro de @verbeek2008guide en los capítulos 2 y 3 también tienen información util para la clase.
+La sesión desarrollada en este código se hace con ayuda del libro Introduccióna la econometría de @wooldridge2015introductory capítulos 2, 
+nen informa ción util para la clase.
 
 ### Modelo simple.
 
