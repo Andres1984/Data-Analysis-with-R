@@ -1,5 +1,5 @@
 ---
-title: "Universidad de La Salle"
+title: "Regresión Lineal"
 author: "Andres Martínez"
 date: "14 de Agosto de 2019"
 output:
