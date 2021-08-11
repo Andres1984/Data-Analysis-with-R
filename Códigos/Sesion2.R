@@ -25,13 +25,9 @@ options(java.parameters = "-Xmx3000m")
 
  
 
-library(RCurl)# La dirección web
-library(readr)# La base de datos en cvs o txt
 
-text=getURL("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/SPlista.txt")
-
-#Archivo txt 
-SPlista <- read_csv(file=text)
+library(readr)
+SPlista <- read_csv("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/SPlista.txt")
 head(SPlista)
 unique(SPlista$Sector)
 
@@ -57,14 +53,14 @@ title("Sectores")
 
 detach(SPlista)
 
-#Archivo en excel
-library(readxl)
-library(httr)# Otra forma de encontrar direcciones 
+
 library(psych)
 library(dplyr)
-url1<-'https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/Matriculados_2017.xlsx'
-GET(url1, write_disk(tf <- tempfile(fileext = ".xlsx"))) 
-df <- read_excel(tf)
+library(readxl)
+url <- "https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/Matriculados_2017.xlsx"
+destfile <- "Matriculados_2017.xlsx"
+curl::curl_download(url, destfile)
+df <- read_excel(destfile)
 View(df)
 columnas=df[6,]
 
