@@ -262,6 +262,7 @@ KLAC,KLA-Tencor Corp.,Information Technology
 KSS,Kohl's Corp.,Consumer Discretionary
 KHC,Kraft Heinz Co,Consumer Staples
 KR,Kroger Co.,Consumer Staples
+KO, Coca Cola, Consumer Staples
 LB,L Brands Inc.,Consumer Discretionary
 LLL,L-3 Communications Holdings,Industrials
 LH,Laboratory Corp. of America Holding,Health Care
@@ -496,6 +497,7 @@ WYNN,Wynn Resorts Ltd,Consumer Discretionary
 XEL,Xcel Energy Inc,Utilities
 XRX,Xerox Corp.,Information Technology
 XLNX,Xilinx Inc,Information Technology
+TSLA,Tesla,Consumer Discretionary
 XL,XL Capital,Financials
 XYL,Xylem Inc.,Industrials
 YHOO,Yahoo Inc.,Information Technology
@@ -503,3 +505,8 @@ YUM,Yum! Brands Inc,Consumer Discretionary
 ZBH,Zimmer Biomet Holdings,Health Care
 ZION,Zions Bancorp,Financials
 ZTS,Zoetis,Health Care
+FB, Facebook, Information Technology
+GME, Game Spot, Consumer Discretionary
+MRNA, Moderna, Health Care
+SPOT, Spotify, Information Technology
+ZM, Zoom, Information Technology
