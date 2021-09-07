@@ -21,7 +21,7 @@ options(java.parameters = "-Xmx3000m")
 # Bases de datos variables categóricas
 # Bases de datos Numéricas
 
-
+library(tidyverse)
 
  
 set.seed(18032021)
