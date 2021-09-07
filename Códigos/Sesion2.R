@@ -21,9 +21,108 @@ options(java.parameters = "-Xmx3000m")
 # Bases de datos variables categóricas
 # Bases de datos Numéricas
 
-## Ubicando Dirección URL
+
 
  
+set.seed(18032021)
+
+id <- sample(1:15, 10, replace = FALSE)
+id <- sort(id)
+
+edad <- sample(18:22, 10, replace = TRUE)
+
+
+base1 <- tibble(id, edad)
+base1
+
+
+
+id <- sample(1:15, 10, replace = FALSE)
+id <- sort(id)
+
+
+genero <- sample(c("femenino", "masculino"), 10, replace = TRUE)
+
+
+base2 <- tibble(id, genero)
+base2
+
+## `intersect` me muestra la intersección entre las dos columnas, es decir las identificaciones que son comunes a las dos tablas:
+
+
+intersect(base1$id, base2$id)
+
+## `union` me muestra la union de las dos columnas, es decir todas las identificaciones que están en las tablas:
+
+
+union(base1$id, base2$id)
+
+##`setdiff` me indica cuáles elementos aparecen en el primer conjunto pero no en el segundo:
+
+
+setdiff(base1$id, base2$id)
+
+
+
+setdiff(base2$id, base1$id)
+
+inner_join(base1, base2, by = "id")
+
+
+## `left_join` mantiene las observaciones de la base de la izquierda. La base de la izquierda es la primera que se incluye dentro de la función. Si no hay información para estas variables en la base de la derecha (la segunda que se incluye dentro de la función), dejan los valores como valores faltantes:
+
+
+left_join(base1, base2, by = "id")
+
+
+##`right_join` mantiene las observaciones de la base de la derecha. Si no hay información para estas variables en la base de la izquierda , dejan los valores como valores faltantes:
+
+
+right_join(base1, base2, by = "id")
+
+
+##`full_join` une todas las observaciones y si en alguna de las bases no hay información para alguno de los registros los deja como valores faltantes:
+
+
+full_join(base1, base2, by = "id")
+
+base_resultante <- full_join(base1, base2, by = "id")
+
+base_resultante <- base_resultante %>% arrange(edad, id)
+base_resultante
+
+cod_colegio <- c("A", "B", "C")
+no_profesores <- sample(10:100, 3)
+naturaleza <- sample(c("Público", "Privado"), 3, replace = TRUE)
+
+info_colegios <- tibble(cod_colegio, no_profesores, naturaleza)
+info_colegios
+
+
+
+id <- sample(1:15, 10, replace = FALSE)
+id <- sort(id)
+internet <- sample(c("Sí", "No"), 10, replace = TRUE)
+educ_madre <- sample(c("No bachiller", "Bachiller", "Universitario"), 10, replace = TRUE)
+colegio <- sample(c("A", "B", "C"), 10, replace = TRUE)
+estudiantes <- tibble(id, internet, educ_madre, colegio)
+estudiantes
+
+
+full_join(estudiantes, info_colegios, by = c("colegio"="cod_colegio"))
+
+
+
+left_join(estudiantes, info_colegios, by = c("colegio"="cod_colegio"))
+
+
+right_join(estudiantes, info_colegios, by = c("colegio"="cod_colegio"))
+
+
+
+
+
+
 
 
 library(readr)
