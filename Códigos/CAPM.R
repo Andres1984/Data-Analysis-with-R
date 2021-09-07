@@ -6,7 +6,7 @@ simbols=c("^GSPC","MSFT","AMZN","GOOG","AAPL")
 getSymbols(simbols,src = "yahoo",from=date.start,to=date.end)
 getSymbols("DGS1MO", src="FRED")
 plot(DGS1MO)
-TBILL=DGS1MO["2018::2020-09"]
+TBILL=DGS1MO["2018::2021-09"]
 plot(TBILL)
 
 head(TBILL) ; tail(TBILL)
