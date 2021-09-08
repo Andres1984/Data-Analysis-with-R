@@ -217,11 +217,4 @@ l + geom_map(aes(map_id=state),map=map) + expand_limits(x=map$long,y=map$lat)
 
 ```
 
-```{r P,fig.cap="Sexto Gráfico", fig.width = 5, fig.height = 5,echo=FALSE, message=FALSE,warning=FALSE}
- #devtools::install_github("nebulae-co/colmaps")
-library("colmaps")
-colmap(municipios) +
-  ggtitle("Colombia - Fronteras Municipales")
-
-```
 
