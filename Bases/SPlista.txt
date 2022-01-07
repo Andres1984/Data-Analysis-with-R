@@ -510,3 +510,128 @@ GME, Game Spot, Consumer Discretionary
 MRNA, Moderna, Health Care
 SPOT, Spotify, Information Technology
 ZM, Zoom, Information Technology
+VMRXX,Money Market
+VMFXX,Money Market
+VUSXX,Money Market
+VCTXX,Money Market
+VMSXX,Money Market
+VYFXX,Money Market
+VFIIX,Bond - Inter-term Government
+VIPSX,Bond - Inter-term Government
+VBILX,Bond - Inter-term Investment
+VFITX,Bond - Inter-term Government
+VSIGX,Bond - Inter-term Government
+VBLAX,Bond - Long-term Investment
+VUSTX,Bond - Long-term Government
+VLGSX,Bond - Long-term Government
+VMBSX,Bond - Inter-term Government
+VBIRX,Bond - Short-term Investment
+VSGBX,Bond - Short-term Government
+VTAPX,Bond - Short-term Government
+VFISX,Bond - Short-term Government
+VSBSX,Bond - Short-term Government
+VBTLX,Bond - Inter-term Investment
+VCORX,Bond - Inter-term Investment
+VCPIX,Bond - Inter-term Investment
+VICSX,Bond - Inter-term Investment
+VFICX,Bond - Inter-term Investment
+VLTCX,Bond - Long-term Investment
+VWESX,Bond - Long-term Investment
+VSCSX,Bond - Short-term Investment
+VFSTX,Bond - Short-term Investment
+VUBFX,Bond - Short-term Investment
+VWEHX,Bond - Inter-term Low Quality
+VCAIX,Bond - Inter-term State Muni
+VCITX,Bond - Long-term State Muni
+VWAHX,Bond - Long-term National Muni
+VWITX,Bond - Inter-term National Muni
+VMLTX,Bond - Short-term National Muni
+VWLTX,Bond - Long-term National Muni
+VMATX,Bond - Long-term State Muni
+VNJTX,Bond - Long-term State Muni
+VNYTX,Bond - Long-term State Muni
+VOHIX,Bond - Long-term State Muni
+VPAIX,Bond - Long-term State Muni
+VWSTX,Bond - Short-term National Muni
+VTEAX,Bond - Inter-term National Muni
+VTXVX,Balanced
+VTWNX,Balanced
+VTTVX,Balanced
+VTHRX,Balanced
+VTTHX,Balanced
+VFORX,Balanced
+VTIVX,Balanced
+VFIFX,Balanced
+VFFVX,Balanced
+VTTSX,Balanced
+VLXVX,Balanced
+VTINX,Balanced
+VSCGX,Balanced
+VASGX,Balanced
+VASIX,Balanced
+VSMGX,Balanced
+VBIAX,Balanced
+VPGDX,Balanced
+VGSTX,Balanced
+VTMFX,Balanced
+VWINX,Balanced
+VWELX,Balanced
+VGWIX,Balanced
+VGWLX,Balanced
+VFIAX,Stock - Large-Cap Blend
+VDEQX,Stock - Large-Cap Blend
+VDADX,Stock - Large-Cap Blend
+VDIGX,Stock - Large-Cap Blend
+VEIPX,Stock - Large-Cap Value
+VFTAX,Stock - Large-Cap Growth
+VQNPX,Stock - Large-Cap Blend
+VIGAX,Stock - Large-Cap Growth
+VHYAX,Stock - Large-Cap Value
+VLCAX,Stock - Large-Cap Blend
+VTCLX,Stock - Large-Cap Blend
+VTSAX,Stock - Large-Cap Blend
+VWUSX,Stock - Large-Cap Growth
+VVIAX,Stock - Large-Cap Value
+VWNDX,Stock - Large-Cap Value
+VWNFX,Stock - Large-Cap Value
+VEXAX,Stock - Mid-Cap Blend
+VMGRX,Stock - Mid-Cap Growth
+VMGMX,Stock - Mid-Cap Growth
+VIMAX,Stock - Mid-Cap Blend
+VMVAX,Stock - Mid-Cap Value
+VASVX,Stock - Mid-Cap Value
+VSEQX,Stock - Mid-Cap Blend
+VEXPX,Stock - Small-Cap Growth
+VEVFX,Stock - Small-Cap Value
+VSGAX,Stock - Small-Cap Growth
+VSMAX,Stock - Small-Cap Blend
+VSIAX,Stock - Small-Cap Value
+VSTCX,Stock - Small-Cap Blend
+VTMSX,Stock - Small-Cap Blend
+VGCIX,International
+VTABX,International
+VEMBX,International
+VGAVX,International
+VGPMX,International
+VHGEX,International
+VEIGX,International
+VTWAX,International
+VTMGX,International
+VEUSX,International
+VFWAX,International
+VFSAX,International
+VGRLX,International
+VWICX,International
+VIAAX,International
+VINEX,International
+VWIGX,International
+VIHAX,International
+VTRIX,International
+VPADX,International
+VTIAX,International
+VMMSX,International
+VEMAX,International
+VMVFX,International
+VGENX,Stock - Sector
+VGHCX,Stock - Sector
+VGSLX,Stock - Sector
