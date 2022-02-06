@@ -635,3 +635,204 @@ VMVFX,International
 VGENX,Stock - Sector
 VGHCX,Stock - Sector
 VGSLX,Stock - Sector
+Symbol	Name
+BTC-USD,	Bitcoin USD
+ETH-USD,	Ethereum USD
+USDT-USD,	Tether USD
+BNB-USD,	Binance Coin USD
+USDC-USD,	USD Coin USD
+ADA-USD,	Cardano USD
+HEX-USD,	HEX USD
+SOL-USD,	Solana USD
+XRP-USD,	XRP USD
+LUNA1-USD,	Terra USD
+DOT-USD,	Polkadot USD
+DOGE-USD,	Dogecoin USD
+AVAX-USD,	Avalanche USD
+SHIB-USD,	SHIBA INU USD
+MATIC-USD,	Polygon USD
+CRO-USD,	Crypto.com Coin USD
+DAI-USD,	Dai USD
+ATOM-USD,	Cosmos USD
+LTC-USD,	Litecoin USD
+LINK-USD,	Chainlink USD
+UNI1-USD,	Uniswap USD
+TRX-USD,	TRON USD
+ALGO-USD,	Algorand USD
+FTT-USD,	FTX Token USD
+BCH-USD,	Bitcoin Cash USD
+MANA-USD,	Decentraland USD
+XLM-USD,	Stellar USD
+FTM-USD,	Fantom USD
+ICP-USD,	Internet Computer USD
+HBAR-USD,	Hedera USD
+SAND-USD,	The Sandbox USD
+AXS-USD,	Axie Infinity USD
+ETC-USD,	Ethereum Classic USD
+VET-USD,	VeChain USD
+FIL-USD,	Filecoin USD
+THETA-USD,	THETA USD
+EGLD-USD,	Elrond USD
+XTZ-USD,	Tezos USD
+HNT-USD,	Helium USD
+XMR-USD,	Monero USD
+MIOTA-USD,	IOTA USD
+ONE1-USD,	Harmony USD
+EOS-USD,	EOS USD
+AAVE-USD,	Aave USD
+FLOW-USD,	Flow USD
+BTT-USD,	BitTorrent USD
+MKR-USD,	Maker USD
+GRT1-USD,	The Graph USD
+CAKE-USD,	PancakeSwap USD
+STX-USD,	Stacks USD
+BSV-USD,	Bitcoin SV USD
+ENJ-USD,	Enjin Coin USD
+ZEC-USD,	Zcash USD
+KSM-USD,	Kusama USD
+QNT-USD,	Quant USD
+RUNE-USD,	THORChain USD
+NEO-USD,	Neo USD
+TUSD-USD,	TrueUSD USD
+CRV-USD,	Curve DAO Token USD
+LRC-USD,	Loopring USD
+BAT-USD,Basic Attention Token USD
+CELO-USD,	Celo USD
+AMP-USD,	Amp USD
+CHZ-USD,	Chiliz USD
+AR-USD,	Arweave USD
+ROSE-USD,	Oasis Network USD
+OMI-USD,	ECOMI USD
+TFUEL-USD,	Theta Fuel USD
+WAVES-USD,	Waves USD
+DASH-USD,	Dash USD
+KDA-USD,	Kadena USD
+CCXX-USD,	Counos X USD
+XEM-USD,	NEM USD
+DFI-USD,	DeFiChain USD
+DCR-USD,	Decred USD
+COMP1-USD,	Compound USD
+YFI-USD,	yearn.finance USD
+HOT1-USD,	Holo USD
+1INCH-USD,	1inch Network USD
+IOTX-USD,	IoTeX USD
+RVN-USD,	Ravencoin USD
+XDC-USD,	XDC Network USD
+WAXP-USD,	WAX USD
+OMG-USD,	OMG Network USD
+CEL-USD,	Celsius USD
+ANKR-USD,	Ankr USD
+QTUM-USD,	Qtum USD
+BNT-USD,	Bancor USD
+SNX-USD,	Synthetix USD
+ZIL-USD,	Zilliqa USD
+GNO-USD,	Gnosis USD
+VLX-USD,	Velas USD
+SUSHI-USD,	SushiSwap USD
+BTG-USD,	Bitcoin Gold USD
+ICX-USD,	ICON USD
+SC-USD,	Siacoin USD
+KAVA-USD,	Kava USD
+VGX-USD,	Voyager Token USD
+ZEN-USD,	Horizen USD
+ZRX-USD,	0x USD
+SYS-USD,	Syscoin USD
+IOST-USD,	IOST USD
+STORJ-USD,	Storj USD
+ONT-USD,	Ontology USD
+CKB-USD,	Nervos Network USD
+HIVE-USD,	Hive USD
+UMA-USD,	UMA USD
+XWC-USD,	WhiteCoin USD
+SKL-USD,	SKALE Network USD
+FLUX-USD,	Flux USD
+GLM-USD,	Golem USD
+NU-USD,	NuCypher USD
+CELR-USD,	Celer Network USD
+DGB-USD,	DigiByte USD
+SRM-USD,	Serum USD
+C98-USD,	Coin98 USD
+WIN-USD,	WINkLink USD
+RAY-USD,	Raydium USD
+ANT-USD,	Aragon USD
+XNO-USD,	Nano USD
+SXP-USD,	Swipe USD
+COTI-USD,	COTI USD
+SAPP-USD,	Sapphire USD
+CTSI-USD,	Cartesi USD
+RSR-USD,	Reserve Rights USD
+FET-USD,	Fetch.ai USD
+MED-USD,	MediBloc USD
+XCH-USD,	Chia Network USD
+LSK-USD	,Lisk USD
+DAG-USD,	Constellation USD
+DIVI-USD,	Divi USD
+ARDR-USD,	Ardor USD
+CVC-USD,	Civic USD
+MAID-USD,	MaidSafeCoin USD
+TWT-USD,	Trust Wallet Token USD
+SNT-USD,	Status USD
+XVG-USD,	Verge USD
+VERI-USD,	Veritaseum USD
+EWT-USD,	Energy Web Token USD
+OXT-USD,	Orchid USD
+NKN-USD,	NKN USD
+BCD-USD,	Bitcoin Diamond USD
+RLC-USD,	iExec RLC USD
+VTHO-USD,	VeThor Token USD
+STMX-USD,	StormX USD
+REP-USD,	Augur USD
+NMR-USD,	Numeraire USD
+STRAX-USD,	Stratis USD
+ARRR-USD,	Pirate Chain USD
+ACH-USD	,Alchemy Pay USD
+ETN-USD,	Electroneum USD
+STEEM-USD,	Steem USD
+ARK-USD,	Ark USD
+META-USD,	Metadium USD
+BAND-USD,	Band Protocol USD
+DERO-USD,	Dero USD
+GXC-USD,	GXChain USD
+ABBC-USD,	ABBC Coin USD
+ERG-USD,	Ergo USD
+FUN-USD,	FUNToken USD
+TOMO-USD,	TomoChain USD
+MTL-USD,	Metal USD
+MLN-USD,	Enzyme USD
+VRA-USD,	Verasity USD
+XNC-USD,	XeniosCoin USD
+HNS-USD,Handshake USD
+RBTC-USD,	RSK Smart Bitcoin USD
+BAL-USD,	Balancer USD
+MIR1-USD,	Mirror Protocol USD
+CLV-USD,	Clover Finance USD
+ELA-USD,	Elastos USD
+IRIS-USD,	IRISnet USD
+KIN-USD,	Kin USD
+WAN-USD,	Wanchain USD
+REV-USD,	RChain USD
+CUDOS-USD,	CUDOS USD
+BTS-USD,	BitShares USD
+TT-USD,	Thunder Token USD
+MWC-USD,	MimbleWimbleCoin USD
+ZNN-USD,	Zenon USD
+PHA-USD,	Phala Network USD
+MONA-USD,	MonaCoin USD
+KMD-USD,	Komodo USD
+ADX-USD,	Ambire AdEx USD
+AVA-USD,	Travala.com USD
+DMCH-USD,	Darma Cash USD
+CTXC-USD,	Cortex USD
+ATRI-USD,	Atari Token USD
+MARO-USD,	Maro USD
+AXEL-USD,	AXEL USD
+NYE-USD,	NewYork Exchange USD
+XHV-USD,	Haven Protocol USD
+GAS-USD,	Gas USD
+NRG-USD,	Energi USD
+DNT-USD,	district0x USD
+GRS-USD,	Groestlcoin USD
+FIRO-USD,	Firo USD
+FIO-USD,	FIO Protocol USD
+FSN-USD,	Fusion USD
+SBD-USD,	Steem Dollars USD
