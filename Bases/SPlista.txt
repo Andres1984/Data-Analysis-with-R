@@ -8,7 +8,6 @@ AYI,Acuity Brands Inc,Industrials
 ADBE,Adobe Systems Inc,Information Technology
 AAP,Advance Auto Parts,Consumer Discretionary
 AES,AES Corp,Utilities
-AET,Aetna Inc,Health Care
 AMG,Affiliated Managers Group Inc,Financials
 AFL,AFLAC Inc,Financials
 A,Agilent Technologies Inc,Health Care
@@ -17,9 +16,7 @@ AKAM,Akamai Technologies Inc,Information Technology
 ALK,Alaska Air Group Inc,Industrials
 ALB,Albemarle Corp,Materials
 AA,Alcoa Inc,Materials
-ALXN,Alexion Pharmaceuticals,Health Care
 ALLE,Allegion,Industrials
-AGN,Allergan plc,Health Care
 ADS,Alliance Data Systems,Information Technology
 LNT,Alliant Energy Corp,Utilities
 ALL,Allstate Corp,Financials
@@ -39,7 +36,6 @@ ABC,AmerisourceBergen Corp,Health Care
 AME,Ametek,Industrials
 AMGN,Amgen Inc,Health Care
 APH,Amphenol Corp A,Industrials
-APC,Anadarko Petroleum Corp,Energy
 ADI,"Analog Devices, Inc.",Information Technology
 ANTM,Anthem Inc.,Health Care
 AON,Aon plc,Financials
@@ -61,9 +57,7 @@ AVY,Avery Dennison Corp,Materials
 BHI,Baker Hughes Inc,Energy
 BLL,Ball Corp,Materials
 BAC,Bank of America Corp,Financials
-BCR,Bard (C.R.) Inc.,Health Care
 BAX,Baxter International Inc.,Health Care
-BBT,BB&T Corporation,Financials
 BDX,Becton Dickinson,Health Care
 BBBY,Bed Bath & Beyond,Consumer Discretionary
 BRK-B,Berkshire Hathaway,Financials
@@ -78,20 +72,14 @@ BSX,Boston Scientific,Health Care
 BMY,Bristol-Myers Squibb,Health Care
 BF-B,Brown-Forman Corporation,Consumer Staples
 CHRW,C. H. Robinson Worldwide,Industrials
-CA,"CA, Inc.",Information Technology
-COG,Cabot Oil & Gas,Energy
 CPB,Campbell Soup,Consumer Staples
 COF,Capital One Financial,Financials
 CAH,Cardinal Health Inc.,Health Care
 KMX,Carmax Inc,Consumer Discretionary
 CCL,Carnival Corp.,Consumer Discretionary
 CAT,Caterpillar Inc.,Industrials
-CBG,CBRE Group,Financials
-CBS,CBS Corp.,Consumer Discretionary
-CELG,Celgene Corp.,Health Care
 CNC,Centene Corporation,Health Care
 CNP,CenterPoint Energy,Utilities
-CTL,CenturyLink Inc,Telecommunications Services
 CERN,Cerner,Health Care
 CF,CF Industries Holdings Inc,Materials
 SCHW,Charles Schwab Corporation,Financials
@@ -101,7 +89,6 @@ CMG,Chipotle Mexican Grill,Consumer Discretionary
 CB,Chubb Limited,Financials
 CHD,Church & Dwight,Consumer Staples
 CI,CIGNA Corp.,Health Care
-XEC,Cimarex Energy,Energy
 CINF,Cincinnati Financial,Financials
 CTAS,Cintas Corporation,Industrials
 CSCO,Cisco Systems,Information Technology
@@ -110,20 +97,17 @@ CFG,Citizens Financial Group,Financials
 CTXS,Citrix Systems,Information Technology
 CME,CME Group Inc.,Financials
 CMS,CMS Energy,Utilities
-COH,Coach Inc.,Consumer Discretionary
 CTSH,Cognizant Technology Solutions,Information Technology
 CL,Colgate-Palmolive,Consumer Staples
 CMCSA,Comcast A Corp,Consumer Discretionary
 CMA,Comerica Inc.,Financials
 CAG,ConAgra Foods Inc.,Consumer Staples
-CXO,Concho Resources,Energy
 COP,ConocoPhillips,Energy
 ED,Consolidated Edison,Utilities
 STZ,Constellation Brands,Consumer Staples
 GLW,Corning Inc.,Industrials
 COST,Costco Co.,Consumer Staples
 CCI,Crown Castle International Corp.,Financials
-CSRA,CSRA Inc.,Information Technology
 CSX,CSX Corp.,Industrials
 CMI,Cummins Inc.,Industrials
 CVS,CVS Health,Consumer Staples
@@ -132,11 +116,9 @@ DHR,Danaher Corp.,Industrials
 DRI,Darden Restaurants,Consumer Discretionary
 DVA,DaVita Inc.,Health Care
 DE,Deere & Co.,Industrials
-DLPH,Delphi Automotive,Consumer Discretionary
 DAL,Delta Air Lines,Industrials
 XRAY,Dentsply Sirona,Health Care
 DVN,Devon Energy Corp.,Energy
-DO,Diamond Offshore Drilling,Energy
 DLR,Digital Realty Trust,Financials
 DFS,Discover Financial Services,Financials
 DISCA,Discovery Communications-A,Consumer Discretionary
@@ -146,7 +128,6 @@ DLTR,Dollar Tree,Consumer Discretionary
 D,Dominion Resources,Utilities
 DOV,Dover Corp.,Industrials
 DOW,Dow Chemical,Materials
-DPS,Dr Pepper Snapple Group,Consumer Staples
 DTE,DTE Energy Co.,Utilities
 DD,Du Pont (E.I.),Materials
 DUK,Duke Energy,Utilities
