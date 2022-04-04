@@ -1,508 +1,509 @@
-MMM,	3M
-AOS,	A. O. Smith
-ABT,	Abbott
-ABBV,	AbbVie
-ABMD,	Abiomed
-ACN,	Accenture
-ATVI,	Activision Blizzard
-ADM,	ADM
-ADBE,	Adobe
-ADP,	ADP
-AAP,	Advance Auto Parts
-AES,	AES
-AFL,	Aflac
-A,	Agilent Technologies
-AIG,	AIG
-APD,	Air Products
-AKAM,	Akamai
-ALK,	Alaska Air Group
-ALB,	Albemarle
-ARE,	Alexandria
-ALGN,	Align
-ALLE,	Allegion
-LNT,	Alliant Energy
-ALL,	Allstate
-GOOGL,	Alphabet (Class A)
-GOOG,	Alphabet (Class C)
-MO,	Altria
-AMZN,	Amazon
-AMCR,	Amcor
-AMD,	AMD
-AEE,	Ameren
-AAL,	American Airlines Group
-AEP,	American Electric Power
-AXP,	American Express
-AMT,	American Tower
-AWK,	American Water
-AMP,	Ameriprise Financial
-ABC,	AmerisourceBergen
-AME,	Ametek
-AMGN,	Amgen
-APH,	Amphenol
-ADI,	Analog Devices
-ANSS,	Ansys
-ANTM,	Anthem
-AON,	Aon
-APA	,APA Corporation
-AAPL,	Apple
-AMAT,	Applied Materials
-APTV,	Aptiv
-ANET,	Arista
-AIZ,	Assurant
-T,	AT&T
-ATO,	Atmos Energy
-ADSK,	Autodesk
-AZO,	AutoZone
-AVB,	AvalonBay Communities
-AVY,	Avery Dennison
-BKR,	Baker Hughes
-BLL,	Ball
-BAC,	Bank of America
-BBWI,	Bath & Body Works
-BAX,	Baxter
-BDX,	Becton Dickinson
-WRB,	Berkley
-BRK.B,	Berkshire Hathaway
-BBY,	Best Buy
-BIO,	Bio-Rad
-TECH,	Bio-Techne
-BIIB,	Biogen
-BLK,	BlackRock
-BK,	BNY Mellon
-BA,	Boeing
-BKNG,	Booking Holdings
-BWA,	BorgWarner
-BXP,	Boston Properties
-BSX,	Boston Scientific
-BMY,	Bristol Myers Squibb
-AVGO,	Broadcom
-BR,	Broadridge
-BRO,	Brown & Brown
-BF.B,	Brown–Forman
-CHRW,	C.H. Robinson
-CDNS,	Cadence
-CZR,	Caesars Entertainment
-CPB,	Campbell's
-COF,	Capital One
-CAH,	Cardinal Health
-KMX,	CarMax
-CCL,	Carnival
-CARR,	Carrier
-CTLT,	Catalent
-CAT,	Caterpillar
-CBOE,	Cboe
-CBRE,	CBRE
-CDW,	CDW
-CE,	Celanese
-CNC,	Centene
-CNP,	CenterPoint Energy
-CDAY,	Ceridian
-CERN,	Cerner
-CF,	CF Industries
-CRL,	Charles River
-SCHW,	Charles Schwab
-CHTR,	Charter Communications
-CVX,	Chevron
-CMG	,Chipotle Mexican Grill
-CB,	Chubb
-CHD,	Church & Dwight
-CI,	Cigna
-CINF,	Cincinnati Financial
-CTAS,	Cintas
-CSCO,	Cisco
-C,	Citigroup
-CFG,	Citizens
-CTXS,	Citrix
-CLX,	Clorox
-CME,	CME Group
-CMS	,CMS Energy
-KO,	Coca-Cola
-CTSH,	Cognizant
-CL,	Colgate-Palmolive
-CMCSA,	Comcast
-CMA,	Comerica
-CAG,	Conagra Brands
-COP,	ConocoPhillips
-ED,	Con Edison
-STZ,	Constellation Brands
-CEG,	Constellation Energy
-COO	,CooperCompanies
-CPRT,	Copart
-GLW	,Corning
-CTVA,	Corteva
-COST,	Costco
-CTRA,	Coterra
-CCI,	Crown Castle
-CSX,	CSX
-CMI,	Cummins
-CVS,	CVS Health
-DHI,	D.R. Horton
-DHR,	Danaher
-DRI,	Darden
-DVA,	DaVita
-DE,	Deere & Co.
-DAL,	Delta Air Lines
-XRAY,	Dentsply Sirona
-DVN,	Devon
-DXCM,	DexCom
-FANG,	Diamondback
-DLR,	Digital Realty
-DFS,	Discover
-DISCA,	Discovery (Series A)
-DISCK,	Discovery (Series C)
-DISH,	Dish
-DIS,	Disney
-DG,	Dollar General
-DLTR,	Dollar Tree
-D,	Dominion Energy
-DPZ,	Domino's
-DOV,	Dover
-DOW,	Dow
-DTE,	DTE
-DUK,	Duke Energy
-DRE,	Duke Realty
-DD,	DuPont
-DXC,	DXC Technology
-EMN,	Eastman
-ETN,	Eaton
-EBAY,	eBay
-ECL,	Ecolab
-EIX,	Edison International
-EW,	Edwards Lifesciences
-EA,	Electronic Arts
-EMR,	Emerson
-ENPH,	Enphase
-ETR,	Entergy
-EOG,	EOG Resources
-EPAM,	EPAM
-EFX,	Equifax
-EQIX,	Equinix
-EQR,	Equity Residential
-ESS,	Essex
-EL,	Estée Lauder Companies
-ETSY,	Etsy
-RE,	Everest
-EVRG,	Evergy
-ES,	Eversource
-EXC,	Exelon
-EXPE,	Expedia Group
-EXPD,	Expeditors
-EXR,	Extra Space Storage
-XOM,	ExxonMobil
-FFIV,	F5
-FDS,	FactSet
-FAST,	Fastenal
-FRT,	Federal Realty
-FDX,	FedEx
-FITB,	Fifth Third Bank
-FRC,	First Republic
-FE,	FirstEnergy
-FIS,	FIS
-FISV,	Fiserv
-FLT,	Fleetcor
-FMC,	FMC
-F,	Ford
-FTNT,	Fortinet
-FTV,	Fortive
-FBHS,	Fortune Brands
-FOXA,	Fox Corporation(Class A)
-FOX,	Fox Corporation(Class B)
-BEN,	Franklin Templeton
-FCX,	Freeport-McMoRan
-AJG,	Gallagher
-GRMN,	Garmin
-IT,	Gartner
-GE,	GE
-GNRC,	Generac
-GD,	General Dynamics
-GIS,	General Mills
-GPC,	Genuine Parts
-GILD,	Gilead
-GL,	Globe Life
-GPN,	Global Payments
-GM,	GM
-GS,	Goldman Sachs
-GWW,	Grainger
-HAL,	Halliburton
-HIG,	Hartford (The)
-HAS,	Hasbro
-HCA,	HCA Healthcare
-PEAK,	Healthpeak
-HSIC,	Henry Schein
-HSY,	Hershey's
-HES,	Hess
-HPE,	Hewlett Packard Enterprise
-HLT,	Hilton
-HOLX,	Hologic
-HD,	Home Depot
-HON,	Honeywell
-HRL,	Hormel
-HST,	Host Hotels & Resorts
-HWM,	Howmet Aerospace
-HPQ,	HP
-HUM,	Humana
-HII,	Huntington Ingalls Industries
-HBAN,	Huntington National Bank
-IEX,	IDEX
-IDXX,	Idexx Laboratories
-ITW,	Illinois Tool Works
-ILMN,	Illumina
-INCY,	Incyte
-IR,	Ingersoll Rand
-INTC,	Intel
-ICE,	Intercontinental Exchange
-IBM,	IBM
-IP,	International Paper
-IPG,	Interpublic Group
-IFF,	International Flavors & Fragrances
-INTU,	Intuit
-ISRG,	Intuitive Surgical
-IVZ,	Invesco
-IPGP,	IPG Photonics
-IQV,	IQVIA
-IRM,	Iron Mountain
-JBHT,	J.B. Hunt
-JKHY,	Jack Henry & Associates
-J,	Jacobs
-JNJ,	Johnson & Johnson
-JCI,	Johnson Controls
-JPM,	JPMorgan Chase
-JNPR,	Juniper Networks
-K,	Kellogg's
-KEY,	KeyCorp
-KEYS,	Keysight
-KMB,	Kimberly-Clark
-KIM,	Kimco Realty
-KMI,	Kinder Morgan
-KLAC,	KLA
-KHC,	Kraft Heinz
-KR,	Kroger
-LHX,	L3Harris
-LH,	LabCorp
-LRCX,	Lam Research
-LW,	Lamb Weston
-LVS,	Las Vegas Sands
-LDOS,	Leidos
-LEN,	Lennar
-LLY,	Lilly
-LNC,	Lincoln Financial
-LIN	,Linde
-LYV,	Live Nation Entertainment
-LKQ,	LKQ Corporation
-LMT,	Lockheed Martin
-L,	Loews Corporation
-LOW,	Lowe's
-LUMN,	Lumen
-LYB,	LyondellBasell
-MTB,	M&T Bank
-MRO,	Marathon Oil
-MPC,	Marathon Petroleum
-MKTX,	MarketAxess
-MAR,	Marriott International
-MMC,	Marsh & McLennan
-MLM,	Martin Marietta
-MAS,	Masco
-MA,	Mastercard
-MTCH,	Match Group
-MKC,	McCormick
-MCD,	McDonald's
-MCK,	McKesson
-MDT,	Medtronic
-MRK,	Merck
-FB,	Meta
-MET,	MetLife
-MTD,	Mettler Toledo
-MGM,	MGM Resorts
-MCHP,	Microchip
-MU,	Micron
-MSFT,	Microsoft
-MAA,	Mid-America Apartments
-MRNA,	Moderna
-MHK,	Mohawk Industries
-MOH,	Molina Healthcare
-TAP,	Molson Coors
-MDLZ,	Mondelez International
-MPWR,	Monolithic Power Systems
-MNST,	Monster Beverage
-MCO,	Moody's
-MS,	Morgan Stanley
-MOS,	Mosaic
-MSI,	Motorola Solutions
-MSCI,	MSCI
-NDAQ,	Nasdaq
-NTAP,	NetApp
-NFLX,	Netflix
-NWL,	Newell Brands
-NEM,	Newmont
-NWSA,	News Corp (Class A)
-NWS,	News Corp (Class B)
-NEE,	NextEra Energy
-NLSN,	Nielsen
-NKE,	Nike
-NI,	NiSource
-NDSN,	Nordson
-NSC,	Norfolk Southern
-NTRS,	Northern Trust
-NOC,	Northrop Grumman
-NLOK,	NortonLifeLock
-NCLH,	Norwegian Cruise Line Holdings
-NRG,	NRG Energy
-NUE	,Nucor
-NVDA,	Nvidia
-NVR,	NVR
-NXPI,	NXP
-ORLY,	O'Reilly Automotive
-OXY,	Occidental Petroleum
-ODFL,	Old Dominion
-OMC,	Omnicom Group
-OKE,	Oneok
-ORCL,	Oracle
-OGN,	Organon
-OTIS,	Otis
-PCAR,	Paccar
-PKG,	Packaging Corporation of America
-PARA,	Paramount
-PH,	Parker
-PAYX,	Paychex
-PAYC,	Paycom
-PYPL,	PayPal
-PENN,	Penn National Gaming
-PNR,	Pentair
-PBCT,	People's United Financial
-PEP,	PepsiCo
-PKI,	PerkinElmer
-PFE,	Pfizer
-PM,	Philip Morris International
-PSX,	Phillips 66
-PNW,	Pinnacle West
-PXD,	Pioneer Natural Resources
-PNC,	PNC Financial Services
-POOL,	Pool Corporation
-PPG,	PPG Industries
-PPL,	PPL
-PFG,	Principal
-PG,	Procter & Gamble
-PGR,	Progressive
-PLD,	Prologis
-PRU,	Prudential
-PEG,	PSEG
-PTC,	PTC
-PSA,	Public Storage
-PHM,	PulteGroup
-PVH,	PVH
-QRVO,	Qorvo
-PWR,	Quanta
-QCOM,	Qualcomm
-DGX,	Quest Diagnostics
-RL,	Ralph Lauren
-RJF,	Raymond James
-RTX,	Raytheon Technologies
-O,	Realty Income
-REG,	Regency Centers
-REGN,	Regeneron
-RF,	Regions
-RSG,	Republic Services
-RMD,	ResMed
-RHI,	Robert Half
-ROK,	Rockwell Automation
-ROL,	Rollins
-ROP,	Roper
-ROST,	Ross
-RCL,	Royal Caribbean Group
-SPGI,	S&P Global
-CRM,	Salesforce
-SBAC,	SBA Communications
-SLB,	Schlumberger
-STX,	Seagate
-SEE,	Sealed Air
-SRE,	Sempra Energy
-NOW,	ServiceNow
-SHW,	Sherwin-Williams
-SBNY,	Signature Bank
-SPG,	Simon
-SWKS,	Skyworks
-SJM,	Smucker
-SNA,	Snap-on
-SEDG,	SolarEdge
-SO,	Southern Company
-LUV,	Southwest Airlines
-SWK,	Stanley Black & Decker
-SBUX,	Starbucks
-STT,	State Street
-STE,	Steris
-SYK,	Stryker
-SIVB,	SVB Financial
-SYF,	Synchrony
-SNPS,	Synopsys
-SYY,	Sysco
-TMUS,	T-Mobile
-TROW,	T. Rowe Price
-TTWO,	Take-Two Interactive
-TPR,	Tapestry
-TGT,	Target
-TEL,	TE Connectivity
-TDY,	Teledyne
-TFX,	Teleflex
-TER,	Teradyne
-TSLA,	Tesla
-TXN,	Texas Instruments
-TXT,	Textron
-TMO,	Thermo Fisher Scientific
-TJX,	TJX Companies
-TSCO,	Tractor Supply
-TT,	Trane Technologies
-TDG,	TransDigm
-TRV,	Travelers
-TRMB,	Trimble
-TFC,	Truist
-TWTR,	Twitter
-TYL,	Tyler Technologies
-TSN,	Tyson
-USB,	U.S. Bank
-UDR,	UDR
-ULTA,	Ulta Beauty
-UAA,	Under Armour(Class A)
-UA,	Under Armour(Class C)
-UNP,	Union Pacific
-UAL,	United Airlines
-UNH,	UnitedHealth Group
-UPS,	United Parcel Service
-URI,	United Rentals
-UHS,	Universal Health Services
-VLO,	Valero
-VTR,	Ventas
-VRSN,	Verisign
-VRSK,	Verisk
-VZ,	Verizon
-VRTX,	Vertex
-VFC,	VF Corporation
-VTRS,	Viatris
-V,	Visa
-VNO,	Vornado Realty Trust
-VMC,	Vulcan Materials
-WAB,	Wabtec
-WMT,	Walmart
-WBA,	Walgreens Boots Alliance
-WM,	Waste Management
-WAT,	Waters
-WEC,	WEC Energy Group
-WFC,	Wells Fargo
-WELL,	Welltower
-WST,	West Pharmaceutical Services
-WDC,	Western Digital
-WRK,	WestRock
-WY,	Weyerhaeuser
-WHR,	Whirlpool
-WMB,	Williams
-WTW,	Willis Towers Watson
-WYNN,	Wynn Resorts
-XEL,	Xcel Energy
-XYL,	Xylem
-YUM,	Yum! Brands
-ZBRA,	Zebra
-ZBH,	Zimmer Biomet
-ZION,	Zions Bancorp
-ZTS,	Zoetis
+Symbol,Sector
+A,Health Care
+AAL,Industrials
+AAP,Consumer Discretionary
+AAPL,Information Technology
+ABBV,Health Care
+ABC,Health Care
+ABMD,Health Care
+ABT,Health Care
+ACN,Information Technology
+ADBE,Information Technology
+ADI,Information Technology
+ADM,Consumer Staples
+ADP,Information Technology
+ADSK,Information Technology
+AEE,Utilities
+AEP,Utilities
+AES,Utilities
+AFL,Financials
+AIG,Financials
+AIZ,Financials
+AJG,Financials
+AKAM,Information Technology
+ALB,Materials
+ALGN,Health Care
+ALK,Industrials
+ALL,Financials
+ALLE,Industrials
+AMAT,Information Technology
+AMCR,Materials
+AMD,Information Technology
+AME,Industrials
+AMGN,Health Care
+AMP,Financials
+AMT,Real Estate
+AMZN,Consumer Discretionary
+ANET,Information Technology
+ANSS,Information Technology
+ANTM,Health Care
+AON,Financials
+AOS,Industrials
+APA,Energy
+APD,Materials
+APH,Information Technology
+APTV,Consumer Discretionary
+ARE,Real Estate
+ATO,Utilities
+ATVI,Communication Services
+AVB,Real Estate
+AVGO,Information Technology
+AVY,Materials
+AWK,Utilities
+AXP,Financials
+AZO,Consumer Discretionary
+BA,Industrials
+BAC,Financials
+BAX,Health Care
+BBWI,Consumer Discretionary
+BBY,Consumer Discretionary
+BDX,Health Care
+BEN,Financials
+BF.B,Consumer Staples
+BIIB,Health Care
+BIO,Health Care
+BK,Financials
+BKNG,Consumer Discretionary
+BKR,Energy
+BLK,Financials
+BLL,Materials
+BMY,Health Care
+BR,Information Technology
+BRK.B,Financials
+BRO,Financials
+BSX,Health Care
+BWA,Consumer Discretionary
+BXP,Real Estate
+C,Financials
+CAG,Consumer Staples
+CAH,Health Care
+CARR,Industrials
+CAT,Industrials
+CB,Financials
+CBOE,Financials
+CBRE,Real Estate
+CCI,Real Estate
+CCL,Consumer Discretionary
+CDAY,Information Technology
+CDNS,Information Technology
+CDW,Information Technology
+CE,Materials
+CEG,Utilities
+CERN,Health Care
+CF,Materials
+CFG,Financials
+CHD,Consumer Staples
+CHRW,Industrials
+CHTR,Communication Services
+CI,Health Care
+CINF,Financials
+CL,Consumer Staples
+CLX,Consumer Staples
+CMA,Financials
+CMCSA,Communication Services
+CME,Financials
+CMG,Consumer Discretionary
+CMI,Industrials
+CMS,Utilities
+CNC,Health Care
+CNP,Utilities
+COF,Financials
+COO,Health Care
+COP,Energy
+COST,Consumer Staples
+CPB,Consumer Staples
+CPRT,Industrials
+CRL,Health Care
+CRM,Information Technology
+CSCO,Information Technology
+CSX,Industrials
+CTAS,Industrials
+CTLT,Health Care
+CTRA,Energy
+CTSH,Information Technology
+CTVA,Materials
+CTXS,Information Technology
+CVS,Health Care
+CVX,Energy
+CZR,Consumer Discretionary
+D,Utilities
+DAL,Industrials
+DD,Materials
+DE,Industrials
+DFS,Financials
+DG,Consumer Discretionary
+DGX,Health Care
+DHI,Consumer Discretionary
+DHR,Health Care
+DIS,Communication Services
+DISCA,Communication Services
+DISCK,Communication Services
+DISH,Communication Services
+DLR,Real Estate
+DLTR,Consumer Discretionary
+DOV,Industrials
+DOW,Materials
+DPZ,Consumer Discretionary
+DRE;Real Estate
+DRI;Consumer Discretionary
+DTE;Utilities
+DUK;Utilities
+DVA;Health Care
+DVN;Energy
+DXC;Information Technology
+DXCM;Health Care
+EA;Communication Services
+EBAY;Consumer Discretionary
+ECL;Materials
+ED;Utilities
+EFX;Industrials
+EIX;Utilities
+EL;Consumer Staples
+EMN;Materials
+EMR;Industrials
+ENPH;Information Technology
+EOG;Energy
+EPAM;Information Technology
+EQIX;Real Estate
+EQR;Real Estate
+ES;Utilities
+ESS;Real Estate
+ETN;Industrials
+ETR;Utilities
+ETSY;Consumer Discretionary
+EVRG;Utilities
+EW;Health Care
+EXC;Utilities
+EXPD;Industrials
+EXPE;Consumer Discretionary
+EXR;Real Estate
+F;Consumer Discretionary
+FANG;Energy
+FAST;Industrials
+FB;Communication Services
+FBHS;Industrials
+FCX;Materials
+FDS;Financials
+FDX;Industrials
+FE;Utilities
+FFIV;Information Technology
+FIS;Information Technology
+FISV;Information Technology
+FITB;Financials
+FLT;Information Technology
+FMC;Materials
+FOX;Communication Services
+FOXA;Communication Services
+FRC;Financials
+FRT;Real Estate
+FTNT;Information Technology
+FTV;Industrials
+GD;Industrials
+GE;Industrials
+GILD;Health Care
+GIS;Consumer Staples
+GL;Financials
+GLW;Information Technology
+GM;Consumer Discretionary
+GNRC;Industrials
+GOOG;Communication Services
+GOOGL;Communication Services
+GPC;Consumer Discretionary
+GPN;Information Technology
+GRMN;Consumer Discretionary
+GS;Financials
+GWW;Industrials
+HAL;Energy
+HAS;Consumer Discretionary
+HBAN;Financials
+HCA;Health Care
+HD;Consumer Discretionary
+HES;Energy
+HIG;Financials
+HII;Industrials
+HLT;Consumer Discretionary
+HOLX;Health Care
+HON;Industrials
+HPE;Information Technology
+HPQ;Information Technology
+HRL;Consumer Staples
+HSIC;Health Care
+HST;Real Estate
+HSY;Consumer Staples
+HUM;Health Care
+HWM;Industrials
+IBM;Information Technology
+ICE;Financials
+IDXX;Health Care
+IEX;Industrials
+IFF;Materials
+ILMN;Health Care
+INCY;Health Care
+INTC;Information Technology
+INTU;Information Technology
+IP;Materials
+IPG;Communication Services
+IPGP;Information Technology
+IQV;Health Care
+IR;Industrials
+IRM;Real Estate
+ISRG;Health Care
+IT;Information Technology
+ITW;Industrials
+IVZ;Financials
+J;Industrials
+JBHT;Industrials
+JCI;Industrials
+JKHY;Information Technology
+JNJ;Health Care
+JNPR;Information Technology
+JPM;Financials
+K;Consumer Staples
+KEY;Financials
+KEYS;Information Technology
+KHC;Consumer Staples
+KIM;Real Estate
+KLAC;Information Technology
+KMB;Consumer Staples
+KMI;Energy
+KMX;Consumer Discretionary
+KO;Consumer Staples
+KR;Consumer Staples
+L;Financials
+LDOS;Industrials
+LEN;Consumer Discretionary
+LH;Health Care
+LHX;Industrials
+LIN;Materials
+LKQ;Consumer Discretionary
+LLY;Health Care
+LMT;Industrials
+LNC;Financials
+LNT;Utilities
+LOW;Consumer Discretionary
+LRCX;Information Technology
+LUMN;Communication Services
+LUV;Industrials
+LVS;Consumer Discretionary
+LW;Consumer Staples
+LYB;Materials
+LYV;Communication Services
+MA;Information Technology
+MAA;Real Estate
+MAR;Consumer Discretionary
+MAS;Industrials
+MCD;Consumer Discretionary
+MCHP;Information Technology
+MCK;Health Care
+MCO;Financials
+MDLZ;Consumer Staples
+MDT;Health Care
+MET;Financials
+MGM;Consumer Discretionary
+MHK;Consumer Discretionary
+MKC;Consumer Staples
+MKTX;Financials
+MLM;Materials
+MMC;Financials
+MMM;Industrials
+MNST;Consumer Staples
+MO;Consumer Staples
+MOH;Health Care
+MOS;Materials
+MPC;Energy
+MPWR;Information Technology
+MRK;Health Care
+MRNA;Health Care
+MRO;Energy
+MS;Financials
+MSCI;Financials
+MSFT;Information Technology
+MSI;Information Technology
+MTB;Financials
+MTCH;Communication Services
+MTD;Health Care
+MU;Information Technology
+NCLH;Consumer Discretionary
+NDAQ;Financials
+NDSN;Industrials
+NEE;Utilities
+NEM;Materials
+NFLX;Communication Services
+NI;Utilities
+NKE;Consumer Discretionary
+NLOK;Information Technology
+NLSN;Industrials
+NOC;Industrials
+NOW;Information Technology
+NRG;Utilities
+NSC;Industrials
+NTAP;Information Technology
+NTRS;Financials
+NUE;Materials
+NVDA;Information Technology
+NVR;Consumer Discretionary
+NWL;Consumer Discretionary
+NWS;Communication Services
+NWSA;Communication Services
+NXPI;Information Technology
+O;Real Estate
+ODFL;Industrials
+OGN;Health Care
+OKE;Energy
+OMC;Communication Services
+ORCL;Information Technology
+ORLY;Consumer Discretionary
+OTIS;Industrials
+OXY;Energy
+PARA;Communication Services
+PAYC;Information Technology
+PAYX;Information Technology
+PBCT;Financials
+PCAR;Industrials
+PEAK;Real Estate
+PEG;Utilities
+PENN;Consumer Discretionary
+PEP;Consumer Staples
+PFE;Health Care
+PFG;Financials
+PG;Consumer Staples
+PGR;Financials
+PH;Industrials
+PHM;Consumer Discretionary
+PKG;Materials
+PKI;Health Care
+PLD;Real Estate
+PM;Consumer Staples
+PNC;Financials
+PNR;Industrials
+PNW;Utilities
+POOL;Consumer Discretionary
+PPG;Materials
+PPL;Utilities
+PRU;Financials
+PSA;Real Estate
+PSX;Energy
+PTC;Information Technology
+PVH;Consumer Discretionary
+PWR;Industrials
+PXD;Energy
+PYPL;Information Technology
+QCOM;Information Technology
+QRVO;Information Technology
+RCL;Consumer Discretionary
+RE;Financials
+REG;Real Estate
+REGN;Health Care
+RF;Financials
+RHI;Industrials
+RJF;Financials
+RL;Consumer Discretionary
+RMD;Health Care
+ROK;Industrials
+ROL;Industrials
+ROP;Industrials
+ROST;Consumer Discretionary
+RSG;Industrials
+RTX;Industrials
+SBAC;Real Estate
+SBNY;Financials
+SBUX;Consumer Discretionary
+SCHW;Financials
+SEDG;Information Technology
+SEE;Materials
+SHW;Materials
+SIVB;Financials
+SJM;Consumer Staples
+SLB;Energy
+SNA;Industrials
+SNPS;Information Technology
+SO;Utilities
+SPG;Real Estate
+SPGI;Financials
+SRE;Utilities
+STE;Health Care
+STT;Financials
+STX;Information Technology
+STZ;Consumer Staples
+SWK;Industrials
+SWKS;Information Technology
+SYF;Financials
+SYK;Health Care
+SYY;Consumer Staples
+T;Communication Services
+TAP;Consumer Staples
+TDG;Industrials
+TDY;Industrials
+TECH;Health Care
+TEL;Information Technology
+TER;Information Technology
+TFC;Financials
+TFX;Health Care
+TGT;Consumer Discretionary
+TJX;Consumer Discretionary
+TMO;Health Care
+TMUS;Communication Services
+TPR;Consumer Discretionary
+TRMB;Information Technology
+TROW;Financials
+TRV;Financials
+TSCO;Consumer Discretionary
+TSLA;Consumer Discretionary
+TSN;Consumer Staples
+TT;Industrials
+TTWO;Communication Services
+TWTR;Communication Services
+TXN;Information Technology
+TXT;Industrials
+TYL;Information Technology
+UA;Consumer Discretionary
+UAA;Consumer Discretionary
+UAL;Industrials
+UDR;Real Estate
+UHS;Health Care
+ULTA;Consumer Discretionary
+UNH;Health Care
+UNP;Industrials
+UPS;Industrials
+URI;Industrials
+USB;Financials
+V;Information Technology
+VFC;Consumer Discretionary
+VLO;Energy
+VMC;Materials
+VNO;Real Estate
+VRSK;Industrials
+VRSN;Information Technology
+VRTX;Health Care
+VTR;Real Estate
+VTRS;Health Care
+VZ;Communication Services
+WAB;Industrials
+WAT;Health Care
+WBA;Consumer Staples
+WDC;Information Technology
+WEC;Utilities
+WELL;Real Estate
+WFC;Financials
+WHR;Consumer Discretionary
+WM;Industrials
+WMB;Energy
+WMT;Consumer Staples
+WRB;Financials
+WRK;Materials
+WST;Health Care
+WTW;Financials
+WY;Real Estate
+WYNN;Consumer Discretionary
+XEL;Utilities
+XOM;Energy
+XRAY;Health Care
+XYL;Industrials
+YUM;Consumer Discretionary
+ZBH;Health Care
+ZBRA;Information Technology
+ZION;Financials
+ZTS;Health Care
 VMRXX,Money Market
 VMFXX,Money Market
 VUSXX,Money Market
