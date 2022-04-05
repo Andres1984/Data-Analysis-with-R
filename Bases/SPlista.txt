@@ -144,230 +144,230 @@ DLTR,Consumer Discretionary
 DOV,Industrials
 DOW,Materials
 DPZ,Consumer Discretionary
-DRE;Real Estate
-DRI;Consumer Discretionary
-DTE;Utilities
-DUK;Utilities
-DVA;Health Care
-DVN;Energy
-DXC;Information Technology
-DXCM;Health Care
-EA;Communication Services
-EBAY;Consumer Discretionary
-ECL;Materials
-ED;Utilities
-EFX;Industrials
-EIX;Utilities
-EL;Consumer Staples
-EMN;Materials
-EMR;Industrials
-ENPH;Information Technology
-EOG;Energy
-EPAM;Information Technology
-EQIX;Real Estate
-EQR;Real Estate
-ES;Utilities
-ESS;Real Estate
-ETN;Industrials
-ETR;Utilities
-ETSY;Consumer Discretionary
-EVRG;Utilities
-EW;Health Care
-EXC;Utilities
-EXPD;Industrials
-EXPE;Consumer Discretionary
-EXR;Real Estate
-F;Consumer Discretionary
-FANG;Energy
-FAST;Industrials
-FB;Communication Services
-FBHS;Industrials
-FCX;Materials
-FDS;Financials
-FDX;Industrials
-FE;Utilities
-FFIV;Information Technology
-FIS;Information Technology
-FISV;Information Technology
-FITB;Financials
-FLT;Information Technology
-FMC;Materials
-FOX;Communication Services
-FOXA;Communication Services
-FRC;Financials
-FRT;Real Estate
-FTNT;Information Technology
-FTV;Industrials
-GD;Industrials
-GE;Industrials
-GILD;Health Care
-GIS;Consumer Staples
-GL;Financials
-GLW;Information Technology
-GM;Consumer Discretionary
-GNRC;Industrials
-GOOG;Communication Services
-GOOGL;Communication Services
-GPC;Consumer Discretionary
-GPN;Information Technology
-GRMN;Consumer Discretionary
-GS;Financials
-GWW;Industrials
-HAL;Energy
-HAS;Consumer Discretionary
-HBAN;Financials
-HCA;Health Care
-HD;Consumer Discretionary
-HES;Energy
-HIG;Financials
-HII;Industrials
-HLT;Consumer Discretionary
-HOLX;Health Care
-HON;Industrials
-HPE;Information Technology
-HPQ;Information Technology
-HRL;Consumer Staples
-HSIC;Health Care
-HST;Real Estate
-HSY;Consumer Staples
-HUM;Health Care
-HWM;Industrials
-IBM;Information Technology
-ICE;Financials
-IDXX;Health Care
-IEX;Industrials
-IFF;Materials
-ILMN;Health Care
-INCY;Health Care
-INTC;Information Technology
-INTU;Information Technology
-IP;Materials
-IPG;Communication Services
-IPGP;Information Technology
-IQV;Health Care
-IR;Industrials
-IRM;Real Estate
-ISRG;Health Care
-IT;Information Technology
-ITW;Industrials
-IVZ;Financials
-J;Industrials
-JBHT;Industrials
-JCI;Industrials
-JKHY;Information Technology
-JNJ;Health Care
-JNPR;Information Technology
-JPM;Financials
-K;Consumer Staples
-KEY;Financials
-KEYS;Information Technology
-KHC;Consumer Staples
-KIM;Real Estate
-KLAC;Information Technology
-KMB;Consumer Staples
-KMI;Energy
-KMX;Consumer Discretionary
-KO;Consumer Staples
-KR;Consumer Staples
-L;Financials
-LDOS;Industrials
-LEN;Consumer Discretionary
-LH;Health Care
-LHX;Industrials
-LIN;Materials
-LKQ;Consumer Discretionary
-LLY;Health Care
-LMT;Industrials
-LNC;Financials
-LNT;Utilities
-LOW;Consumer Discretionary
-LRCX;Information Technology
-LUMN;Communication Services
-LUV;Industrials
-LVS;Consumer Discretionary
-LW;Consumer Staples
-LYB;Materials
-LYV;Communication Services
-MA;Information Technology
-MAA;Real Estate
-MAR;Consumer Discretionary
-MAS;Industrials
-MCD;Consumer Discretionary
-MCHP;Information Technology
-MCK;Health Care
-MCO;Financials
-MDLZ;Consumer Staples
-MDT;Health Care
-MET;Financials
-MGM;Consumer Discretionary
-MHK;Consumer Discretionary
-MKC;Consumer Staples
-MKTX;Financials
-MLM;Materials
-MMC;Financials
-MMM;Industrials
-MNST;Consumer Staples
-MO;Consumer Staples
-MOH;Health Care
-MOS;Materials
-MPC;Energy
-MPWR;Information Technology
-MRK;Health Care
-MRNA;Health Care
-MRO;Energy
-MS;Financials
-MSCI;Financials
-MSFT;Information Technology
-MSI;Information Technology
-MTB;Financials
-MTCH;Communication Services
-MTD;Health Care
-MU;Information Technology
-NCLH;Consumer Discretionary
-NDAQ;Financials
-NDSN;Industrials
-NEE;Utilities
-NEM;Materials
-NFLX;Communication Services
-NI;Utilities
-NKE;Consumer Discretionary
-NLOK;Information Technology
-NLSN;Industrials
-NOC;Industrials
-NOW;Information Technology
-NRG;Utilities
-NSC;Industrials
-NTAP;Information Technology
-NTRS;Financials
-NUE;Materials
-NVDA;Information Technology
-NVR;Consumer Discretionary
-NWL;Consumer Discretionary
-NWS;Communication Services
-NWSA;Communication Services
-NXPI;Information Technology
-O;Real Estate
-ODFL;Industrials
-OGN;Health Care
-OKE;Energy
-OMC;Communication Services
-ORCL;Information Technology
-ORLY;Consumer Discretionary
-OTIS;Industrials
-OXY;Energy
-PARA;Communication Services
-PAYC;Information Technology
-PAYX;Information Technology
-PBCT;Financials
-PCAR;Industrials
-PEAK;Real Estate
-PEG;Utilities
-PENN;Consumer Discretionary
-PEP;Consumer Staples
-PFE;Health Care
-PFG;Financials
-PG;Consumer Staples
-PGR;Financials
+DRE,Real Estate
+DRI,Consumer Discretionary
+DTE,Utilities
+DUK,Utilities
+DVA,Health Care
+DVN,Energy
+DXC,Information Technology
+DXCM,Health Care
+EA,Communication Services
+EBAY,Consumer Discretionary
+ECL,Materials
+ED,Utilities
+EFX,Industrials
+EIX,Utilities
+EL,Consumer Staples
+EMN,Materials
+EMR,Industrials
+ENPH,Information Technology
+EOG,Energy
+EPAM,Information Technology
+EQIX,Real Estate
+EQR,Real Estate
+ES,Utilities
+ESS,Real Estate
+ETN,Industrials
+ETR,Utilities
+ETSY,Consumer Discretionary
+EVRG,Utilities
+EW,Health Care
+EXC,Utilities
+EXPD,Industrials
+EXPE,Consumer Discretionary
+EXR,Real Estate
+F,Consumer Discretionary
+FANG,Energy
+FAST,Industrials
+FB,Communication Services
+FBHS,Industrials
+FCX,Materials
+FDS,Financials
+FDX,Industrials
+FE,Utilities
+FFIV,Information Technology
+FIS,Information Technology
+FISV,Information Technology
+FITB,Financials
+FLT,Information Technology
+FMC,Materials
+FOX,Communication Services
+FOXA,Communication Services
+FRC,Financials
+FRT,Real Estate
+FTNT,Information Technology
+FTV,Industrials
+GD,Industrials
+GE,Industrials
+GILD,Health Care
+GIS,Consumer Staples
+GL,Financials
+GLW,Information Technology
+GM,Consumer Discretionary
+GNRC,Industrials
+GOOG,Communication Services
+GOOGL,Communication Services
+GPC,Consumer Discretionary
+GPN,Information Technology
+GRMN,Consumer Discretionary
+GS,Financials
+GWW,Industrials
+HAL,Energy
+HAS,Consumer Discretionary
+HBAN,Financials
+HCA,Health Care
+HD,Consumer Discretionary
+HES,Energy
+HIG,Financials
+HII,Industrials
+HLT,Consumer Discretionary
+HOLX,Health Care
+HON,Industrials
+HPE,Information Technology
+HPQ,Information Technology
+HRL,Consumer Staples
+HSIC,Health Care
+HST,Real Estate
+HSY,Consumer Staples
+HUM,Health Care
+HWM,Industrials
+IBM,Information Technology
+ICE,Financials
+IDXX,Health Care
+IEX,Industrials
+IFF,Materials
+ILMN,Health Care
+INCY,Health Care
+INTC,Information Technology
+INTU,Information Technology
+IP,Materials
+IPG,Communication Services
+IPGP,Information Technology
+IQV,Health Care
+IR,Industrials
+IRM,Real Estate
+ISRG,Health Care
+IT,Information Technology
+ITW,Industrials
+IVZ,Financials
+J,Industrials
+JBHT,Industrials
+JCI,Industrials
+JKHY,Information Technology
+JNJ,Health Care
+JNPR,Information Technology
+JPM,Financials
+K,Consumer Staples
+KEY,Financials
+KEYS,Information Technology
+KHC,Consumer Staples
+KIM,Real Estate
+KLAC,Information Technology
+KMB,Consumer Staples
+KMI,Energy
+KMX,Consumer Discretionary
+KO,Consumer Staples
+KR,Consumer Staples
+L,Financials
+LDOS,Industrials
+LEN,Consumer Discretionary
+LH,Health Care
+LHX,Industrials
+LIN,Materials
+LKQ,Consumer Discretionary
+LLY,Health Care
+LMT,Industrials
+LNC,Financials
+LNT,Utilities
+LOW,Consumer Discretionary
+LRCX,Information Technology
+LUMN,Communication Services
+LUV,Industrials
+LVS,Consumer Discretionary
+LW,Consumer Staples
+LYB,Materials
+LYV,Communication Services
+MA,Information Technology
+MAA,Real Estate
+MAR,Consumer Discretionary
+MAS,Industrials
+MCD,Consumer Discretionary
+MCHP,Information Technology
+MCK,Health Care
+MCO,Financials
+MDLZ,Consumer Staples
+MDT,Health Care
+MET,Financials
+MGM,Consumer Discretionary
+MHK,Consumer Discretionary
+MKC,Consumer Staples
+MKTX,Financials
+MLM,Materials
+MMC,Financials
+MMM,Industrials
+MNST,Consumer Staples
+MO,Consumer Staples
+MOH,Health Care
+MOS,Materials
+MPC,Energy
+MPWR,Information Technology
+MRK,Health Care
+MRNA,Health Care
+MRO,Energy
+MS,Financials
+MSCI,Financials
+MSFT,Information Technology
+MSI,Information Technology
+MTB,Financials
+MTCH,Communication Services
+MTD,Health Care
+MU,Information Technology
+NCLH,Consumer Discretionary
+NDAQ,Financials
+NDSN,Industrials
+NEE,Utilities
+NEM,Materials
+NFLX,Communication Services
+NI,Utilities
+NKE,Consumer Discretionary
+NLOK,Information Technology
+NLSN,Industrials
+NOC,Industrials
+NOW,Information Technology
+NRG,Utilities
+NSC,Industrials
+NTAP,Information Technology
+NTRS,Financials
+NUE,Materials
+NVDA,Information Technology
+NVR,Consumer Discretionary
+NWL,Consumer Discretionary
+NWS,Communication Services
+NWSA,Communication Services
+NXPI,Information Technology
+O,Real Estate
+ODFL,Industrials
+OGN,Health Care
+OKE,Energy
+OMC,Communication Services
+ORCL,Information Technology
+ORLY,Consumer Discretionary
+OTIS,Industrials
+OXY,Energy
+PARA,Communication Services
+PAYC,Information Technology
+PAYX,Information Technology
+PBCT,Financials
+PCAR,Industrials
+PEAK,Real Estate
+PEG,Utilities
+PENN,Consumer Discretionary
+PEP,Consumer Staples
+PFE,Health Care
+PFG,Financials
+PG,Consumer Staples
+PGR,Financials
 PH;Industrials
 PHM;Consumer Discretionary
 PKG;Materials
