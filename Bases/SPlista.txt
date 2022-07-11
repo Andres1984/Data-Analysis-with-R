@@ -629,7 +629,6 @@ VMVFX,International
 VGENX,Stock - Sector
 VGHCX,Stock - Sector
 VGSLX,Stock - Sector
-Symbol	Name
 BTC-USD,	Bitcoin USD
 ETH-USD,	Ethereum USD
 USDT-USD,	Tether USD
