@@ -1,0 +1,307 @@
+---
+title: "Tablas y Variables"
+author: "Andrés Martínez"
+date: "2022-08-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+```
+
+## Instalación y uso de librerias
+
+R es un programa libre en donde las librerias se instalan por demanda. Todas las librerias son gratis y el uso de ellas depende del trabajo que se esté realizando. 
+
+Para instalar una libreria se usa el comando 
+install.packages("tidyverse"), donde la palabra entre comillas es la libreria que se desea instalar.
+
+Este paso solo se realiza una vez. Cuando la instalación finalice se ejecuta el comando library(tidyverse) que abre el módulo que se desea utilizar. Esto se debe hacer siempre que se deseen usar las funciones deeste módulo.
+
+
+Las librerias que vamos a instalar son:
+
+install.packages("tidyverse")
+install.packages("ggplot2")
+install.packages("plotly")
+install.packages("readr")
+install.packages("readxl")
+install.packages("GGally")
+install.packages("cowplot") #patch plots
+install.packages("kableExtra") #Tablas
+
+Estos comandos los vamos a copiar y pegar en un chunk que son los espacios en gris.
+
+Cuando ya lo hallamos instalado, abrimos los paquetes.
+
+```{r, warning=FALSE,message=FALSE}
+
+library(tidyverse)
+library(ggplot2)
+library(plotly)
+library(readr)
+library(readxl)
+library(GGally)
+library(cowplot)
+```
+
+
+## Tablas y Variables
+
+En esta sesión trabajaremos los aspectos más relevantes de las bases de datos que se deben tener en cuenta antes de usarlas para crear gráficos.
+
+**Variables**
+
+
+* Categóricas
+    + Nominales (1 o 0)
+    + Ordinales (Jerarquía)
+    
+* Numéricas
+    + Continuas (Intervalos)
+    + Discretas (Números entéros)
+
+
+Si tengo una cantidad grande de base de datos, el primer paso para entender que puede contener, es realizar un análisis descriptivo que me ayude a comprender cómo me pueden servir esos datos y cómo puedo usarlos para abordar diferentes problemáticas.
+
+**Tablas**
+
+* Una tabla es una secuencia de columnas etiquetadas
+* Cada fila representa un individuo
+* Los datos dentro de una columna representan un atributo de los individuos
+
+
+Las tablas que se manejan en R se les conoce como dataframes y son el equivalente a una hoja de un archivo de excel.
+
+Para entender mejor estos conceptos vamos a descargar una base de datos que rankea a los países en su nivel de felicidad desde el 2008 hasta el 202 según unas características especiales.
+
+Las variables de las base de datos son:
+
+* "Country name"
+* "year"   
+* "Life Ladder"  
+* "Log GDP per capita"              
+* "Social support"                  
+* "Healthy life expectancy at birth"
+* "Freedom to make life choices"    
+* "Generosity"                      
+* "Perceptions of corruption"       
+* "Positive affect"                 
+* "Negative affect" 
+
+
+
+
+```{r, warning=FALSE,message=FALSE}
+library(readr)
+df= read_csv("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/world-happiness-report.csv")
+df21= read_csv("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/world-happiness-report-2021.csv")
+
+```
+Lo primero que debemos hacer siempre con una tabla es analisar sus principales características como son:
+
+* Nombres de las columnas
+* Dimensiones de la tabla.
+* Tipo de Variables
+
+
+```{r}
+names(df) ## Nombres de las columnas
+```
+
+
+
+
+```{r}
+dim(df) ## Dimensiones de la base
+```
+
+```{r}
+summary(df) ## Tipo de variables
+```
+
+Podemos observar que tenemos 10 variables numéricas y una categórica que es simplemente el nombre de cada país.
+
+
+Podemos hacer diferentes comparaciones solo con estos datos algunos de estos son:
+
+* Comparación de un país de un año a otro.
+* Comparación entre países en un período de tiempo.
+* Revisar la relación existente entre las variables
+
+## Manipulación de la base
+
+Para incrementar la eficiencia en el trabajo que vamos a hacer, debemos realizar algunos cambios en la base.
+
+E primero es renombrar las columnas para no tener problemas con tildes u otras caracteres como el espacio entre las palabras.
+
+```{r , echo=FALSE}
+# dimensions
+dimensions <- c('Country',"year", 'Ladder.score','Logged.GDP.per.capita','Social.support','Healthy.life.expectancy','Freedom.to.make.life.choices','Generosity','Perceptions.of.corruption',"Positive.affect","Negative.affect")
+
+colnames(df)=dimensions
+```
+
+***Creación de una columna***
+
+Para mejorar el análisis vamos a crear una columna adicional que se llame continente. El objetivo es clasificar los países de acuerdo a su origen. 
+
+Primero miremos que países se encuentran en la base.
+
+```{r}
+unique(df$Country)
+```
+
+Observe que para saber que países hay usamos una función llamada unique que busca valores únicos de una variable categórica y llamamos la base df y para la llamar la variable usamos el signo pesos y luego usamos el nombre de la variable.
+
+Esta función nos ínidica que tenemos 166 países y por lo tantodebemos clasificarlos en los cinco continentes.
+
+
+Existen muchas formas de hacerlo, algunas más eficientes que otras, nosostros sin embargo haremos la más demorada pero también la más sencilla para entender el proceso.
+
+Vamos a generar una nueva variable contienente que indicara el contienente al que pertenece cada país. Para generarla haremos el mismo paso de llamar la base df$Contiente y R entenderá que queremos crear una nueva variable.
+
+Tomara un valor de cero y luego con un condicional estabelcermos los contientes.
+
+```{r}
+df$Continente=0
+
+Africa=c("Benin","Botswana", "Algeria","Cambodia","Angola","Burkina Faso","Burundi","Cameroon","Central African Republic","Chad", "Comoros", "Congo (Brazzaville)","Congo (Kinshasa)", "Djibouti","Egypt","Ethiopia","Gabon","Gambia","Ghana","Guinea","Ivory Coast","Kenya","Lesotho","Liberia","Madagascar","Malawi","Mauritania","Mauritius","Mozambique","Namibia","Niger","Nigeria","Rwanda", "Senegal","Sierra Leone","Somalia","Somaliland region", "Sudan","Swaziland","Togo","Tunisia","Uganda","Yemen","Zambia","Zimbabwe","South Africa", "South Sudan","Tanzania","Syria","Morocco","Mali","Libya")      
+
+America=c("Argentina","Bolivia","Brazil","Chile","Colombia","Costa Rica","Cuba","Dominican Republic","Ecuador","El Salvador","Guatemala","Guyana","Haiti","Honduras", "Jamaica","Mexico", "Venezuela","United States","Uruguay","Trinidad and Tobago","Nicaragua", "Paraguay","Peru","Panama","Suriname","Canada","Belize")
+Asia=c("Maldives","Afghanistan","Uzbekistan","Vietnam","United Arab Emirates","Thailand","Hong Kong S.A.R. of China","Israel", "Tajikistan","Turkmenistan", "Taiwan Province of China","Sri Lanka","South Korea","Philippines", "Singapore","Saudi Arabia", "Qatar","Palestinian Territories", "Oman","Pakistan","Nepal", "Myanmar", "Mongolia","India"       ,"Indonesia","Iran","Malaysia","Japan","Jordan","Kazakhstan","Lebanon","Kyrgyzstan","Laos", "Kuwait","Iraq","China","Azerbaijan","Bahrain","Bangladesh","Armenia","Bhutan")
+Europa=c("United Kingdom" ,"Ukraine","Turkey","Albania","Austria","Belarus","Belgium","Bosnia and Herzegovina","Bulgaria","Croatia","Cyprus", "Czech Republic","Denmark","Estonia","Finland","France","Georgia","Germany","Greece","Hungary","Iceland","Ireland", "Italy", "Kosovo", "Latvia","Lithuania","Luxembourg","Malta","Moldova","Montenegro", "Netherlands","North Cyprus","North Macedonia","Norway", "Poland", "Portugal","Romania","Russia","Serbia", "Slovakia","Slovenia","Spain","Sweden","Switzerland"  )
+Oceania=c("Australia","New Zealand" )
+
+df$Continente[which(df$Country %in% Africa)] <- "Africa"
+df$Continente[which(df$Country %in% Asia)] <- "Asia"
+df$Continente[which(df$Country %in% America)] <- "America"
+df$Continente[which(df$Country %in% Europa)] <- "Europa"
+df$Continente[which(df$Country %in% Oceania)] <- "Oceania"
+
+
+```
+
+
+
+
+
+Filtremos el 2019 y 2018 
+
+```{r}
+
+
+df2019=filter(df, df$year== 2019)
+df2018=filter(df, df$year== 2018)
+
+
+```
+
+
+## Medidas descriptivas
+
+Usaremos las tablas creadas anteriormente para obtener unas medidas descriptivas y hacer una comparación.
+
+
+Crearemos una tabla usando describe y luego la volveremos más agradable a la vista usando un editor llamado kableExtra
+
+```{r}
+library(psych) ## Estadísticas
+library(kableExtra)
+esta2018=describe(df2018)
+
+esta2018 %>%
+  kbl() %>%
+  kable_styling()
+
+```
+
+
+```{r}
+library(psych) ## Estadísticas
+library(kableExtra)
+esta2019=describe(df2019)
+
+esta2019 %>%
+  kbl() %>%
+  kable_styling()
+
+```
+
+Ahora obtengamos la mismas estadísticas por continente.
+
+
+```{r}
+conest2018=describeBy(df2018,group=df2018$Continente)
+
+conest2018$Africa %>%
+  kbl() %>%
+  kable_styling()
+
+
+```
+```{r}
+conest2018$America %>%
+  kbl() %>%
+  kable_styling()
+
+```
+
+
+```{r}
+conest2018$Asia %>%
+  kbl() %>%
+  kable_styling()
+
+```
+
+
+```{r}
+conest2018$Europa %>%
+  kbl() %>%
+  kable_styling()
+
+```
+
+
+```{r}
+conest2018$Oceania %>%
+  kbl() %>%
+  kable_styling()
+
+```
+
+
+Creemos una tabla con la media y la desviación estándar  por cada continente.
+
+```{r}
+EstadCont=as.data.frame(cbind(conest2018$Africa$mean,conest2018$Africa$sd,conest2018$America$mean,conest2018$America$sd,conest2018$Asia$mean,conest2018$Asia$sd,conest2018$Europa$mean,conest2018$Europa$sd,conest2018$Oceania$mean,conest2018$Oceania$sd) ,row.names = rownames(esta2018) )
+colnames(EstadCont)=c("Media.Africa","Desv.Est.Africa","Media.America","Desv.Est.America","Media.Asia","Desv.Est.Asia","Media.Europa","Desv.Est.Europa","Media.Oceania","Desv.Est.Oceania")
+
+EstadCont=EstadCont[-12,]
+EstadCont=EstadCont[-1:-2,]
+
+EstadCont %>%
+  kbl() %>%
+  kable_styling()
+
+```
+
+
+### Cómo está Colombia
+
+
+```{r}
+Colombia=filter(df2018, df2018$Country == "Colombia")
+Colombia=Colombia[,-12] ## Continente
+Colombia=Colombia[,-1:-2]## Nombre y Aöo
+
+EstadCont$Colombia=t(Colombia)
+EstadCont %>%
+  kbl() %>%
+  kable_styling()
+```
+
+

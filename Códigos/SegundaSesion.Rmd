@@ -1,0 +1,419 @@
+---
+title: "Dinero y Felicidad"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+    theme: 
+      version: 4
+      bootswatch: minty
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(GGally)
+library(ggplot2)
+library(plotly)
+library(dplyr)
+library(psych)
+library(kableExtra)
+```
+
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE}
+library(readr)
+df= read_csv("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/world-happiness-report.csv")
+df21= read_csv("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/world-happiness-report-2021.csv")
+dimensions <- c('Country',"year", 'Ladder.score','Logged.GDP.per.capita','Social.support','Healthy.life.expectancy','Freedom.to.make.life.choices','Generosity','Perceptions.of.corruption',"Positive.affect","Negative.affect")
+
+colnames(df)=dimensions
+df$Continente=0
+
+Africa=c("Benin","Botswana", "Algeria","Cambodia","Angola","Burkina Faso","Burundi","Cameroon","Central African Republic","Chad", "Comoros", "Congo (Brazzaville)","Congo (Kinshasa)", "Djibouti","Egypt","Ethiopia","Gabon","Gambia","Ghana","Guinea","Ivory Coast","Kenya","Lesotho","Liberia","Madagascar","Malawi","Mauritania","Mauritius","Mozambique","Namibia","Niger","Nigeria","Rwanda", "Senegal","Sierra Leone","Somalia","Somaliland region", "Sudan","Swaziland","Togo","Tunisia","Uganda","Yemen","Zambia","Zimbabwe","South Africa", "South Sudan","Tanzania","Syria","Morocco","Mali","Libya")      
+
+America=c("Argentina","Bolivia","Brazil","Chile","Colombia","Costa Rica","Cuba","Dominican Republic","Ecuador","El Salvador","Guatemala","Guyana","Haiti","Honduras", "Jamaica","Mexico", "Venezuela","United States","Uruguay","Trinidad and Tobago","Nicaragua", "Paraguay","Peru","Panama","Suriname","Canada","Belize")
+Asia=c("Maldives","Afghanistan","Uzbekistan","Vietnam","United Arab Emirates","Thailand","Hong Kong S.A.R. of China","Israel", "Tajikistan","Turkmenistan", "Taiwan Province of China","Sri Lanka","South Korea","Philippines", "Singapore","Saudi Arabia", "Qatar","Palestinian Territories", "Oman","Pakistan","Nepal", "Myanmar", "Mongolia","India"       ,"Indonesia","Iran","Malaysia","Japan","Jordan","Kazakhstan","Lebanon","Kyrgyzstan","Laos", "Kuwait","Iraq","China","Azerbaijan","Bahrain","Bangladesh","Armenia","Bhutan")
+Europa=c("United Kingdom" ,"Ukraine","Turkey","Albania","Austria","Belarus","Belgium","Bosnia and Herzegovina","Bulgaria","Croatia","Cyprus", "Czech Republic","Denmark","Estonia","Finland","France","Georgia","Germany","Greece","Hungary","Iceland","Ireland", "Italy", "Kosovo", "Latvia","Lithuania","Luxembourg","Malta","Moldova","Montenegro", "Netherlands","North Cyprus","North Macedonia","Norway", "Poland", "Portugal","Romania","Russia","Serbia", "Slovakia","Slovenia","Spain","Sweden","Switzerland"  )
+Oceania=c("Australia","New Zealand" )
+
+df$Continente[which(df$Country %in% Africa)] <- "Africa"
+df$Continente[which(df$Country %in% Asia)] <- "Asia"
+df$Continente[which(df$Country %in% America)] <- "America"
+df$Continente[which(df$Country %in% Europa)] <- "Europa"
+df$Continente[which(df$Country %in% Oceania)] <- "Oceania"
+
+
+```
+
+
+Introducción
+=======================================================================
+
+
+
+## Felicidad, Dinero y Expectativa de Vida
+
+<br><br><center><h1 style="font-size:2em;color:#193300">Es realmente el dinero un factor diferencial en la calidad de vida?</h1></center><p>
+
+
+
+¿Cómo puedes medir la felicidad cuando significa diferentes cosas para diferentes personas? 
+
+Medir la felicidad se está convirtiendo en una herramienta importante. El crecimiento económico, la salud física y la confianza en las perspectivas futuras de una persona o país son factores importantes al evaluarlos y compararlos. Sin embargo, ninguna institución, nación o grupo de personas puede entenderse correctamente sin tener en cuenta una serie de otros elementos.
+
+
+Uno de esos elementos clave que los académicos están considerando cada vez más es la felicidad. Sin embargo, medir la felicidad presenta ciertos desafíos. De hecho, ¿cómo y por qué deberíamos preocuparnos por ello?
+
+Medir la felicidad es complicado porque depende del mapeo del bienestar subjetivo. Por supuesto, el bienestar subjetivo es solo eso: una idea que variará de persona a persona.
+
+En otras palabras, medir la felicidad en un individuo podría significar que su bienestar subjetivo se registra en un nivel mucho más alto que otro. ¿Quién podría decir si esto es realmente exacto? ¿Quién puede decir que la respuesta dada es en algún sentido 'incorrecta'? ¿No deberíamos abandonar la idea de medir la felicidad por ser demasiado compleja o matizada?
+
+
+<img src="tiorico.jpeg" alt="tiorico" width="100"/>
+
+Column {data-width=5}
+-----------------------------------------------------------------------
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+<br><br><center><h1 style="font-size:2em;color:#193300">Universidad Externado</h1></center><p>
+
+**¿Por qué estudiar ciencia de datos?**
+
+El mundo necesita cada vez más personas capaces de usar efectivamente los datos para tomar mejores decisiones. En los últimos años, la disponibilidad de datos sobre el comportamiento de las personas, el funcionamiento de las empresas y los gobiernos, y las interacciones entre todos estos actores ha crecido exponencialmente. Esta disponibilidad de datos y la evolución de las capacidades computacionales han generado importantes desarrollos tecnológicos relacionados con la inteligencia artificial. La ciencia de datos se proyecta al futuro porque responde a la creciente necesidad de usar evidencia para la toma de decisiones en todos los ámbitos sociales.
+
+
+[![Uexternado](Uexternado.png)](https://www.uexternado.edu.co/programa/departamento-de-matematicas/ciencia-de-datos/) 
+
+
+Descripción
+=======================================================================
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+### Introducción
+
+
+Usaremos la base de la felicidad para encontrar esta relación y determinar si el PIB per capita **variable independiente** tiene un efecto causal sobre la expectativa de vida **variable dependiente**.
+
+Las variables de las base de datos son:
+
+* "Country name"
+* "year"   
+* "Life Ladder"  
+* "Log GDP per capita"              
+* "Social support"                  
+* "Healthy life expectancy at birth"
+* "Freedom to make life choices"    
+* "Generosity"                      
+* "Perceptions of corruption"       
+* "Positive affect"                 
+* "Negative affect" 
+
+### Análisis descriptivo
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE}
+df2019=filter(df, df$year== 2019)
+a=describe(df2019)
+a=a[-12,]
+a=a[-1:-2,]
+
+a %>%
+  kbl() %>%
+  kable_styling()
+
+```
+
+Column {data-width=500}
+-----------------------------------------------------------------------
+
+### Primera Gráfica
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE}
+library(GGally)
+library(ggplot2)
+df_corta=df2019[,3:9]
+ggpairs(df_corta, columns = 1:4)
+
+```
+
+### Segunda Gráfica
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE}
+library(plotly)
+a=ggplot(df2019, aes(x=Continente, y= Ladder.score, colour = Continente,)) + 
+  geom_boxplot() + 
+  theme(axis.text.x = element_text(angle = 60, hjust = 1)) + 
+  labs(title = "Ladder Score",
+       x = "Continente",
+       y = "Ladder Score")
+ggplotly(a)
+```
+
+
+
+Segunda Parte
+=======================================================================
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+
+### Dispersión
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE}
+library(ggplot2)
+#library(ggthemes)
+library(viridis)
+library("gridExtra")# grid arrange
+library(plot3D)
+a=ggplot(df2019, 
+  aes(x = Freedom.to.make.life.choices, 
+      y = Ladder.score)) +
+  geom_point(aes(colour = Continente),
+             size = 2) +
+  geom_smooth(method="lm") +
+  labs(x = "Freedom",
+       y = "Happiness Score",
+       title = "El libre accceso a tomar opiniones",
+       subtitle = "Libre opinion y Felicidad") +
+  scale_color_viridis(discrete = T) +
+  theme_minimal() +
+  theme(text = element_text(size=10))
+
+ggplotly(a)
+```
+
+
+### Box PLot y Dispersión
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE}
+#::::::::::::::::::::::::::::Generosity::::::::::::::::::::::::::::::
+library(ggpubr)
+sp <- ggscatter(df2019 , x = "Logged.GDP.per.capita", y = "Ladder.score",
+                color = "Continente", palette = "jco",
+                size = 3, alpha = 0.6)
+xbp <- ggboxplot(df2019$Logged.GDP.per.capita, width = 0.3, fill = "lightgray") +
+  rotate() +
+  theme_transparent()
+# Box plot of the y variable
+ybp <- ggboxplot(df2019$Ladder.score, width = 0.3, fill = "lightgray") +
+  theme_transparent()
+# Create the external graphical objects
+# called a "grop" in Grid terminology
+xbp_grob <- ggplotGrob(xbp)
+ybp_grob <- ggplotGrob(ybp)
+# Place box plots inside the scatter plot
+xmin <- min(df2019$Logged.GDP.per.capita,na.rm = TRUE); xmax <- max(df2019$Logged.GDP.per.capita, na.rm=TRUE) 
+ymin <- min(df2019$Ladder.score); ymax <- max(df2019$Ladder.score)
+yoffset <- (1/15)*ymax; xoffset <- (1/15)*xmax
+# Insert xbp_grob inside the scatter plot
+sp + annotation_custom(grob = xbp_grob, xmin = xmin, xmax = xmax, 
+                       ymin = ymin-yoffset, ymax = ymin+yoffset) +
+  # Insert ybp_grob inside the scatter plot
+  annotation_custom(grob = ybp_grob,
+                    xmin = xmin-xoffset, xmax = xmin+xoffset, 
+                    ymin = ymin, ymax = ymax)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+
+### Regresión por Continentes
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE,results='hide'}
+Happiness=df2019
+unique((Happiness$Country))
+Happiness$Continent <- NA
+Happiness$Continent[which(Happiness$Country %in% c("Israel", "United Arab Emirates", "Singapore", "Thailand", "Taiwan Province of China",
+                                                   "Qatar", "Saudi Arabia", "Kuwait", "Bahrain", "Malaysia", "Uzbekistan", "Japan",
+                                                   "South Korea", "Turkmenistan", "Kazakhstan", "Turkey", "Hong Kong", "Philippines",
+                                                   "Jordan", "China", "Pakistan", "Indonesia", "Azerbaijan", "Lebanon", "Vietnam",
+                                                   "Tajikistan", "Bhutan", "Kyrgyzstan", "Nepal", "Mongolia", "Palestinian Territories",
+                                                   "Iran", "Bangladesh", "Myanmar", "Iraq", "Sri Lanka", "Armenia", "India", "Georgia",
+                                                   "Cambodia", "Afghanistan", "Yemen", "Syria"))] <- "Asia"
+Happiness$Continent[which(Happiness$Country %in% c("Norway", "Denmark", "Iceland", "Switzerland", "Finland",
+                                                   "Netherlands", "Sweden", "Austria", "Ireland", "Germany",
+                                                   "Belgium", "Luxembourg", "United Kingdom", "Czech Republic",
+                                                   "Malta", "France", "Spain", "Slovakia", "Poland", "Italy",
+                                                   "Russia", "Lithuania", "Latvia", "Moldova", "Romania",
+                                                   "Slovenia", "North Cyprus", "Cyprus", "Estonia", "Belarus",
+                                                   "Serbia", "Hungary", "Croatia", "Kosovo", "Montenegro",
+                                                   "Greece", "Portugal", "Bosnia and Herzegovina", "Macedonia",
+                                                   "Bulgaria", "Albania", "Ukraine"))] <- "Europe"
+Happiness$Continent[which(Happiness$Country %in% c("Canada", "Costa Rica", "United States", "Mexico",  
+                                                   "Panama","Trinidad and Tobago", "El Salvador", "Belize", "Guatemala",
+                                                   "Jamaica", "Nicaragua", "Dominican Republic", "Honduras",
+                                                   "Haiti"))] <- "North America"
+Happiness$Continent[which(Happiness$Country %in% c("Chile", "Brazil", "Argentina", "Uruguay",
+                                                   "Colombia", "Ecuador", "Bolivia", "Peru",
+                                                   "Paraguay", "Venezuela"))] <- "South America"
+Happiness$Continent[which(Happiness$Country %in% c("New Zealand", "Australia"))] <- "Australia"
+Happiness$Continent[which(is.na(Happiness$Continent))] <- "Africa"
+```
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE,results='hide'}
+library(dplyr)
+Happiness <- Happiness %>% select(Country,Continent, everything())
+# Changing Continent column to factor
+Happiness$Continent <- as.factor(Happiness$Continent)
+```
+
+
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE,results='hide'}
+ggplot(subset(Happiness, Happiness$Continent != "Australia"), aes(x = Healthy.life.expectancy, y = Logged.GDP.per.capita)) + 
+  geom_point(aes(color=Continent), size = 3, alpha = 0.8) +  
+  geom_smooth(aes(color = Continent, fill = Continent), 
+              method = "lm", fullrange = TRUE) +
+  facet_wrap(~Continent) +
+  theme_bw() + labs(title = "Scatter plot with regression line")
+
+
+```
+
+
+### 3 Dimensiones
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE,results='hide'}
+library(plot3D)
+scatter3D(Happiness$Logged.GDP.per.capita, Happiness$Healthy.life.expectancy , Happiness$Logged.GDP.per.capita, phi = 0, bty = "g",
+          pch = 20, cex = 2, ticktype = "detailed",
+          main = "Happiness data", xlab = "Freedom",
+          ylab ="Life.Expectancy", zlab = "Happiness.Score")
+```
+
+Mapa del mundo
+=======================================================================
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+###
+
+
+```{r, echo=FALSE}
+df.pop <- read.csv("https://raw.githubusercontent.com/Andres1984/Data-Analysis-with-R/master/Bases/API_EN.POP.DNST_DS2_en_csv_v2.csv", header = FALSE)
+df.pop <- df.pop[4:267,]
+df.pop <- select(df.pop, V1, V60)
+names(df.pop) <- c("country", "pop.density")
+df.pop$country <- recode(df.pop$country,
+                         "Congo, Rep." = "Republic of Congo",
+                         "Egypt, Arab Rep." = "Egypt",
+                         "Iran, Islamic Rep." = "Iran",
+                         "Korea, Rep." = "South Korea",
+                         "Cote d'Ivoire" = "Ivory Coast",
+                         "United States" = "USA",
+                         "Yemen, Rep." = "Yemen",
+                         "Congo, Dem. Rep." = "Democratic Republic of the Congo",
+                         "Trinidad and Tobago" = "Trinidad",
+                         "Slovak Republic" = "Slovakia",
+                         "Macedonia, FYR" = "Macedonia",
+                         "Lao PDR" = "Laos",
+                         "Kyrgyz Republic" = "Kyrgyzstan",
+                         "United Kingdom" = "UK",
+                         "Russian Federation" = "Russia",
+                         "Venezuela, RB" = "Venezuela",
+                         "Syrian Arab Republic" = "Syria")
+```
+
+
+
+```{r, echo=FALSE}
+df2019$Country <- recode(df2019$Country,
+                     "Congo (Brazzaville)"="Republic of Congo",
+                     "Congo (Kinshasa)"="Democratic Republic of the Congo",
+                     "Hong Kong"="China",
+                     "Hong Kong S.A.R., China"="China",
+                     "North Cyprus"="Cyprus",
+                     "Palestinian Territories"="Palestine",
+                     "Somaliland region"="Somalia",
+                     "Trinidad and Tobago"="Trinidad",
+                     "United Kingdom"="UK",
+                     "United States"="USA",
+                     "Somaliland Region"="Somalia",
+                     "Taiwan Province of China"="Taiwan")
+colnames(df.pop)=c("Country","DenPop")
+df2019=merge(df.pop, df2019, by="Country")
+```
+
+
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(ggplot2)
+library(plotly)
+map.world <- map_data("world")
+map.world.6 <- left_join(map.world, df2019, by = c('region' = 'Country'))
+map.world.change <- left_join(map.world, df2019, by = c('region' = 'Country'))
+ggplot6 <- ggplot(data = map.world.6, aes(x = long, y = lat, group = group, fill = Ladder.score , text =  paste("Country:", region, "<br>", "Happiness:",Ladder.score, "<br>", "Economy:", Logged.GDP.per.capita, "<br>", "Social Support:", Social.support, "<br>", "Health:", Healthy.life.expectancy, "<br>", "Freedom:", Freedom.to.make.life.choices, "<br>", "Trust:", Perceptions.of.corruption, "<br>", "Generosity:", Generosity))) +
+  geom_polygon() +
+  scale_fill_gradient(low = "red", high = "green") +
+  theme(panel.background =  element_rect(fill = "white", colour = "grey50"),
+        panel.grid = element_blank(),
+        axis.text = element_blank(),
+        axis.title = element_blank(),
+        axis.ticks = element_blank(),
+        legend.title = element_blank(),
+        plot.title = element_text(hjust = 0.5)) +
+  labs(title = "Felicidad Mundial 2019") +
+  guides(fill = guide_legend(title=NULL))
+ggplotly(ggplot6, tooltip = c("text"))
+
+```
+
+
+
+
+Felicidad y Economía
+=======================================================================
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+### 
+```{r, echo=FALSE,message=FALSE, warning=FALSE}
+ggplotecon <- ggplot(data = df2019, mapping = aes(x = Logged.GDP.per.capita, y = Ladder.score, color = Continente, text =  paste("Country:", Country, "<br>", "Economy:", Logged.GDP.per.capita, "<br>", "Happiness:",Ladder.score, "<br>","Den Pop Km2",round(DenPop)),size=DenPop)) +
+  geom_point() +
+  labs(title = "¿Depende la Felicidad del PIB?",x = "PIB",
+       y = "Felicidad") +
+  scale_color_brewer(palette = "Spectral") +
+  theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5),
+        legend.title = element_blank())
+ggplotly(ggplotecon, tooltip = c("text"))
+```
+
+
+Relación Causal
+=======================================================================
+
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+### 
+```{r , echo=FALSE, warning=FALSE, message=FALSE}
+library(gapminder)
+p <- df %>%
+  plot_ly(
+    x = ~Logged.GDP.per.capita, 
+    y = ~Healthy.life.expectancy, 
+    size = ~Freedom.to.make.life.choices, 
+    color = ~Continente, 
+    frame = ~year, 
+    text = ~ paste("Country:", Country, "<br>", "Happiness:",Ladder.score, "<br>", "Economy:", Logged.GDP.per.capita, "<br>", "Social Support:", Social.support, "<br>", "Health:", Healthy.life.expectancy, "<br>", "Freedom:", Freedom.to.make.life.choices, "<br>", "Perceoción de transparencia:", Perceptions.of.corruption, "<br>", "Generosity:", Generosity), 
+    hoverinfo = "text",
+    type = 'scatter',
+    mode = 'markers'
+  ) %>%
+  layout(
+    xaxis = list(
+      type = "log"
+    )
+  )
+p
+```
